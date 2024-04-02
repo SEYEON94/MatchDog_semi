@@ -64,12 +64,6 @@
 	        text-align: center; /* "우리 동네 리스트"를 가운데 정렬 */
 	    }
 
-    #modalContent{
-    	width: 500px;
-    	height: 500px;
-    	text-align: center; 
-    	z-index:1000
-    }
 	#openModal #photo {
 	    position: relative;
     	left: 0px;
@@ -145,6 +139,7 @@
 	
 	.main_subject{
         	display:inline-block;
+        	width:300px;
         	position: relative;
         	font-size:20px;
 			font-family:Pretendard;
@@ -157,31 +152,33 @@
         }
 	
 	#member_dongAddr{
-		top:220px;
-		left:938px;
+		top:20px;
+		left:535px;
 	}
 	
 	#member_gender{
-		top:220px;
-		left:718px;
+		top:20px;
+		left:310px;
 	}
 	
 	#pro_dogName{
 		font-size:30px;
 		color:var(--white);
-		top:471px;
-		left:720px;
+		top:271px;
+		left:320px;
 	}
 	
 	#pro_dogAge{
-		top:511px;
-		left:726px;
+		top:311px;
+		left:322px;
+		color:var(--white);
 		text-align:left;
 	}
 	
 	#pro_dogGender{
-		top:511px;
-		left:780px;
+		top:311px;
+		left:385px;
+		color:var(--white);
 		text-align:left;
 	}
 	
@@ -193,18 +190,19 @@
 	
 	.mat_flex{
 		position:absolute;
-		top:380px;
-		left:750px;
+		top:460px;
+		left:350px;
 		display:flex;
 		width:300px;
+		height:50px;
 		justify-content: space-around;
     	align-items: center;
 	}
 	
 	.btn_flex{
 		position:absolute;
-		top: 410px;
-    	left: 424px;
+		top: 210px;
+    	left: 24px;
 		display:flex;
 		width:910px;
 		justify-content: space-around;
@@ -214,15 +212,16 @@
 	#characteristics{
 		display:inline-block;
 		position:absolute;
-		top:538px;
-		left:720px;
+		top:338px;
+		left:320px;
 	}
 
 	#pro_dogDesc{
-		top:611px;
-		left:724px;
+		top:411px;
+		left:324px;
 		width:308px;
 		height: 50px;
+		color:var(--white);
 	}
 	
 	.bi-x-lg, .bi-heart-fill, .bi-chevron-compact-left, .bi-chevron-compact-right{
@@ -239,15 +238,14 @@
 	}
 	
 	heart{
-  cursor: pointer;
-  display: inline-block;
-  height: 150px;
-  width: 150px;
-  margin: 200px auto;
-  background-size: auto 100%;
-  background-position: 0 0;
-  background-image: url(https://abs.twimg.com/a/1446304541/img/t1/web_heart_animation.png);
-}
+	  cursor: pointer;
+	  display: inline-block;
+	  height: 150px;
+	  width: 150px;
+	  background-size: auto 100%;
+	  background-position: 0 0;
+	  background-image: url(https://abs.twimg.com/a/1446304541/img/t1/web_heart_animation.png);
+	}
 
 	
 </style>
@@ -299,7 +297,7 @@
 		<div class="mainContent">
 			<div class="main_subject">우리동네 매칭리스트</div>
 			<div class="main_text">우리 동네의 만나고 싶은 강아지들과 매칭을 이용해보세요!</div>
-			<div class="mat_card">
+			<div class="mat_card" style="position:relative">
 			    <button id="openModal" ><img id="photo"></button>
 		        <div class="btn" id="member_dongAddr"></div>
 		        <div class="btn" id="member_gender"></div>
@@ -328,14 +326,18 @@
 				    <button id="matchingreq" ><heart></heart></button>
 			    </div>
 			    <!-- 모달을 불러올 위치 -->
-			    <div id="modalContent"></div>
-			    <div id="alarmContent"></div>
+			    <!-- <div id="modalContent"></div>
+			    <div id="alarmContent"></div> -->
 			</div>
-		    
 		</div>
 	</div>
 	</div>
 </div>
+
+<!-- 모달을 불러올 위치 -->
+<div id="modalContent"></div>
+<div id="alarmContent"></div>
+
 </body>	
 <script>
 function getRandomColor() {

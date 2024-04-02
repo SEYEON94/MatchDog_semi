@@ -71,6 +71,12 @@ textarea{
 	background-color: var(--light);
 }
 
+.content {
+padding: 1.6rem;
+margin: 1.6rem;
+font-family:pretendard;
+}
+
 
 .charModal {
 	display: none;
@@ -385,28 +391,46 @@ input:checked+.slider:before {
   }
   
   .button-gray {
-	padding: 6px 20px;
-	font-size: 12px;
-	text-align: center;
-	text-decoration: none;
-	background-color: #808080;
-	color: #ffffff;
-	border-radius: 5px;
-	border: 1px solid #808080;
-	cursor: pointer;
-}
-
-.button-green {
-	padding: 6px 20px;
-	font-size: 12px;
-	text-align: center;
-	text-decoration: none;
-	background-color: #1abc9c;
-	color: #ffffff;
-	border-radius: 5px;
-	border: 1px solid #1abc9c;
-	cursor: pointer;
-}
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+    
+    .button-green {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	} 
 
  </style>
 </head>

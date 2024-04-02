@@ -6,31 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="resources/css/board.css" type="text/css">
+<!-- bootstrap 아이콘 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- bootstrap : 디자인을 위한 프레임워크 -->
+<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- pretendard 폰트 -->
+<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet" href="resources/css/board.css" type="text/css">
-<!-- pretendard 폰트 -->
-<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- 페이징 처리를 위한 라이브러리 -->
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <jsp:include page="adminCheck.jsp" />
 <style>
 
-a, a:link, a:visited, a:active, a:hover {
+	a, a:link, a:visited, a:active, a:hover {
 		text-decoration: none;
 		color: var(--black);
 	}
-	
 	
 	/* 본인 페이지 것으로 변경하기  */
 	.btn_gnb .bi-people-fill, .btn_gnb.board{
 	    color: var(--white);
 	    background-color: var(--green);
 	}
-	
 	
 	/* 본인 페이지를 제외한 나머지 hover 적용 */
 	 .btn_gnb:hover .bi-house-door-fill,
@@ -51,122 +51,34 @@ a, a:link, a:visited, a:active, a:hover {
 	.btn_gnb.admin:hover{
 		background-color: var(--light);
 	}
-	.sidebar {
-        height: 100%;
-        width: 250px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: #255,255,255;
-        padding-top: 20px;
-    }
-
-    .sidebar h2 {
-        color: black;
-        text-align: center;
-    }
-
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .sidebar ul li {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .sidebar a {
-        color: black;
-        text-decoration: none;
-    }
-    
+	
+ 
     #reply_content,
-    #boardContent {
+    #boardContent,
+   	.editContent {
     	resize: none;
     }
     #replySubmit{
     	margin-left: 10px;
     }
-        .details-row {
-        display: flex;
-        align-items: center; /* 세로 가운데 정렬 */
-        margin-bottom: 10px;
-        font-family:Pretendard;
-    }
-	.details-row img {
-            /* 다른 스타일들 */
-            margin-right: 10px; /* 이미지 사이 간격을 주는 부분 */
-            margin-bottom: 10px;
-  
-        }
-    .details-row input {
-        margin-right: 10px; /* 버튼과 제목 사이 간격 조절 */
-        font-family:Pretendard;
-    }
-    .details-row input[type="button"] {
-        border: none;
-        outline: none;
-        font-family:Pretendard;
-        
+    
+    .board-details{
+    	font-family: pretendard;
     }
 
-    .updel {
-        display: flex;
-    justify-content: flex-end;
-        align-items: center;
-        margin-bottom: 10px; /* 원하는 간격으로 조절 */
-        font-family:Pretendard;
-    }
-
-    .updel label {
-        margin-right: 10px; /* 라벨과 값 간의 간격을 조절 */
-        font-family:Pretendard;
-    }
-
-	.button-group {
-        display: flex;
-        font-family:Pretendard;
-    }
-    .button-green {
-        padding: 6px 20px;
-        margin:3px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #1abc9c;
-        cursor: pointer;
-        font-family:Pretendard;
-    } 
-    .button-gray {
-        padding: 6px 20px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #808080;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #808080;
-        cursor: pointer;
-        font-family:Pretendard;
-    }
     .boardContent {
 	    min-height: 300px;
-	    width: 950px;
-	    border: 1px solid #aaa;
-	    padding: 0.6rem;
+	    width: 100%;
 	    font-family: pretendard;
-	    margin-bottom: 20px;
-	    font-family:Pretendard;
 	}
+	
 	.button-container {
 		display: flex;
 		justify-content: center;
 		align-items: center; /* 가운데 정렬 추가 */
 		font-family:Pretendard;
+		border-bottom:1px solid var(--light);
+		padding:2rem;
 	}
 
 	.button-container div {
@@ -174,20 +86,207 @@ a, a:link, a:visited, a:active, a:hover {
 		margin-right: 10px; /* 왼쪽, 오른쪽 여백 추가 */
 		font-family:Pretendard;
 	}
-	*::-webkit-scrollbar {
-		width: 16px;
+	
+	.content{
+		padding: 40px 0px 0px 46px;
 	}
 	
-	*::-webkit-scrollbar-track {
-		background: var(--white);
+	button {
+	    background: none;
+	    border: none;
+	    padding: 0;
+	    margin: 0;
+	    /* 기타 다른 스타일 속성을 필요에 따라 추가할 수 있습니다. */
 	}
 	
-	*::-webkit-scrollbar-thumb {
+	.bi-chevron-left{
+		cursor:pointer;
+		font-size:24px;
+	}
+	
+	.details-row {
+        display: flex;
+        align-items: center; /* 세로 가운데 정렬 */
+        margin-bottom: 2rem;
+        color:var(--dark);
+        justify-content: space-between;
+    }
+	
+	.details-row img,
+	#replyInfo img{
+		width: 48px;
+	    height: 48px;
+	    margin-right: 12px;
+	    border-radius: 50%;
+	    object-fit: cover;
+	}
+	
+	.boardInfoTotal{
+		display:flex;
+	}
+	
+	.boardInfo{
+		display:flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+	
+	.nickName{
+		font-size:18px;
+		font-weight:600;
+		margin-bottom:4px;
+	}
+	
+	.button-green {
+        cursor: pointer;
+	    background-color: var(--light);
+	    border: 1px solid var(--light);
+	    border-radius: 6px;
+	    color: var(--dark);
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    font-weight: 500;
+	    text-align: center;
+	    width:4rem;
+	    height: 2.125rem;
+	    margin: 4px;
+    } 
+    
+    .like-hate-button{
+    	display:flex;
+    	align-items: center;
+    }
+    
+    #likeButton,
+	#hateButton{
+		width: 120px;
+		height: 2.625rem;
+		margin-left:8px;
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+	}
+	
+	#hateButton{
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+	}
+	
+	#hateButton:hover{
+		border: 1px solid var(--grey);
+		background-color: var(--grey);
+	}
+	
+	#likeButton{
+		border: 1px solid var(--green);
 		background-color: var(--green);
-		border-radius: 10px;
-		border: 3px solid #ffffff;
+		color:var(--white);
 	}
-        
+	
+	#likeButton:hover{
+		border: 1px solid var(--darkGreen);
+		background-color: var(--darkGreen);
+	}
+	
+	#likeCount, #hateCount{
+		width:3rem;
+		text-align:center;
+	}
+	
+	.boardPhoto{
+		display:flex;
+		flex-direction: column;
+	}
+	
+	.boardPhoto img{
+		width:10rem;
+		margin-bottom:1rem;
+	}
+	
+	.replyWrite{
+		padding:2rem 0;
+		display:flex;
+	}
+	
+	#reply_content{
+		width:100%;
+		height: 4rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding: 8px;
+	}
+	
+	#replySubmit{
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		width: 120px;
+		height: 4rem;
+		margin-left:8px;
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+	}
+	
+	#replySubmit:hover{
+		border: 1px solid var(--darkGreen);
+		background-color: var(--darkGreen);
+	}
+	
+	#replyList{
+		font-family:Pretendard;
+		display: flex;
+    	flex-direction: column;
+	}
+	
+	#replyInfo{
+		display:flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 1.125rem;
+	}
+	
+	#replyList input[type="button"]{
+		cursor: pointer;
+	    background-color: var(--light);
+	    border: 1px solid var(--light);
+	    border-radius: 6px;
+	    color: var(--dark);
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    font-weight: 500;
+	    text-align: center;
+	    width: 4rem;
+	    height: 2.125rem;
+	    margin: 4px;
+	}
+	
+	.reply-content{
+		height: 5.625rem;
+    	padding: 0.625rem 1.125rem;
+		border-bottom:1px solid var(--light);
+	}
+	
+	.editContent{
+		width: 100%;
+	    height: 4rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding: 8px;
+	}
+	
+	
 
     </style>
 </head>
@@ -238,90 +337,88 @@ a, a:link, a:visited, a:active, a:hover {
 		<div id="alarmContent"></div>
 		<div id="boardContent"></div>
 		<div id="commendContent"></div>
-	<form action="detail" method="post">
-    <div class="board-details">
-        <div class="details-row">
-    <input type="button" onclick="location.href='./boardList.go'" value="<"/>
-    <h3>${board.board_subject}</h3>
-</div>
-        <div class="details-row">
-
-            <c:forEach items="${boardPro}" var="boardPro">
-                <img src="/photo/${boardPro.photo_fileName}" width="50" height="50" alt="${boardPro.photo_fileName}"/>
-            </c:forEach>
-            <span>${board.member_nickName}</span>
-        </div>
-        <div><span class="board-info">${board.board_regDate}</span></div>
-    <div><label class="board-info">조회수 :</label>
-    <span class="board-info">${board.board_bHit}</span></div>
-    <div class="updel">
-    <c:if test="${board.member_idx == sessionScope.loginInfo.member_idx}">
-        <div class="button-group">
-            <input type="button" class="button-green" onclick="confirmDelete(${board.board_id})" value="삭제"/>
-            <input type="button" class="button-green" onclick="location.href='./updateForm?board_id=${board.board_id}'" value="수정"/>
-        </div>
-    </c:if>
-</div>
-        <div class="boardContent">
-            <div id="boardContent">${board.board_content}
-        </div>
-        
-        <c:if test="${photos.size()>0}">
-            <div class="details-row">
-                <c:forEach items="${photos}" var="photo">
-                    <img src="/photo/${photo.photo_fileName}" width="100" height="100" alt="${photo.photo_fileName}"/>
-                </c:forEach>
-            </div>
-        </c:if>
-        </div>
-        <div class="buttons">
-                <c:if test="${board.member_idx != sessionScope.loginInfo.member_idx}">
-                    <input class="moddButton" type="button" id="openBoardComp" value="신고"/>
-                </c:if>
-            </div>
-    </div>
-
-    <div class="button-container">
-        <form id="recommendLike">
-            <div>
-                <input type="button" id="likeButton" class="button-green" onclick="like('${board.board_id}')" value="좋아요👍"/>
-                <span id="likeCount" style="font-weight: bold;">0</span>
-            </div>
-        </form>
-
-        <form id="recommendHate">
-            <div>
-                <input type="button" id="hateButton" class="button-gray" onclick="hate('${board.board_id}')" value="싫어요👎"/>
-                <span id="hateCount" style="font-weight: bold;">0</span>
-            </div>
-        </form>
-    </div>
-</form>
-	<h2 style="font-family:Pretendard;">댓글</h2>
-	<hr width="1000px" align="left">
-    <form id="replyForm">
-    	<table>
-    		<tr>
-    			<td>
-    				<input type="hidden" name="member_idx" value="${sessionScope.loginInfo.member_idx}">
-        			<textarea id="reply_content" rows="1" cols="130" placeholder="댓글을 입력하세요"></textarea>
-        		</td>
-        		<c:if test="${not empty sessionScope.loginInfo.member_idx}">
-        		<td width="60px">
-        			<input id="replySubmit" type="submit" value="댓글 작성"/>
-        		</td>
-        		</c:if>
-        	</tr>
-    	</table>
-    </form>
-    <div>
-	    <table>
-	    	</thead>
-			<tbody id="replyList">		
-			</tbody>
-	    </table>
+		
+		<form action="detail" method="post">
+		
+	    	<div class="board-details">
+	        	<div class="details-row">
+	    			<button onclick="location.href='./boardList.go'; event.preventDefault();">
+					  <span class="bi bi-chevron-left"></span>
+					</button>
+				</div>
+				
+	        	<div class="details-row">
+	        		<div class="boardInfoTotal">
+			            <c:forEach items="${boardPro}" var="boardPro">
+			                <img src="/photo/${boardPro.photo_fileName}" width="50" height="50" alt="${boardPro.photo_fileName}"/>
+			            </c:forEach>
+			            <div class="boardInfo">
+				            <span class="nickName">${board.member_nickName}</span>
+				            <div style="font-size:14px; color:var(--grey);">
+				            	<span style="margin-right:0.625rem;">${board.board_regDate}</span>
+					            <span class="bi bi-eye"></span>
+					            <span >${board.board_bHit}</span>
+				            </div>            
+			            </div>
+	        		</div>
+		            <c:if test="${board.member_idx == sessionScope.loginInfo.member_idx}">
+				        <div class="button-group">
+				            <input type="button" class="button-green" onclick="confirmDelete(${board.board_id})" value="삭제"/>
+				            <input type="button" class="button-green" onclick="location.href='./updateForm?board_id=${board.board_id}'" value="수정"/>
+				        </div>
+				    </c:if>
+		            <c:if test="${board.member_idx != sessionScope.loginInfo.member_idx}">
+		                <input class="button-green" type="button" id="openBoardComp" value="신고"/>
+		            </c:if>
+		        </div>
+		        
+		        <h2>${board.board_subject}</h2>
+		        <div class="boardContent">
+		            <div id="boardContent">${board.board_content}</div>
+			        <c:if test="${photos.size()>0}">
+			            <div class="boardPhoto">
+			                <c:forEach items="${photos}" var="photo">
+			                    <img src="/photo/${photo.photo_fileName}" alt="${photo.photo_fileName}"/>
+			                </c:forEach>
+			            </div>
+			        </c:if>
+	        	</div>
+	        	
+	            
+	    	</div>
+	
+		    <div class="button-container">
+		        <form id="recommendLike">
+		            <div class="like-hate-button">
+		                <input type="button" id="likeButton" onclick="like('${board.board_id}')" value="좋아요👍"/>
+		                <span id="likeCount" style="font-weight: bold;">0</span>
+		            </div>
+		        </form>
+		
+		        <form id="recommendHate">
+		            <div class="like-hate-button">
+		                <input type="button" id="hateButton" onclick="hate('${board.board_id}')" value="싫어요👎"/>
+		                <span id="hateCount" style="font-weight: bold;">0</span>
+		            </div>
+		        </form>
+		    </div>
+		</form>
+		
+	    <form id="replyForm">
+	    	<div class="replyWrite">
+		    	<input type="hidden" name="member_idx" value="${sessionScope.loginInfo.member_idx}">
+		       	<textarea id="reply_content" placeholder="댓글을 입력하세요"></textarea>
+		       	<c:if test="${not empty sessionScope.loginInfo.member_idx}">
+		       		<input id="replySubmit" type="submit" value="댓글 작성"/>
+		       	</c:if>
+	    	</div>
+	    </form>
 	    
-    </div>
+	    <div>
+				<div id="replyList">		
+				</div>
+	    </div>
+	    
     </div>
     </div>
     </div>
@@ -388,37 +485,51 @@ function drawList(obj) {
     var replyList = '';
     if (obj) {
         obj.replyList.forEach(function(item) {
-            replyList += '<tr>';
-            replyList += '<td width="150px">';
+            replyList += '<div>';
+            
+            replyList += '<div id="replyInfo">';
+            replyList += '<div style="display:flex; align-items: center;">';
 
             // getReplyPro 함수를 동기적으로 호출하여 데이터를 가져옴
             var poto = getReplyProSync(item.reply_id);
             drawphoto(poto);
 			
             replyList += replyphoto; // replyphoto를 replyList에 추가
-            replyList += item.member_nickName + '</td>';
+            replyList += '<div>';
+            replyList += '<div>'+item.member_nickName + '</div>';
+            replyList += '<div style="font-size:14px; color:var(--grey);">' + item.reply_regDate + '</div>';
+            replyList += '</div>';
             if (item.editing) {
-                replyList += '<td><textarea id="editContent' + item.reply_id + '">' + item.reply_content + '</textarea></td>';
-                replyList += '<td><input type="button" onclick="saveEdit(' + item.reply_id + ')" value="저장" />';
-                replyList += '<input type="button" onclick="cancelEdit(' + item.reply_id + ')" value="취소" /></td>';
+            	replyList += '</div>';
+                replyList += '<div><input type="button" onclick="saveEdit(' + item.reply_id + ')" value="저장" />';
+                replyList += '<input type="button" onclick="cancelEdit(' + item.reply_id + ')" value="취소" /></div>';
+                replyList += '</div>';
+                replyList += '<div class="reply-content">';
+                replyList += '<textarea class="editContent" id="editContent' + item.reply_id + '">' + item.reply_content + '</textarea>';
+                replyList += '</div>';
             } else {
-                replyList += '<td>' + item.reply_content;
+	            replyList += '</div>';
+                if (item.member_idx === ${sessionScope.loginInfo.member_idx}) {
+                	replyList += '<div style="display:flex;">';
+                    replyList += '<input type="button" onclick="deleteReply(' + item.reply_id + ')" value="삭제"/>';
+                    replyList += '<input type="button" onclick="editReply(' + item.reply_id + ')" value="수정"/>';
+                    replyList += '</div>';
+                    replyList += '</div>';
+                } else {
+                    replyList += '<div><input type="button" id="openCommendComp_' + item.reply_id + '" class="openCommendCompBtn" value="신고"/></div>';
+                    replyList += '</div>';
+                }
+                replyList += '<div class="reply-content">' + item.reply_content;
                 if (item.reply_modDate !== null) {
                     replyList += ' (수정됨)';
                 }
-                replyList += '</td>';
-                replyList += '<td width="90px">' + item.reply_regDate + '</td>';
-                if (item.member_idx === ${sessionScope.loginInfo.member_idx}) {
-                    replyList += '<td width="40px"><input type="button" onclick="deleteReply(' + item.reply_id + ')" value="삭제"/></td>';
-                    replyList += '<td width="40px"><input type="button" onclick="editReply(' + item.reply_id + ')" value="수정"/></td>';
-                } else {
-                    replyList += '<td colspan="2" width="40px"><input type="button" id="openCommendComp_' + item.reply_id + '" class="openCommendCompBtn" value="신고"/></td>';
-                }
+                replyList += '</div>';
             }
-            replyList += '</tr>';
+            
+            replyList += '</div>';
         });
     } else {
-        replyList = '<tr><td colspan="5">댓글이 없습니다.</td></tr>';
+        replyList = '<div>댓글이 없습니다.</div>';
     }
 
     $('#replyList').empty();

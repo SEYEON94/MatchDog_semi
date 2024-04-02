@@ -7,13 +7,14 @@
   --white: #fff;
   --black: #000;
   --bg: #f8f8f8;
-  --grey: #999;
+  --grey: #c3c3c3;
   --dark: #1a1a1a;
-  --light: #c0c0c0;
+  --light: #d8d8d8;
   --wrapper: 1000px;
   --blue: #00b0ff;
   --red: #e85151;
-  --green: rgb(26, 188, 156);
+  --green: #1abc9c;
+  --darkGreen: #11a688;
 }
 
 
@@ -24,12 +25,12 @@ span{
 ul{
    list-style:none;
    padding-left:0px;
+   margin:1.625rem;
    }
 
 
 .container {
   position: relative;
-  left: 28%;
 }
 .container .left {
   float: left;
@@ -49,7 +50,7 @@ ul{
   bottom: 0;
   left: 50%;
   display: block;
-  width: 90%;
+  width: 100%;
   height: 1px;
   content: "";
   background-color: var(--light);
@@ -84,29 +85,26 @@ ul{
   border-radius: 50%;
 }
 .container .left .people {
-  margin-left: -1px;
-  border-right: 1px solid var(--light);
-  border-left: 1px solid var(--light);
-  width: calc(100% + 2px);
+	margin: 0;
 }
 .container .left .people .person {
   position: relative;
   width: 100%;
-  padding: 10px 44px 12px;
+  padding: 12px 44px;
   cursor: pointer;
-  background-color: var(--white);
+  border-bottom:1px solid var(--light);
 }
-.container .left .people .person:after {
+/* .container .left .people .person:after {
   position: absolute;
   bottom: 0;
   left: 50%;
   display: block;
-  width: 90%;
+  width: 100%;
   height: 1px;
   content: "";
   background-color: var(--light);
   transform: translate(-50%, 0);
-}
+} */
 .container .left .people .person img {
   float: left;
   width: 40px;
@@ -201,8 +199,7 @@ ul{
 /* css 커스텀 */
 
 .banner{
-	width:1500px;
-	display:inline-block;
+	display:block;
 	border-bottom: 1px solid var(--light);
 }
 
@@ -210,7 +207,7 @@ ul{
 	display:flex;
 	width:1280px;
 	height:72px;
-	margin:0 110px;
+	margin:auto;
 	align-items:center;
 }
 
@@ -254,7 +251,7 @@ ul{
 .mainContainer{
 	display:flex;
 	width:1280px;
-	margin:0 110px;
+	margin:auto;
 }
 
 .side{
@@ -268,9 +265,10 @@ ul{
 }
 
 .content{
-	flex:1;
-	width:640px;
-	padding:30px 46px 80px;
+	display:flex;
+	justify-content: center;
+	width:1040px;
+	padding:26px 46px;
 	box-sizing: border-box;
 	border-left: 1px solid #e6e6e6;
 	border-width: 0 1px;

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <style>
-    
+
     button{
 	  border: 0;
 	  background-color: transparent;
@@ -17,8 +17,8 @@
 			display: inline-block;
         	position:absolute;
            	background-color: var(--white);
-			top: 284px;
-			left: 248px;
+			top: 120px;
+			left: 320px;
 			z-index: 1000;
 			width: 450px;
 			height: 620px;
@@ -29,7 +29,7 @@
         }
 	.detailModal .closeButton {
             position: absolute;
-			left: 370px;
+			left: 386px;
 			top: 10px;
 			cursor: pointer;
 			font-size: 32px;
@@ -54,7 +54,7 @@
 		color:var(--white);
 		font-family:Pretendard;
 		font-weight: 500;
-		font-size:12px;
+		font-size:14px;
 		text-align: center;
 		z-index:100;	
 	}
@@ -164,6 +164,7 @@
 		margin: 20px;
 		width:380px;
 		word-break: break-all;
+		color:var(--dark);
 	}
 	
 	.bi-x-lg, .bi-heart-fill, .bi-chevron-compact-left, .bi-chevron-compact-right{
@@ -201,10 +202,7 @@
 	}
 	
 	.dogInfo .dog_text{
-		position: absolute;
-		top: 386px;
-	    left: 264px;
-   		text-allgn: left;
+   		text-align: center;
 		font-size:16px;
 		font-family:Pretendard;
 		color:var(--dark);
@@ -213,23 +211,25 @@
 	}
 	
 	.button-green{
-    	text-align:center;
-		font-family:Pretendard;
-		font-weight:600;
-		color:var(--white);
+		position:absolute;
+		top: 60%;
+	    left: 50%;
+	    text-align: center;
+	    font-family: Pretendard;
+	    font-weight: 600;
+	    transform: translate(-50%, -50%);
+	    color:var(--white);
 	}
 	
 	.what{
-		position: absolute;
-		top: 436px;
-    	left: 327px;
+		position:relative;
     	z-index:3000;
+    	text-align: center;
+	    display: flex;
+	    justify-content: center;
 	}
 	
 	.thumb-up-fill{
-		position:absolute;
-		top:416px;
-		left:312px;
 		font-size:40px;
 		color:var(--green);
 	}
@@ -261,7 +261,13 @@
 	}
 	
 	 .right{
+	 	display:flex;
+	 	position:relative;
 		width:160px;
+		height:100px;
+		margin: 20px auto;
+		flex-direction: column;
+   		justify-content: space-around;
 	}
 	
 	#prevImg{
@@ -315,18 +321,17 @@
 		<div class="right">
 				<c:if test="${map.pro_dogScore >= 10}">
 					<span class="dog_text">매너견이에요!😊</span> 
-					<span class="what"><span class="button-green">${map.pro_dogScore}</span></span>
 				</c:if>
 				<c:if test="${map.pro_dogScore > 0 && map.pro_dogScore < 10}">
 					<span class="dog_text">매너견이 되어보세요😮</span>
-					<span class="what"><span class="button-green">${map.pro_dogScore}</span></span>
 				</c:if>
 				<c:if test="${map.pro_dogScore < 0}">
-				
-				
 					<span class="dog_text">비매너견이에요😢</span>
-					<span class="what"><span class="button-green">${map.pro_dogScore}</span></span>
 				</c:if>
+				<span class="what">
+				<span class="thumb-up-fill"><span class ="bi bi-hand-thumbs-up-fill memberDetail"></span></span>
+				<span class="button-green">${map.pro_dogScore}</span>
+				</span>
 		</div>
     </div>
     <div class="memberInfo">
@@ -338,7 +343,6 @@
     		<div class="member_gender detail_btn">${map.member_gender}</div>
     	</div>
 		<div class="detail_text" id="pro_dogDesc">${map.pro_dogDesc}</div>
-		<span class="thumb-up-fill"><span class ="bi bi-hand-thumbs-up-fill memberDetail"></span></span>
     
     </div>
     

@@ -31,7 +31,7 @@ public class ChattingService {
 	@Autowired
 	ChattingDAO dao;
 
-	private String root = "C:/upload/";
+	private String root = "C:/upload2/";
 
 	ArrayList<ProfileDTO> proIdx = new ArrayList<ProfileDTO>();
 	ChattingDTO chatDTO = new ChattingDTO();

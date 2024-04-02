@@ -6,31 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="resources/css/board.css" type="text/css">
+<!-- bootstrap 아이콘 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- bootstrap : 디자인을 위한 프레임워크 -->
+<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- pretendard 폰트 -->
+<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet" href="resources/css/board.css" type="text/css">
-<!-- pretendard 폰트 -->
-<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- 페이징 처리를 위한 라이브러리 -->
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <jsp:include page="adminCheck.jsp" />
 <style>
 
-a, a:link, a:visited, a:active, a:hover {
+	a, a:link, a:visited, a:active, a:hover {
 		text-decoration: none;
 		color: var(--black);
 	}
-	
 	
 	/* 본인 페이지 것으로 변경하기  */
 	.btn_gnb .bi-people-fill, .btn_gnb.board{
 	    color: var(--white);
 	    background-color: var(--green);
 	}
-	
 	
 	/* 본인 페이지를 제외한 나머지 hover 적용 */
 	 .btn_gnb:hover .bi-house-door-fill,
@@ -51,63 +51,117 @@ a, a:link, a:visited, a:active, a:hover {
 	.btn_gnb.admin:hover{
 		background-color: var(--light);
 	}
-	.sidebar {
-        height: 100%;
-        width: 250px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: #255,255,255;
-        padding-top: 20px;
+	
+	button {
+	    background: none;
+	    border: none;
+	    padding: 0;
+	    margin: 0;
+	    /* 기타 다른 스타일 속성을 필요에 따라 추가할 수 있습니다. */
+	}
+	
+	.boardWrite{
+		width:100%;
+		font-family:Pretendard;
+        font-size:16px;
+	}
+	
+	#board_content{
+    	width:100%;
+    	height:22.625rem;
+    	font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding: 8px;
+    	resize: none;
     }
-
-    .sidebar h2 {
-        color: black;
+	
+	th, td{
+		border-collapse: collapse;
+		padding: 8px 0px;
+		color:var(--dark);
+	}
+	
+	#text{
+		width: 923px;
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	}
+	
+	input[type="file"]{
+		font-family: Pretendard;
+    	font-size: 14px;
+	}
+	
+	
+	.canselButton,
+	.writeButton{
+		width: 120px;
+		height: 2.625rem;
+		margin-left:8px;
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+	}
+	
+	.canselButton{
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+	}
+	
+	.canselButton:hover{
+		border: 1px solid var(--grey);
+		background-color: var(--grey);
+	}
+	
+	.writeButton{
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+	}
+	
+	.writeButton:hover{
+		border: 1px solid var(--darkGreen);
+		background-color: var(--darkGreen);
+	}
+	
+	.bi-x-circle-fill{
+		font-size:22px;
+		cursor:pointer;
+	}
+	
+	.content {
         text-align: center;
     }
-
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
+    
+    #write{
+    	text-align: left;
+    }
+   
+    #subject,
+    #text
+    {
+    	text-align: left;
+    }
+    
+    .leftSort{
+    	text-align: left;
     }
 
-    .sidebar ul li {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .sidebar a {
-        color: black;
-        text-decoration: none;
-    }
-    #board_content{
-    		resize: none;
-    }
-    .modButton{
-    	color: #fff;
-    	background-color: #1FBF92;
-    }
-    #button{
-    	text-align: right;
-    }
     #openAlarm{
 		cursor: pointer;
 	}
-	*::-webkit-scrollbar {
-		width: 16px;
-	}
-
-	*::-webkit-scrollbar-track {
-		background: var(--white);
-	}
-
-	*::-webkit-scrollbar-thumb {
-		background-color: var(--green);
-		border-radius: 10px;
-		border: 3px solid #ffffff;
-	}
 	
-	
+
     </style>
 </head>
 <body>
@@ -159,36 +213,44 @@ a, a:link, a:visited, a:active, a:hover {
 	<form action="update" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="board_id" value="${board.board_id}"/>
 	<input type="hidden" name="delphotoArray" value=""/>
-	<table>
-		<h2>글수정</h2>
-		<hr>
+	<h2 id="write" style="color:var(--green); font-weight:600; font-family:Pretendard;">수정하기</h2>
+	
+	<table class="boardWrite">
 		<tr>
-			<td cols="2">작성자 : &nbsp&nbsp<input type="text" name="member_nickName" value="${board.member_nickName}" readonly="readonly"/></td>
+			<td class="leftSort">작성자 : &nbsp&nbsp&nbsp${board.member_nickName}</td>
 		</tr>
 		<tr>
-			<td cols="2">제목 : &nbsp&nbsp<input type="text" name="board_subject" value="${board.board_subject}"/></td>
+			<td class="leftSort">제&nbsp&nbsp&nbsp&nbsp목 : &nbsp&nbsp<input id="text" type="text" name="board_subject" value="${board.board_subject}"/></td>
 		</tr> 
 		<tr>
-			<td colspan="2"><input type="file" name="photos" multiple="multiple"/></td>
+			<td class="leftSort"><input type="file" name="photos" multiple="multiple"/></td>
 		</tr>
 		<tr>
-			<td cols="2"><textarea id="board_content" name="board_content" rows="15" cols="140">${board.board_content}</textarea></td>
+			<td colspan="2"><textarea id="board_content" name="board_content">${board.board_content}</textarea></td>
 		</tr>
 		<tr>
-			<th colspan="2" id="button">
-				<input class="modButton" type="button" id="cancel" value="취소"/>
-				<input class="modButton" type="submit" value="저장"/>
+			<td class="leftSort">
+				<h3 style="color:var(--green); font-weight:600; font-family:Pretendard; margin-bottom:2rem;">첨부된 파일</h3>
+				<c:if test="${photos.size() > 0}">
+					<c:forEach items="${photos}" var="photo">               
+						<div class="photo-item" style="display: inline;">
+							<img src="/photo/${photo.photo_fileName}" width="100" height="100" alt="${photo.photo_fileName}"/>
+							<button data-photo_id="${photo.photo_id}" class="delphoto">
+								<span class="bi bi-x-circle-fill"></span>
+							</button>
+						</div>
+					</c:forEach>
+        		</c:if>
+			
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2" id="button" class="button">
+				<input class="canselButton" type="button" id="cancel" value="취소"/>
+				<input class="writeButton" type="submit" value="저장"/>
 			</th>
 		</tr>
 	</table>
-        <c:if test="${photos.size() > 0}">
-			<c:forEach items="${photos}" var="photo">               
-				<div class="photo-item" style="display: inline;">
-					<img src="/photo/${photo.photo_fileName}" width="100" height="100" alt="${photo.photo_fileName}"/>
-					<button data-photo_id="${photo.photo_id}" class="delphoto">삭제</button>
-				</div>
-			</c:forEach>
-        </c:if>
 	</form>
 	</div>
 	</div>

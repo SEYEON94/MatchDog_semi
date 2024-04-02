@@ -27,7 +27,7 @@ public class BoardService {
 
 	@Autowired BoardDAO dao;
 	
-	private String root = "C:/upload/";
+	private String root = "C:/upload2/";
 	
 	public Map<String, Object> list(String pagePerNum, String page) {
 		

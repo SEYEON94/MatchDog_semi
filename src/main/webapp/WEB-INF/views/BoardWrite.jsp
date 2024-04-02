@@ -6,31 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="resources/css/board.css" type="text/css">
+<!-- bootstrap 아이콘 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- bootstrap : 디자인을 위한 프레임워크 -->
+<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- pretendard 폰트 -->
+<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet" href="resources/css/board.css" type="text/css">
-<!-- pretendard 폰트 -->
-<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- 페이징 처리를 위한 라이브러리 -->
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <jsp:include page="adminCheck.jsp" />
 <style>
 
-a, a:link, a:visited, a:active, a:hover {
+	a, a:link, a:visited, a:active, a:hover {
 		text-decoration: none;
 		color: var(--black);
 	}
-	
 	
 	/* 본인 페이지 것으로 변경하기  */
 	.btn_gnb .bi-people-fill, .btn_gnb.board{
 	    color: var(--white);
 	    background-color: var(--green);
 	}
-	
 	
 	/* 본인 페이지를 제외한 나머지 hover 적용 */
 	 .btn_gnb:hover .bi-house-door-fill,
@@ -51,79 +51,102 @@ a, a:link, a:visited, a:active, a:hover {
 	.btn_gnb.admin:hover{
 		background-color: var(--light);
 	}
-	.sidebar {
-        height: 100%;
-        width: 250px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: #255,255,255;
-        padding-top: 20px;
+	
+	.boardWrite{
+		width:100%;
+		font-family:Pretendard;
+        font-size:16px;
+	}
+	
+	#boardContent{
+    	width:100%;
+    	height:22.625rem;
+    	font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding: 8px;
+    	resize: none;
     }
-
-    .sidebar h2 {
-        color: black;
-        text-align: center;
-    }
-
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .sidebar ul li {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .sidebar a {
-        color: black;
-        text-decoration: none;
-    }
+	
+	th, td{
+		border-collapse: collapse;
+		padding: 8px 0px;
+		color:var(--dark);
+	}
+	
+	#text{
+		width: 923px;
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	}
+	
+	input[type="file"]{
+		font-family: Pretendard;
+    	font-size: 14px;
+	}
+	
+	
+	.canselButton,
+	.writeButton{
+		width: 120px;
+		height: 2.625rem;
+		margin-left:8px;
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+	}
+	
+	.canselButton{
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+	}
+	
+	.canselButton:hover{
+		border: 1px solid var(--grey);
+		background-color: var(--grey);
+	}
+	
+	.writeButton{
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+	}
+	
+	.writeButton:hover{
+		border: 1px solid var(--darkGreen);
+		background-color: var(--darkGreen);
+	}
+	
+	
 	.content {
         text-align: center;
     }
     #write{
     	text-align: left;
     }
-    #boardContent{
-    	resize: none;
-    }
+   
     #subject,
     #text
     {
     	text-align: left;
     }
-    .button{
-    	text-align: right;
-    	color: #fff;
-    	background-color: #1FBF92;
-    }
+    
     .leftSort{
     	text-align: left;
     }
     #openAlarm{
 		cursor: pointer;
 	}
-	th {
-    	text-align: right;
-	}
-	input {
- 	   margin: 1px;
-	}
-	*::-webkit-scrollbar {
-		width: 16px;
-	}
 
-	*::-webkit-scrollbar-track {
-		background: var(--white);
-	}
-
-	*::-webkit-scrollbar-thumb {
-		background-color: var(--green);
-		border-radius: 10px;
-		border: 3px solid #ffffff;
-	}
 	
 </style>
 </head>
@@ -174,28 +197,29 @@ a, a:link, a:visited, a:active, a:hover {
 		<div id="alarmContent"></div>
 	<form action="write" method="post" enctype="multipart/form-data" onsubmit="return noContent();">
 		<input type="hidden" name="member_idx" value="${sessionScope.loginInfo.member_idx}">
-		<h3 id="write">글쓰기</h3>
-		<hr>
-	<table>
+		<h2 id="write" style="color:var(--green); font-weight:600; font-family:Pretendard;">글쓰기</h2>
+		
+	<table class="boardWrite">
 		<tr>
-			<td class="leftSort" cols="2">작성자 : &nbsp&nbsp<input id="text" type="text" name="member_nickName" value="${sessionScope.loginInfo.member_nickName}" readonly="readonly"/></td>
+			<td class="leftSort">작성자 : &nbsp&nbsp&nbsp${sessionScope.loginInfo.member_nickName}</td>
 		</tr>
 		<tr>
-			<td class="leftSort" cols="2">제목 : <input id="text" type="text" name="board_subject" placeholder="제목을 입력하세요" style="margin-left: 23px;"/></td>
+			<td class="leftSort">제&nbsp&nbsp&nbsp&nbsp목 : &nbsp&nbsp<input id="text" type="text" name="board_subject" placeholder="제목을 입력하세요" /></td>
 		</tr>
 		<tr>
-			<td class="leftSort" cols="2"><input type="file" name="photos" multiple="multiple"/></td>
+			<td class="leftSort"><input type="file" name="photos" multiple="multiple"/></td>
 		</tr> 
 		<tr>
-			<td colspan="2"><textarea rows="15" cols="140" id="boardContent" name="board_content" placeholder="내용을 입력하세요"></textarea></td>
+			<td colspan="2"><textarea id="boardContent" name="board_content" placeholder="내용을 입력하세요"></textarea></td>
 		</tr>
 		<tr>
-			<th colspan="2">
-				<input  class="button" type="button" onclick="location.href='./boardList.go'" value="취소"/>
-				<button class="button">작성</button>
+			<th colspan="2" class="button">
+				<input  class="canselButton" type="button" onclick="location.href='./boardList.go'" value="취소"/>
+				<button class="writeButton">작성</button>
 			</th>
 		</tr>
 	</table> 
+	
 	</form>
 	</div>
 	</div>

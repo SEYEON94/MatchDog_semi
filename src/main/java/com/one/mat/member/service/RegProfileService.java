@@ -31,7 +31,7 @@ public class RegProfileService {
 	@Autowired
 	RegProfileDAO dao;
 
-	private String root = "C:/upload/";
+	private String root = "C:/upload2/";
 	
 	public ArrayList<CompDTO> compList() {
 		return dao.compList();

@@ -189,27 +189,47 @@ font-family:pretendard;
   }
   
      .button-gray {
-        padding: 6px 20px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #808080;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #808080;
-        cursor: pointer;
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
     }
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+    
     .button-green {
-        padding: 6px 20px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #1abc9c;
-        cursor: pointer;
-    } 
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	} 
+    
   .button-container {
     display: flex;
     justify-content: space-between;
@@ -281,7 +301,7 @@ font-family:pretendard;
 <br></br>
 <br></br>
 
-<button id="openQuitModal" >회원 탈퇴</button>
+<button id="openQuitModal" class="button-gray" >회원 탈퇴</button>
 </div>
 </div>
 <div class="content">
@@ -428,9 +448,7 @@ font-family:pretendard;
 	<input type="hidden" value= "${myPage.member_renew}"/>
 
 	<br></br>
-	<div class="content">
-		<div id="alarmContent"></div>
-	</div>
+	<div id="alarmContent"></div>
 	<!-- 업그레이드 모달 창 -->
 	<div id="subsModal" class="modal">
 		<div class="modal-content">

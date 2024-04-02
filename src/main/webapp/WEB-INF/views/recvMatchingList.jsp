@@ -96,13 +96,13 @@ a, a:link, a:visited, a:active, a:hover {
 	color:var(--grey);
 	font-weight:300;
 	font-size:12px;
-	margin: 0 0 8px 30px;
+	margin: 0 0 8px 20px;
 }
 
 .proDetail{
 	display:flex;
 	width:100%;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .container .left .people .person img {
@@ -147,6 +147,11 @@ a, a:link, a:visited, a:active, a:hover {
 
 .open_flex{
 	display:flex;
+	width: 40%;
+}
+
+.detailModal{
+	left:252px !important;
 }
 
 </style>

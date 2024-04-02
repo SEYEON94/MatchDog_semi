@@ -17,8 +17,8 @@
 			display: inline-block;
         	position:absolute;
            	background-color: var(--white);
-			top: 46px;
-			left: 808px;
+			top: 48px;
+			left: 900px;
 			z-index: 9999;
 			width: 420px;
 			height: 600px;
@@ -55,10 +55,6 @@
         }
         
         .alarmTable {
-        	display:flex;
-        	align-items: center;
-        	margin : 20px auto;
-            width: 90%;
             border-bottom:1px solid var(--light);
         }
         
@@ -66,18 +62,23 @@
         	display:inline-block;
         	border: 1px solid var(--light);
         	box-shadow: 0 0 2px 1px var(--light);
-        	width:100px;
-        	height:100px;
+        	width:80px;
+        	height:80px;
         	object-fit: cover;
-        	margin: 8px;
+        	margin: 12px;
         	border-radius: 50%;
         	
+        }
+        
+        .alarm_total{
+        	display:flex;
+        	align-items: center;
         }
         
         .alarm_part{
         	display:flex;
         	flex-direction: column;
-    		margin-left: 20px;
+        	align-items: flex-start;
         }
         
         .alarm_text{
@@ -86,8 +87,8 @@
 			font-family:Pretendard;
 			color:var(--dark);
 			font-weight: 600;
-			width:220px;
 			word-break: break-all;
+			text-align: left;
         	
         }
         
@@ -123,7 +124,7 @@
         <c:when test="${not empty alarmList}">
             <c:forEach var="alarm" items="${alarmList}">
                 <div class="alarmTable">
-                <a href="recvMatchingList.go">
+                <a href="recvMatchingList.go" class="alarm_total">
                            <img src="/photo/${alarm.photo_fileName}" alt="min_photo_fileName" class="noBorder">
                 	<div class="alarm_part">
                             <c:if test="${alarm.alarm_type == 1}">

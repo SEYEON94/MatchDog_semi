@@ -28,8 +28,7 @@ public class MyProfileService {
 	@Autowired
 	MyProfileDAO dao;
 
-	private String root = "C:/upload/";
-	private String temp = "C:/upload/temp";
+	private String root = "C:/upload2/";
 
 	public void MyProfileListDo(int idx, Model model) {
 
