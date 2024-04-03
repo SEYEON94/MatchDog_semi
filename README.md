@@ -66,9 +66,6 @@
 	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
 	<img src="https://img.shields.io/badge/Sourcetree-0052CC?style=flat&logo=Sourcetree&logoColor=white" />
 </div>
-<div align=left>
-	<h3>📚 배포 📚</h3>
-</div>
 <br>
 
 ## 🧱 프로젝트 설계
