@@ -50,9 +50,8 @@
 	<p>▪ 프레임워크</p>
 </div>
 <div align="left">
-	<img src="https://img.shields.io/badge/Springboot-6DB33F?style=flat&logo=Spring&logoColor=white" />
+	<img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white" />
 	<img src="https://img.shields.io/badge/Mybatis-000000?style=flat&logo=Fluentd&logoColor=white" />
-	<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white" />
 </div>
 <div align=left>
 	<p>▪ 데이터베이스</p>
@@ -75,7 +74,7 @@
 ## 🧱 프로젝트 설계
 
 ### ERD
-![beHit](https://github.com/SEYEON94/BeHit/assets/121929117/9765d57a-81c9-4821-887b-dcc2b650baec)
+![1조 매칭해주개](https://github.com/SEYEON94/MatchDog_semi/assets/121929117/50f4613b-4b9c-42ef-a4f8-6d2d77ac3f5b)
 
 
 ## ⚙ 주요기능
