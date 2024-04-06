@@ -5,214 +5,169 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- bootstrap : 디자인을 위한 프레임워크 -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"	rel="stylesheet">
-
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link rel="stylesheet" href="resources/css/chattingRoom.css" type="text/css">
+<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <!-- 페이징 처리를 위한 라이브러리 -->
-<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <style>
 
-a, a:link, a:visited, a:active, a:hover {
-		text-decoration: none;
-		color: var(--black);
+	a, a:link, a:visited, a:active, a:hover {
+			text-decoration: none;
+			color: var(--black);
 	}
 	
-/* admin페이지 side bar 메뉴 아이콘 */
-.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
-.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
-	position:relative;
-	color: var(--black) ;
-	font-size: 22px;
-	margin-right:10px;
-}
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-person-x-fill, .btn_gnb.comp{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-reception-3,
-.btn_gnb:hover .bi-people-fill,
-.btn_gnb:hover .bi-person-gear,
-/* .btn_gnb:hover .bi-person-x-fill, */
-.btn_gnb:hover .bi-door-open-fill {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.dash:hover,
-.btn_gnb.user:hover, 
-.btn_gnb.auth:hover,
-/* .btn_gnb.comp:hover, */
-.btn_gnb.service:hover{
-	background-color: var(--light);
-}
-
-
-table, td, th {
-	border: 1px solid black;
-	border-collapse: collapse;
-	padding: 5px 10px;
-}
-
-td{
-text-align: left;}
-
-select {
-	margin: 5px 0px;
-}
-
-#proSucButton {
-    margin-left: -340px; 
-    margin-top: -70px;
-}
-
-button{
- padding: 5px 10px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #1abc9c;
-        cursor: pointer;
-    border: none;
-}
-
-nav {
-    margin-left: -650px; 
-}
-
-.pagination > .active > a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover,
-.pagination > .active > span,
-.pagination > .active > span:focus,
-.pagination > .active > span:hover {
-    z-index: 3;
-    color: #fff;
-    cursor: default;
-    background-color: #1FBF92; 
-    border-color: #1FBF92;
-}
-    
-.pagination > li > a,
-.pagination > li > span {
-   color: black;
-}
-
-
-/*한준님 커스텀 CSS*/
-.banner{
-	width:1500px;
-	display:inline-block;
-	border-bottom: 1px solid var(--light);
-}
-
-.header{
-	display:flex;
-	width:1280px;
-	height:72px;
-	margin:0 110px;
-	align-items:center;
-}
-
-.logo{
-	position: relative;
-	width:241px;
-	height:70px;
-}
-
-.logo_matchDog{
-	position: absolute;
-	top:8px;
-	left:20px;
-	display:block;
-	width:auto;
-	height:44px;
-}
-.gnb{
-	position:relative;
-	top:2px;
-	left:860px;
-}
-.logout{
-	display: inline-block;
-	position: relative;
-	left: 24px;
-	width: 120px;
-	height: 32px;
-	padding: 4px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: #eceff1;
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-}
-.mainContainer{
-	display:flex;
-	width:1280px;
-	margin:0 110px;
-}
-.side{
-	width: 240px;
-	padding-left:14px;
-}
-
-.side .menu{
-	/* position: fixed; */
-	padding: 32px 20px 24px 0;
-}
-
-.visitorStatistics{
-	display:block;
-	width:800px;
-	flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.visitorGraph{
-	height : 250px;
-	width : 600px;
-}
-
-.subsStatistics{
-	margin-top:50px;
-	display:flex;
-	width:800px;
-	flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
-
-.salesGraph{
-	height : 250px;
-	width : 250px;
-}
-
-.dataTable{
-	margin-left:60px;
-}
-    
+	.pagination > .active > a,
+	.pagination > .active > a:focus,
+	.pagination > .active > a:hover,
+	.pagination > .active > span,
+	.pagination > .active > span:focus,
+	.pagination > .active > span:hover {
+	    z-index: 3;
+	    color: #fff;
+	    cursor: default;
+	    background-color: #1FBF92; 
+	    border-color: #1FBF92;
+	}
+	    
+	.pagination > li > a,
+	.pagination > li > span {
+	   color: black;
+	}
+		
+	/* admin페이지 side bar 메뉴 아이콘 */
+	.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
+	.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
+		position:relative;
+		color: var(--black) ;
+		font-size: 22px;
+		margin-right:10px;
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-person-x-fill, .btn_gnb.comp{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-reception-3,
+	.btn_gnb:hover .bi-people-fill,
+	.btn_gnb:hover .bi-person-gear,
+	/* .btn_gnb:hover .bi-person-x-fill, */
+	.btn_gnb:hover .bi-door-open-fill {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.dash:hover,
+	.btn_gnb.user:hover, 
+	.btn_gnb.auth:hover,
+	/* .btn_gnb.comp:hover, */
+	.btn_gnb.service:hover{
+		background-color: var(--light);
+	}
+	
+	/*한준님 커스텀 CSS*/
     a.atag:hover {
         color: #1abc9c; /* 마우스 오버 시 링크 색상 */
     }
     
+    form{
+    	margin: 0;
+    }
+    
+    table{
+		width:100%;
+		border-collapse: collapse;	
+		table-layout: fixed;
+	}
+	
+	th,td{
+		border: 1px solid var(--grey);
+		border-collapse: collapse;
+		padding: 8px;
+		text-align:center;
+		font-size:16px;
+		border-left: none;
+    	border-right: none;
+	}
+		
+	.mainContainer{
+		height:100%;
+	}
+	
+	.content{
+		flex-direction: column;
+		padding: 40px 0 40px 60px;
+		justify-content: flex-start;
+	}
+	
+	.button-container {
+	    display: flex;
+	    justify-content: space-between;
+	}
+	
+	.button-green {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	.button-gray {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+	
+	.text{
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	}
+	
+	#proSucForm{
+		display: flex;
+    justify-content: flex-end;
+	}
     
     
 </style>
@@ -233,10 +188,6 @@ nav {
 	<div class="mainContainer">
 		<div class="side">
 			<div class="menu">
-				<span class="btn_gnb admin">
-					<span class="bi bi-gear-fill"></span>
-					<span>관리자 페이지</span>
-				</span>
 		        <a href="./adminList.go" class="btn_gnb dash">
 		        	<span class="bi bi-reception-3"></span>
 					<span>DASH BOARD</span>
@@ -260,69 +211,74 @@ nav {
 			</div>
 		</div>
 		<div class="content">		
-		<div id="alarmContent"></div>
-
-			<select id="pagePerNum">
-				<option value="5">5</option>
-				<option value="10">10</option>
-				<option value="15">15</option>
-				<option value="20">20</option>
-			</select>
+			<div id="alarmContent"></div>
+			<div style="display:flex; justify-content: space-between; height: 3.125rem;">
+				<form action="compList.go" method="post">
+					<button id="aaa" class="button-gray" style="width:80px" name="aaa" value="a">전체</button>
+					<button id="bbb" class="button-gray" style="width:80px" name="bbb" value="b">게시글</button>
+					<button id="ccc" 	class="button-gray" style="width:80px" name="ccc" value="ch">채팅</button>
+					<button id="ddd" class="button-gray" style="width:80px" name="ddd" value="cm">댓글</button>
+				</form>
+				<select id="pagePerNum" class="text">
+					<option value="5">5개씩</option>
+					<option value="10">10개씩</option>
+					<option value="15">15개씩</option>
+					<option value="20">20개씩</option>
+				</select>
+			</div>
 			
-			<div>안녕하세요 ${sessionScope.loginInfo.member_nickName} 님
-				&nbsp;&nbsp;&nbsp;&nbsp;</div>
-			<form action="compList.go" method="post">
-				<button id="aaa" name="aaa" value="a">전체</button>
-				<button id="bbb" name="bbb" value="b">게시글</button>
-				<button id="ccc" name="ccc" value="ch">채팅</button>
-				<button id="ddd" name="ddd" value="cm">댓글</button>
-			</form>
 			<table>
 				<thead>
 					<tr>
-						<th><input type="checkbox" id="header-checkbox" /></th>
-						<th>번호</th>
-						<th>식별위치</th>
-						<th>식별번호</th>
+						<th style="width:5%"><input type="checkbox" id="header-checkbox" /></th>
+						<th style="width:8%">번호</th>
+						<th style="width:10%">식별위치</th>
+						<th style="width:8%">식별번호</th>
 						<th>제목</th>
-						<th>피신고자ID</th>
-						<th>신고접수일자</th>
-						<th>처리일자</th>
-						<th><form action="compList.go" method="post">
-								<select name="adad" id="adad">
-									<option value="0">처리상태</option>
-									<option value="1">미처리</option>
-									<option value="2">처리중</option>
-									<option value="3">처리완료</option>
-								</select> <input type="submit" value="선택">
-							</form></th>
+						<th style="width:10%">피신고자ID</th>
+						<th style="width:14%">신고접수일자</th>
+						<th style="width:12%">처리일자</th>
+						<th style="width:16%;">
+							<div style="display:flex;">
+								<form action="compList.go" method="post">
+									<select name="adad" id="adad" class="text">
+										<option value="0">처리상태</option>
+										<option value="1">미처리</option>
+										<option value="2">처리중</option>
+										<option value="3">처리완료</option>
+									</select> 
+									<input type="submit" value="선택">
+								</form>
+							</div>
+						</th>
 					</tr>
 				</thead>
 				<tbody id="list2">
 				</tbody>
 				<tr>
-					<td colspan="9 id="paging">
+					<td colspan="9" id="paging" style="border-bottom:none;">
 						<!-- 	플러그인 사용	(twbsPagination)	- 이렇게 사용하라고 tutorial 에서 제공-->
 						<div class="container">
+							<form action="proSuc.do" method="post" id="proSucForm">
+								<input type="hidden" name="selectedIds" id="selectedIds" value="">
+								<button type="submit" id="proSucButton" class="button-green">처리완료</button>
+							</form>
 							<nav aria-label="Page navigation" style="text-align: center">
 								<ul class="pagination" id="pagination"></ul>
 							</nav>
-							<form action="proSuc.do" method="post" id="proSucForm">
-								<input type="hidden" name="selectedIds" id="selectedIds" value="">
-								<button type="submit" id="proSucButton">처리완료</button>
-							</form>
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="9" style="text-align: center">
+					<td colspan="9" style="text-align: center; border:none;">
 						<div id="searchDIV">
-							<select id="searchType">
+							<select id="searchType" class="text">
 								<option value="comp_content">제목</option>
 								<option value="comp_reportIdx">피신고자 ID</option>
 								<option value="comp_idfNum">식별번호</option>
-							</select> <input type="text" id="searchKey" placeholder="검색어 입력">
-							<button id="compSearch">검색</button>
+							</select>
+							<input style="margin-left:8px;" class="text" type="text" id="searchKey" placeholder="검색어 입력">
+							<button style="width:3.625rem; margin-left:8px;" id="compSearch" class="button-green">검색</button>
 						</div>
 					</td>
 				</tr>
@@ -426,7 +382,7 @@ nav {
 						    + (item.comp_content.length > 10 ? item.comp_content.substring(0, 10) + '...' : item.comp_content)
 						    + '(' + getCompType(item.compType) + ')' + '</a>' + '</td>';
 						    content += '<td>' 
-						        + '<a href="sancHistory.go?comp_idx=' + item.comp_reportIdx + '" class="atag" >'
+						        + '<a href="./sancHistoryList.do?member_idx=' + item.comp_reportIdx + '" class="atag" >'
 						        + item.comp_reportIdx + '</a>' + '</td>';
 						var regDate = new Date(item.comp_receiveDate);
 						var formattedRegDate = regDate.getFullYear() + "-"

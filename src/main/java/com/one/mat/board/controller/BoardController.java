@@ -32,7 +32,7 @@ public class BoardController {
 			model.addAttribute("msg","로그인해주세요.");
 			page = "login";
 		}else {
-			page="list";
+			page="boardList";
 		}
 		return page;
 	}
@@ -88,7 +88,7 @@ public class BoardController {
 			page = "login";
 		}else {
 			service.detail(board_id,model);
-			page="detail";
+			page="boardDetail";
 		}
 		return page;
 	}

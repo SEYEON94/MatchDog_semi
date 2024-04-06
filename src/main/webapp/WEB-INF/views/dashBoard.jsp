@@ -18,151 +18,100 @@
 <!-- chart.js 라이브러리 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 <style>
-.banner{
-	width:1500px;
-	display:inline-block;
-	border-bottom: 1px solid var(--light);
-}
 
-.header{
-	display:flex;
-	width:1280px;
-	height:72px;
-	margin:0 110px;
-	align-items:center;
-}
-
-.logo{
-	position: relative;
-	width:241px;
-	height:70px;
-}
-
-.logo_matchDog{
-	position: absolute;
-	top:8px;
-	left:20px;
-	display:block;
-	width:auto;
-	height:44px;
-}
-.gnb{
-	position:relative;
-	top:2px;
-	left:860px;
-}
-.logout{
-	display: inline-block;
-	position: relative;
-	left: 24px;
-	width: 120px;
-	height: 32px;
-	padding: 4px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: #eceff1;
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-}
-.mainContainer{
-	display:flex;
-	width:1280px;
-	margin:0 110px;
-}
-.side{
-	width: 240px;
-	padding-left:14px;
-}
-
-.side .menu{
-	/* position: fixed; */
-	padding: 32px 20px 24px 0;
-}
-
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
-
-/* admin페이지 side bar 메뉴 아이콘 */
-.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
-.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
-	position:relative;
-	color: var(--black) ;
-	font-size: 22px;
-	margin-right:10px;
-}
-
-/* .btn_gnb.home, .btn_gnb.dash, .btn_gnb.user, 
-.btn_gnb.auth, .btn_gnb.comp, .btn_gnb.service
- */
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-reception-3, .btn_gnb.dash{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-gear-fill,
-/* .btn_gnb:hover bi-reception-3, */
-.btn_gnb:hover .bi-people-fill,
-.btn_gnb:hover .bi-person-gear,
-.btn_gnb:hover .bi-person-x-fill,
-.btn_gnb:hover .bi-door-open-fill {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-/* .btn_gnb.dash:hover, */
-.btn_gnb.user:hover,
-.btn_gnb.auth:hover,
-.btn_gnb.comp:hover,
-.btn_gnb.service:hover{
-	background-color: var(--light);
-}
-
-table, th, td{
-	border: 1px solid black;
-	border-collapse: collapse;
-	text-align: center;
-}
-
-.visitorStatistics{
-	display:block;
-	width:800px;
-	flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-family: pretendard;
-}
-
-.visitorGraph{
-	height : 250px;
-	width : 600px;
-}
-
-.subsStatistics{
-	margin-top:50px;
-	display:flex;
-	width:800px;
-	flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    font-family: pretendard;
-}
-
-.salesGraph{
-	height : 250px;
-	width : 250px;
-}
-
-.dataTable{
-	margin-left:60px;
-}
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	/* admin페이지 side bar 메뉴 아이콘 */
+	.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
+	.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
+		position:relative;
+		color: var(--black) ;
+		font-size: 22px;
+		margin-right:10px;
+	}
+	
+	/* .btn_gnb.home, .btn_gnb.dash, .btn_gnb.user, 
+	.btn_gnb.auth, .btn_gnb.comp, .btn_gnb.service
+	 */
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-reception-3, .btn_gnb.dash{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-gear-fill,
+	/* .btn_gnb:hover bi-reception-3, */
+	.btn_gnb:hover .bi-people-fill,
+	.btn_gnb:hover .bi-person-gear,
+	.btn_gnb:hover .bi-person-x-fill,
+	.btn_gnb:hover .bi-door-open-fill {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	/* .btn_gnb.dash:hover, */
+	.btn_gnb.user:hover,
+	.btn_gnb.auth:hover,
+	.btn_gnb.comp:hover,
+	.btn_gnb.service:hover{
+		background-color: var(--light);
+	}
+	
+	table, th, td{
+		border: 1px solid black;
+		border-collapse: collapse;
+		text-align: center;
+	}
+	
+	.visitorStatistics{
+		display:block;
+		width:800px;
+		flex-direction: row;
+	    align-items: center;
+	    justify-content: center;
+	    font-family: pretendard;
+	}
+	
+	.visitorGraph{
+		height : 250px;
+		width : 600px;
+	}
+	
+	.subsStatistics{
+		margin-top:50px;
+		display:flex;
+		width:800px;
+		flex-direction: row;
+	    font-family: pretendard;
+	}
+	
+	.salesGraph{
+		height : 250px;
+		width : 250px;
+	}
+	
+	.dataTable{
+		margin-left:60px;
+	}
+	
+	.content{
+		flex-direction: column;
+	}
+	
+	.text{
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	} 
 
 
 </style>
@@ -183,10 +132,6 @@ table, th, td{
 	<div class="mainContainer">
 		<div class="side">
 			<div class="menu">
-				<span class="btn_gnb admin">
-					<span class="bi bi-gear-fill"></span>
-					<span>관리자 페이지</span>
-				</span>
 		        <a href="./adminList.go" class="btn_gnb dash">
 		        	<span class="bi bi-reception-3"></span>
 					<span>DASH BOARD</span>
@@ -210,63 +155,67 @@ table, th, td{
 			</div>
 		</div>
 		<div class="content">		
-		<div id="alarmContent"></div>
-		<h2 style="font-family:pretendard">DASHBOARD</h2><hr/>
-			<div class="visitorStatistics">
-				<div class="noticeToday" style="font-size:medium; display: flex; align-content:center;">
-					<span id="today"></span>&nbsp;기준&nbsp;&nbsp;
-					<select id="selection" name="selection">
-						<option value="day">일</option>
-						<option value="week">주</option>
-					</select>
-					<span>별 방문자 통계</span>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;오늘 방문자 수 : &nbsp;<span id="todayCount"></span>
-					&nbsp;/&nbsp;전체 방문자 수 : &nbsp;<span id="totalCount"></span>
-				</div><p>
-				<div class="visitDataGraph">
-					<canvas id="visitorGraph" width="800px" height="250px"></canvas>
+			<div id="alarmContent"></div>
+			<div style="margin-left:3.125rem;">
+				<h2>DASHBOARD</h2>
+				<div class="visitorStatistics">
+					<div class="noticeToday" style="display: flex; align-items: center;">
+						<span id="today"></span>&nbsp;기준&nbsp;&nbsp;
+						<select id="selection" name="selection" class="text">
+							<option value="day">일</option>
+							<option value="week">주</option>
+						</select>
+						<span>&nbsp;별 방문자 통계</span>
+					</div>
+					<div style="margin:8px 0;">
+						<span>오늘 방문자 수 : &nbsp;<span id="todayCount"></span></span>
+						<span>&nbsp;/&nbsp;전체 방문자 수 : &nbsp;<span id="totalCount"></span></span>
+					</div>
+					<div class="visitDataGraph">
+						<canvas id="visitorGraph" width="800px" height="250px"></canvas>
+					</div>
 				</div>
-			</div>
-			<div class="subsStatistics">
-				<div class="dataGraph">
-					<canvas id="salesGraph" width="400px" height="250px"></canvas>
-				</div>
-				<div class="dataTable">
-					<table style="width: 300px; height: 200px;">
-						<tr>
-							<select id="month" name="month">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select>
-							<span>월 통계</span>
-						</tr>
-						<tr>
-							<th style="background-color: #FDF5E6;">현재 총 구독자수</th>
-							<td id="totalSubs"></td>
-						</tr>
-						<tr>
-							<th style="background-color: #FDF5E6;">총 매출액</th>
-							<td id="totalSales"></td>
-						</tr>
-						<tr>
-							<th style="background-color: #FDF5E6;">이달의 신규 구독자수</th>
-							<td id="monthlySubs"></td>
-						</tr>
-						<tr>
-							<th style="background-color: #FDF5E6;">이달의 매출액</th>
-							<td id="monthlySales"></td>
-						</tr>
-					</table>
+				<div class="subsStatistics">
+					<div class="dataGraph">
+						<canvas id="salesGraph" style="width:400px; height:250px; margin-top:20px;"></canvas>
+					</div>
+					<div class="dataTable">
+						<table style="width: 300px; height: 200px;">
+							<tr>
+								<select id="month" name="month" class="text" style="margin-bottom:8px;">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+								<span>&nbsp;월 통계</span>
+							</tr>
+							<tr>
+								<th style="background-color: #FDF5E6;">현재 총 구독자수</th>
+								<td id="totalSubs"></td>
+							</tr>
+							<tr>
+								<th style="background-color: #FDF5E6;">총 매출액</th>
+								<td id="totalSales"></td>
+							</tr>
+							<tr>
+								<th style="background-color: #FDF5E6;">이달의 신규 구독자수</th>
+								<td id="monthlySubs"></td>
+							</tr>
+							<tr>
+								<th style="background-color: #FDF5E6;">이달의 매출액</th>
+								<td id="monthlySales"></td>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

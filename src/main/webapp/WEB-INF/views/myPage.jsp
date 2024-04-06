@@ -16,177 +16,121 @@
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
 <!-- 페이징 처리를 위한 라이브러리 -->
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <jsp:include page="adminCheck.jsp" />
  <style>
  
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
-
-textarea{
-	resize: none;
-}
-
-.input_img {
-	display: none;
-}
-
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-person-circle, .btn_gnb.myPage, .btn_gnb.myPageInfo{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-house-door-fill,
-.btn_gnb:hover .bi-chat-dots-fill,
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-people-fill,
-/*.btn_gnb:hover .bi-person-circle,*/
-.btn_gnb:hover .bi-list-ul {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.match:hover,
-.btn_gnb.chatting:hover,
-.btn_gnb.board:hover,
-/*.btn_gnb.myPage:hover,*/
-.btn_gnb.admin:hover,
-/*.btn_gnb.myPageInfo:hover,*/
-.btn_gnb.myProfile:hover{
-	background-color: var(--light);
-} 
-
-
-
-.content {
-padding: 1.6rem;
-margin: 1.6rem;
-font-family:pretendard;
-}
-
-.close {
-	position: relative;
-	left: 330px;
-	top: 20px;
-	cursor: pointer;
-	font-size: 32px;
-	color:var(--grey);
-}
-
-.fileContent{
-	display:inline-block;
-}
-
-.write-link.attach{
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-
-.image-container{
-	display:inline-block;
-	width: 104px;
-	height: 120px;
-	border: 1px solid var(--light);
-	border-radius: 8px;
-	box-shadow: 0 0 4px 1px var(--light);
-	margin-left:10px;
-	margin-bottom:40px;
-}
-
-
-.imgtable .image-container img{
-	display:inline-block;
-	right:10px;
-	width: 104px;
-	height: 120px;
-	border-radius: 8px;
-    object-fit: cover;
-}
-
-
-
-
-/* 모달 스타일 */
-.modal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-	font-family:Pretendard;
-}
-
-.modal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	font-family:Pretendard;
-}
-
-
-.QuitModal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	font-family:Pretendard;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-}
-
-.QuitModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-family:Pretendard;
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-  .profile-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .profile-info p {
-    margin: 0;
-  }
-
-  .name-label {
-    flex: 1; /* 이름 레이블 영역이 가능한 최대 너비를 차지하도록 설정 */
-  }
-
-  .name-value {
-    flex: 2; /* 이름 값 영역이 가능한 최대 너비의 2배를 차지하도록 설정 */
-    text-align: left; /* 중앙 정렬 */
-  }
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-person-circle, .btn_gnb.myPage, .btn_gnb.myPageInfo{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-house-door-fill,
+	.btn_gnb:hover .bi-chat-dots-fill,
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-people-fill,
+	/*.btn_gnb:hover .bi-person-circle,*/
+	.btn_gnb:hover .bi-list-ul {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.match:hover,
+	.btn_gnb.chatting:hover,
+	.btn_gnb.board:hover,
+	/*.btn_gnb.myPage:hover,*/
+	.btn_gnb.admin:hover,
+	/*.btn_gnb.myPageInfo:hover,*/
+	.btn_gnb.myProfile:hover{
+		background-color: var(--light);
+	} 
+	
+	.content {
+    	width: 732px;
+		margin: 4.125rem 0 0 4.125rem;
+		font-family:pretendard;
+	}
+	
+	/* 모달 스타일 */
+	.modal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+		font-family:Pretendard;
+	}
+	
+	.modal-content {
+		position: absolute;
+		width:300px;
+		height:180px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		font-family:Pretendard;
+	}
+	
+	.QuitModal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		font-family:Pretendard;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+	}
+	
+	.QuitModal-content {
+		position: absolute;
+		width:300px;
+		height:180px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-family:Pretendard;
+		background-color: #fff;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+	
+	  .profile-info {
+	    display: flex;
+	    justify-content: space-between;
+	    margin-bottom: 20px;
+	  }
+	
+	  .profile-info p {
+	    margin: 0;
+	  }
+	
+	  .name-label {
+	    flex: 1; /* 이름 레이블 영역이 가능한 최대 너비를 차지하도록 설정 */
+	  }
+	
+	  .name-value {
+	    flex: 2; /* 이름 값 영역이 가능한 최대 너비의 2배를 차지하도록 설정 */
+	    text-align: left; /* 중앙 정렬 */
+	  }
   
      .button-gray {
         display: inline-block;
@@ -235,7 +179,7 @@ font-family:pretendard;
     justify-content: space-between;
     width: 100%;
     margin-top: 20px; /* 버튼과 텍스트 사이의 간격을 조절합니다. */
-}
+	}
 
 </style>
 </head>
@@ -308,9 +252,8 @@ font-family:pretendard;
 <input type="hidden" name = "${myPage.member_quit}" value = "${myPage.member_quit}"/>
 <c:if test="${myPage.member_quit != 'Y'}">
 
-<br></br>
-<div style="display: flex; justify-content: space-between;">
-  <h3 style="color : var(--green);">기본 정보</h3>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h2 style="color : var(--green);">기본 정보</h2>
   <span style="display: inline-block;">
     <input type="button" class="button-green" onclick="location.href='./myPageMod.go'" value="수정하기"/>
   </span>
@@ -462,10 +405,10 @@ font-family:pretendard;
 	<!-- 회원 탈퇴 모달창 -->
 	<div id="memberQuitDoModal" class="QuitModal" >
 		<div class="QuitModal-content" >
-			<h3>정말 탈퇴하시겠습니까?<br/>모든 정보가 삭제됩니다.</h3>
+			<h2 style="text-align: center;">정말 탈퇴하시겠습니까?<br/>모든 정보가 삭제됩니다.</h2>
 			<div class="button-container">
         <button id="QuitConfirmYes" class="button-gray" data-member_idx="${myPage.member_idx}">예</button>
-        <button id="QuitConfirmNo" class="button-green" >아니오</button>
+        <button id="QuitConfirmNo" class="button-green" style="margin-left:8px;">아니오</button>
         </div>
 		</div>
 	</div>
@@ -473,11 +416,10 @@ font-family:pretendard;
 	<!-- 구독 취소 모달창 -->
 	<div id="subsDeleteModal" class="modal" >
 		<div class="modal-content" >
-		
-			<h3>정말 취소하시겠습니까?<br/>모든 혜택이 사라집니다.</h3>
+			<h2 style="text-align: center;">정말 취소하시겠습니까?<br/>모든 혜택이 사라집니다.</h2>
         <div class="button-container">
         <button id="subsDeleteYes" class="button-gray" data-member_idx="${myPage.member_idx}">예</button>
-        <button id="subsDeleteNo" class="button-green" >아니오</button>
+        <button id="subsDeleteNo" class="button-green" style="margin-left:8px;">아니오</button>
 		</div>
 		</div>
 	</div>

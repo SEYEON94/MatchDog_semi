@@ -12,209 +12,277 @@
 <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<jsp:include page="adminCheck.jsp" />
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
 <!-- 페이징 처리를 위한 라이브러리 -->
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
+<jsp:include page="adminCheck.jsp" />
 <style>
 
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
-
-textarea{
-	resize: none;
-}
-
-.input_img {
-	display: none;
-}
-
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-person-circle, .btn_gnb.myPage{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-.myPageMenu .myProfile{
-	color: var(--white);
-    background-color: var(--green);
-}
-
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-house-door-fill,
-.btn_gnb:hover .bi-chat-dots-fill,
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-people-fill,
-/*.btn_gnb:hover .bi-person-circle,*/
-.btn_gnb:hover .bi-list-ul {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.match:hover,
-.btn_gnb.chatting:hover,
-.btn_gnb.board:hover,
-/*.btn_gnb.myPage:hover,*/
-.btn_gnb.admin:hover,
-/*.btn_gnb.myPageInfo:hover*/
-.btn_gnb.myProfile:hover{
-	background-color: var(--light);
-}
-
-
-.charModal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
-.charModal-content {
-	background-color: #fff;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 70%;
-}
-
-/*사진 모달창*/
-.photoModal {
-	display: inline-block;
-	width: 480px;
-	height: 720px;
-	border: 1px solid var(--light);
-	box-shadow: 0 0 8px 1px var(--light);
-	border-radius: 12px;
-    position: absolute; 
-    top:304px;
-    left:804px;
-    z-index: 1000;
-    background-color:var(--white);
-}
-
-.imgtable {
-	margin-top:60px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.close {
-	position: relative;
-	left: 330px;
-	top: 20px;
-	cursor: pointer;
-	font-size: 32px;
-	color:var(--grey);
-}
-
-.fileContent{
-	display:inline-block;
-}
-
-.write-link.attach{
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-plus-circle-fill {
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-dash-circle-fill {
-	display: none;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.image-container{
-	display:inline-block;
-	width: 104px;
-	height: 120px;
-	border: 1px solid var(--light);
-	border-radius: 8px;
-	box-shadow: 0 0 4px 1px var(--light);
-	margin-left:10px;
-	margin-bottom:40px;
-}
-
-
-.imgtable .image-container img{
-	display:inline-block;
-	right:10px;
-	width: 104px;
-	height: 120px;
-	border-radius: 8px;
-    object-fit: cover;
-}
-
-.photoTextSave{
-	display:inline-block;
-	position:relative;
-	top:22px;
-	left:32px;
-	font-size:24px;
-	font-family:Pretendard;
-	font-weight: 700;
-	text-align: center;
-	color:var(--green);
-	cursor:auto;
-}
-
-.photo_selected{
-	display: inline-block;
-	position: relative;
-	width: 200px;
-	height: 46px;
-	top:40px;
-	padding: 12px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: var(--green);
-	border-radius: 8px;
-	font-size:16px;
-	color:var(--white);
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-	cursor:pointer;
-}
-
-/* #randomColorTag {
-        padding: 6px 20px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 20px;
-/*         border: 1px solid #1abc9c; 
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	textarea{
+		resize: none;
+	}
+	
+	.input_img {
+		display: none;
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-person-circle, .btn_gnb.myPage{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	.myPageMenu .myProfile{
+		color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-house-door-fill,
+	.btn_gnb:hover .bi-chat-dots-fill,
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-people-fill,
+	/*.btn_gnb:hover .bi-person-circle,*/
+	.btn_gnb:hover .bi-list-ul {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.match:hover,
+	.btn_gnb.chatting:hover,
+	.btn_gnb.board:hover,
+	/*.btn_gnb.myPage:hover,*/
+	.btn_gnb.admin:hover,
+	/*.btn_gnb.myPageInfo:hover*/
+	.btn_gnb.myProfile:hover{
+		background-color: var(--light);
+	}
+	
+	.charModal {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+	}
+	
+	.charModal-content {
+		background-color: #fff;
+		margin: 8% auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		width:300px;
+		height:480px;
+	}
+	
+	/*사진 모달창*/
+	.photoModal {
+		display: inline-block;
+		width: 480px;
+		height: 720px;
+		border: 1px solid var(--light);
+		box-shadow: 0 0 8px 1px var(--light);
+		border-radius: 12px;
+	    position: absolute; 
+	    top:304px;
+	    left:804px;
+	    z-index: 1000;
+	    background-color:var(--white);
+	}
+	
+	.imgtable {
+		margin-top:60px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	.close {
+		position: relative;
+		left: 330px;
+		top: 20px;
+		cursor: pointer;
+		font-size: 32px;
+		color:var(--grey);
+	}
+	
+	.fileContent{
+		display:inline-block;
+	}
+	
+	.write-link.attach{
+		display: inline-block;
+		position:relative;
+		top:100px;
+		right:20px;
+		cursor: pointer;
+		color:var(--green);
+		font-size: 33px;
+	}
+	
+	.filebox .bi-plus-circle-fill {
+		display: inline-block;
+		position:relative;
+		top:100px;
+		right:20px;
+		cursor: pointer;
+		color:var(--green);
+		font-size: 33px;
+	}
+	
+	.filebox .bi-dash-circle-fill {
+		display: none;
+		position:relative;
+		top:100px;
+		right:20px;
+		cursor: pointer;
+		color:var(--green);
+		font-size: 33px;
+	}
+	
+	.image-container{
+		display:inline-block;
+		width: 104px;
+		height: 120px;
+		border: 1px solid var(--light);
+		border-radius: 8px;
+		box-shadow: 0 0 4px 1px var(--light);
+		margin-left:10px;
+		margin-bottom:40px;
+	}
+	
+	.imgtable .image-container img{
+		display:inline-block;
+		right:10px;
+		width: 104px;
+		height: 120px;
+		border-radius: 8px;
+	    object-fit: cover;
+	}
+	
+	.photoTextSave{
+		display:inline-block;
+		position:relative;
+		top:22px;
+		left:32px;
+		font-size:24px;
+		font-family:Pretendard;
+		font-weight: 700;
+		text-align: center;
+		color:var(--green);
+		cursor:auto;
+	}
+	
+	.photo_selected{
+		display: inline-block;
+		position: relative;
+		width: 200px;
+		height: 46px;
+		top:40px;
+		padding: 12px 15px 0 15px;
+		border: 1px solid var(--light);
+		background-color: var(--green);
+		border-radius: 8px;
+		font-size:16px;
+		color:var(--white);
+		font-family:Pretendard;
+		font-weight: 500;
+		text-align: center;
+		cursor:pointer;
+	}
+	 
+	 .content {
+    	width: 708px;
+	    margin: 6.25rem 0 0 4.125rem;
+	    padding: 34px;
+	    font-family: pretendard;
+	    border: 1px solid var(--light);
+		border-radius: 8px;
+		box-shadow: 0 0 8px 1px var(--light);
+	}
+	
+	.text{
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	} 
+	
+	.pro_dogDesc{
+		height: 6.125rem;
+		width:60%;
+	}
+	
+	.button-gray {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
     }
- */
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+    
+    .button-green {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	#randomColorTag {
+	    padding: 6px 12px;
+	    font-size: 16px;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #1abc9c;
+	    color: #ffffff;
+	    border-radius: 20px;
+	}
+	
+	.charModal-type{
+		display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+	}
 
 </style>
 </head>
@@ -263,7 +331,9 @@ textarea{
 		</div>
 		<div class="subSide">
 			<div class="my_profile_h3">${myPage.member_name} 님의 마이페이지</div>
-			<div><img src="/photo/${repPhotoName}" class="profilePhoto"/></div>
+			<div>
+				<img src="/photo/${repPhotoName}" class="profilePhoto"/>
+			</div>
 			<c:url value="/myPage" var="myPageUrl" />
 			<div class="myPageMenu">
 				<a href="./myPageList.do" class="btn_gnb myPageInfo">
@@ -275,157 +345,160 @@ textarea{
 		    </div>
 		</div>
 		
-		<div class="content">
 		<div id="alarmContent"></div>
+		<div class="content">
 
-
-			<span class="my_profile_h4" style="width: 100px;">${MyProfileMod.pro_dogName}</span>
+			<span class="my_profile_h4" style="width: 60px;">${MyProfileMod.pro_dogName}</span>
 			<span class="my_profile_h4 black">님의 프로필 페이지</span>
 			
 			<form id="form" action="myProfileModUpdate.do" method="post" enctype="multipart/form-data">
-			<!-- 		<input type="file" name="photos" multiple="multiple" value="사진 선택"> -->
-			<input type="hidden" name="pro_idx" value="${MyProfileMod.pro_idx}">
-					<c:set var="minPhotoId" value="9999" />
-						<c:set var="minFileName" value="" />
-							<c:forEach items="${MyProfileMod.photoList}" var="photo" varStatus="loop">
-			    				<c:if test="${photo.photo_id < minPhotoId}">
-			       		 			<c:set var="minPhotoId" value="${photo.photo_id}" />
-			       					<c:set var="minFileName" value="${photo.photo_fileName}" />
-									<div class="changePhoto"><img src="/photo/${photoName}" class="profilePhoto"/></div>
-			    				</c:if>
-							</c:forEach>
-							
+				<!-- 		<input type="file" name="photos" multiple="multiple" value="사진 선택"> -->
+				<input type="hidden" name="pro_idx" value="${MyProfileMod.pro_idx}">
+				<c:set var="minPhotoId" value="9999" />
+				<c:set var="minFileName" value="" />
+				<c:forEach items="${MyProfileMod.photoList}" var="photo" varStatus="loop">
+					<c:if test="${photo.photo_id < minPhotoId}">
+				   		<c:set var="minPhotoId" value="${photo.photo_id}" />
+				   		<c:set var="minFileName" value="${photo.photo_fileName}" />
+						<div class="changePhoto" style="margin-bottom: 1.625rem;">
+							<img src="/photo/${photoName}" class="profilePhoto"/>
+						</div>
+					</c:if>
+				</c:forEach>
 				
-							<!-- 사진 선택  -->
-							<div class="openPhotoModal">
-								<span class="openPhotoModalIcon bi bi-plus-circle-fill"></span>
+				<!-- 사진 선택  -->
+				<div class="openPhotoModal">
+					<span class="openPhotoModalIcon bi bi-plus-circle-fill"></span>
+				</div>
+				<!-- 사진 모달창 -->
+				<div class="photoModalPopUp">
+					<div class="photoModal">
+						<div class="photoModal-content">
+							<span class="photoTextSave">사진 등록</span>
+							<span class="close">&times;</span>
+							<div class="imgtable">
+								<c:forEach begin="1" end="9" var="i">
+								    <div id="imageContainer${i}" class="image-container"></div>
+								    <div class="filebox">
+								      <span class="fileContent">
+								        <label for="file${i}">
+								          <span class="bi bi-plus-circle-fill"></span>
+								        </label>
+								        <input type="file" class="input_img" id="file${i}" name="uploadFiles" data-index="${i}" accept="image/*" multiple>
+								      </span>
+								      <span class="bi bi-dash-circle-fill"></span>
+								    </div>
+									<input type="hidden" name="dataIndex" value="${i}" />
+								</c:forEach>
+								<input type="hidden" name="delPhotoName"/>
+								<span class="photo_selected">선택 완료</span>
 							</div>
-							<!-- 사진 모달창 -->
-							<div class="photoModalPopUp">
-
-								<div class="photoModal">
-									<div class="photoModal-content">
-										<span class="photoTextSave">사진 등록</span>
-										<span class="close">&times;</span>
-											<div class="imgtable">
-												
-												<c:forEach begin="1" end="9" var="i">
-												    <div id="imageContainer${i}" class="image-container"></div>
-												    <div class="filebox">
-												      <span class="fileContent">
-												        <label for="file${i}">
-												          <span class="bi bi-plus-circle-fill"></span>
-												        </label>
-												        <input type="file" class="input_img" id="file${i}" name="uploadFiles" data-index="${i}" accept="image/*" multiple>
-												      </span>
-												      <span class="bi bi-dash-circle-fill"></span>
-												    </div>
-												    <input type="hidden" name="dataIndex" value="${i}" />
-												  </c:forEach>
-												  <input type="hidden" name="delPhotoName"/>
-											
-											<span class="photo_selected">선택 완료</span>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							
-							
+						</div>
+					</div>
+				</div>
 			
-			
-							<div class="myProfileContent">
-							
-								<div class="dogName menu">
-									<div class="dog_text">내 강아지 이름</div>
-									<input type="text" name="pro_dogName" value="${MyProfileMod.pro_dogName}" />
+				<div class="myProfileContent">
+					
+					<div class="dogName menu">
+						<div class="dog_text">내 강아지 이름</div>
+						<input class="text" type="text" name="pro_dogName" value="${MyProfileMod.pro_dogName}" />
+					</div>
+					
+					<div class="dogBreed menu">
+						<div class="dog_text">내 강아지 견종</div>
+						<select name="breedType_code" class="text">
+						<c:forEach items="${breedTypeList}" var="breed">
+								<c:choose>
+									<c:when test="${MyProfileMod.breedType == breed.breedType}">
+										<option value="${MyProfileMod.breedType_code}" selected="selected">${MyProfileMod.breedType}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${breed.breedType_code}">${breed.breedType}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
+					</div>
+						
+					<div class="dogAge menu">
+						<div class="dog_text">내 강아지 나이</div>
+						<select name="pro_dogAge" class="text">
+							<c:forEach var="i" begin="0" end="30">
+								<c:choose>
+									<c:when test="${i == MyProfileMod.pro_dogAge}">
+										<option value="${i}" selected="selected">${i}</option>
+									</c:when>
+									<c:otherwise>
+										<option value="${i}">${i}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</select>
+					</div>
+					
+					<div class="dogGender menu">
+						<div class="dog_text">내 강아지 성별</div>
+						<select name="pro_dogGender" class="text">
+							<option value="남"
+									${MyProfileMod.pro_dogGender eq '남' ? 'selected' : ''}>남아</option>
+								<option value="여"
+									${MyProfileMod.pro_dogGender eq '여' ? 'selected' : ''}>여아</option>
+						</select>
+					</div>
+					
+					<div class="dogCharType menu">
+						<div class="dog_text">내 강아지 성향</div>
+						<div id="re_selectedCharTypes">
+					   		 <button class="button-green" type="button" id="openCharModal">선택하기</button>
+						</div>
+					</div>
+						
+					<div  class="dogCharType menu">
+						<div class="dog_text"> </div>
+						<div id="selectedCharTypes">
+							<c:forEach items="${MyProfileMod.charTypeList}" var="charType" varStatus="loop">
+								<span id="randomColorTag" class="charTag">${charType.charType}</span>
+								<input type="hidden" name="charTypeCodes" value="${charType.charType_code}" />
+								<c:if test="${!loop.last}">&nbsp;</c:if>
+					   		 </c:forEach>
+						</div>
+					</div>
+					
+					<div class="dogDesc menu" style="align-items: flex-start; margin-top:12px; height: 8.125rem;">
+						<div class="dog_text">내 강아지 소개</div>
+						<textarea class="pro_dogDesc text" name="pro_dogDesc" spellcheck="false">${MyProfileMod.pro_dogDesc}
+						</textarea>
+					</div>
+					
+					<div class="menu" style="justify-content: center;">
+					<button class="cancelEdit button-gray" type="button" onclick="location.href='./myProfileList.do'">수정 취소</button>
+					<button class="cancelComp button-green" type="button" style="margin-left:16px;">수정 완료</button>
+	            	</div>
+						
+				</div>
+	
+				<!-- 강아지 성향 팝업 -->
+				<div id="charModal" class="charModal">
+					<div class="charModal-content">
+						<span id="closeCharModal" style="float: right; cursor: pointer;">&times;</span>
+						<h3>내 강아지 성향을 선택해주세요</h3>
+						<div class="charModal-type">
+							<c:forEach items="${charTypeList}" var="charTypeList">
+								<div style="width: 120px; height:40px;">
+									<input 
+										type="checkbox" name="selectedCharTypesCode" 
+										value="${charTypeList.charType_code}" data-char-type="${charTypeList.charType}" 
+										charType_code="${charTypeList.charType_code}" />
+									<span>${charTypeList.charType}</span>
 								</div>
-								
-								<div class="dogBreed menu">
-									<div class="dog_text">내 강아지 견종</div>
-									<select name="breedType_code">
-									<c:forEach items="${breedTypeList}" var="breed">
-											<c:choose>
-												<c:when test="${MyProfileMod.breedType == breed.breedType}">
-													<option value="${MyProfileMod.breedType_code}" selected="selected">${MyProfileMod.breedType}</option>
-												</c:when>
-												<c:otherwise>
-													<option value="${breed.breedType_code}">${breed.breedType}</option>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-									</select>
-								</div>
-								
-								<div class="dogAge menu">
-									<div class="dog_text">내 강아지 나이</div>
-									<select name="pro_dogAge">
-										<c:forEach var="i" begin="0" end="30">
-											<c:choose>
-												<c:when test="${i == MyProfileMod.pro_dogAge}">
-													<option value="${i}" selected="selected">${i}</option>
-												</c:when>
-												<c:otherwise>
-													<option value="${i}">${i}</option>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-									</select>
-								</div>
-								
-								<div class="dogGender menu">
-									<div class="dog_text">내 강아지 성별</div>
-									<select name="pro_dogGender">
-										<option value="남"
-												${MyProfileMod.pro_dogGender eq '남' ? 'selected' : ''}>남아</option>
-											<option value="여"
-												${MyProfileMod.pro_dogGender eq '여' ? 'selected' : ''}>여아</option>
-									</select>
-								</div>
-								
-								<div class="dogCharType menu">
-									<div class="dog_text">내 강아지 성향</div>
-									<div id="re_selectedCharTypes">
-				   						 <button type="button" id="openCharModal">선택하기</button>
-									</div>
-								</div>
-								
-								<div  class="dogCharType menu">
-									<div class="dog_text"> </div>
-									<div id="selectedCharTypes">
-										<c:forEach items="${MyProfileMod.charTypeList}" var="charType" varStatus="loop">
-					        					<span id="randomColorTag" class="charTag">${charType.charType}</span>
-					        				<input type="hidden" name="charTypeCodes" value="${charType.charType_code}" />
-					        				<c:if test="${!loop.last}">&nbsp;&nbsp;</c:if>
-				   						 </c:forEach>
-									</div>
-								</div>
-								
-								<div class="dogDesc menu">
-									<div class="dog_text">내 강아지 소개</div>
-									<textarea class="pro_dogDesc" name="pro_dogDesc" spellcheck="false">${MyProfileMod.pro_dogDesc}</textarea>
-								</div>
-								
-							</div>
-
-							<!-- 강아지 성향 팝업 -->
-							<div id="charModal" class="charModal" >
-								<div class="charModal-content">
-									<span id="closeCharModal" style="float: right; cursor: pointer;">&times;</span>
-										내 강아지 성향을 선택해주세요
-									<c:forEach items="${charTypeList}" var="charTypeList">
-									<p>
-										<input type="checkbox" name="selectedCharTypesCode" value="${charTypeList.charType_code}" data-char-type="${charTypeList.charType}" charType_code="${charTypeList.charType_code}" />
-										${charTypeList.charType}
-									</p>
-									</c:forEach>
-								<button type="button" id="submitForm">선택 완료</button>
-								</div>
-							</div>
-
-							<button class="cancelEdit" type="button" onclick="location.href='./myProfileList.do'">수정 취소</button>
-					 		<button class="cancelComp" type="button">수정 완료</button>
-					 		
+							</c:forEach>
+						</div>
+						<div style="display:flex; justify-content: center;">
+							<button class="button-green" type="button" id="submitForm">선택 완료</button>
+						</div>
+					</div>
+				</div>
+	              
 			</form>
 		</div>
 	</div>
@@ -434,7 +507,7 @@ textarea{
 </body>
 <script>
 
-/* function getRandomColor() {
+ function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
@@ -450,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
     charTags.forEach(function(tag) {
         tag.style.backgroundColor = getRandomColor();
     });
-}); */
+});
 
 
 

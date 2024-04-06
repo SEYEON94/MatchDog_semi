@@ -11,128 +11,132 @@
 <!-- pretendard 폰트 -->
 <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<!-- bootstrap : 디자인을 위한 프레임워크 -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<!-- bootstrap : 디자인을 위한 프레임워크 -->
 <style>
-.banner{
-	width:1500px;
-	display:inline-block;
-	border-bottom: 1px solid var(--light);
-}
 
-.header{
-	display:flex;
-	width:1280px;
-	height:72px;
-	margin:0 110px;
-	align-items:center;
-}
-
-.logo{
-	position: relative;
-	width:241px;
-	height:70px;
-}
-
-.logo_matchDog{
-	position: absolute;
-	top:8px;
-	left:20px;
-	display:block;
-	width:auto;
-	height:44px;
-}
-.gnb{
-	position:relative;
-	top:2px;
-	left:860px;
-}
-.logout{
-	display: inline-block;
-	position: relative;
-	left: 24px;
-	width: 120px;
-	height: 32px;
-	padding: 4px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: #eceff1;
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-}
-.mainContainer{
-	display:flex;
-	width:1280px;
-	margin:0 110px;
-}
-.side{
-	width: 240px;
-	padding-left:14px;
-}
-
-.side .menu{
-	/* position: fixed; */
-	padding: 32px 20px 24px 0;
-}
-
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
-
-
-/* admin페이지 side bar 메뉴 아이콘 */
-.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
-.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
-	position:relative;
-	color: var(--black) ;
-	font-size: 22px;
-	margin-right:10px;
-}
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-people-fill, .btn_gnb.user{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-reception-3,
-/* .btn_gnb:hover .bi-people-fill, */
-.btn_gnb:hover .bi-person-gear,
-.btn_gnb:hover .bi-person-x-fill,
-.btn_gnb:hover .bi-door-open-fill {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.dash:hover,
-/* .btn_gnb.user:hover, */
-.btn_gnb.auth:hover,
-.btn_gnb.comp:hover,
-.btn_gnb.service:hover{
-	background-color: var(--light);
-}
-
-table{
-	width :950px;
-	height : 450px;
-	border: 1px solid black;
-	border-collapse: collapse;	
-	table-layout: fixed;
-	font-size: 14px;
-	font-family:pretendard;
-}
-th,td{
-	border : 1px solid black;
-	text-align : center;
-	padding : 5px 7px;
-	font-family:pretendard;
-}
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	/* admin페이지 side bar 메뉴 아이콘 */
+	.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
+	.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
+		position:relative;
+		color: var(--black) ;
+		font-size: 22px;
+		margin-right:10px;
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-people-fill, .btn_gnb.user{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-reception-3,
+	/* .btn_gnb:hover .bi-people-fill, */
+	.btn_gnb:hover .bi-person-gear,
+	.btn_gnb:hover .bi-person-x-fill,
+	.btn_gnb:hover .bi-door-open-fill {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.dash:hover,
+	/* .btn_gnb.user:hover, */
+	.btn_gnb.auth:hover,
+	.btn_gnb.comp:hover,
+	.btn_gnb.service:hover{
+		background-color: var(--light);
+	}
+	
+	table{
+		width :100%;
+		border-collapse: collapse;	
+		table-layout: fixed;
+	}
+	
+	th,td{
+		border: 1px solid var(--grey);
+		border-collapse: collapse;
+		padding: 16px 8px;
+		text-align:center;
+		font-size:16px;
+	}
+	
+	th{
+		background-color:#eceff1;
+	}
+	
+	.content{
+		padding: 40px 0 40px 60px;
+	}
+	
+	.button-gray {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+		margin:4px;
+    }
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+	
+	.button-green {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+		margin:4px;
+    }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	.text{
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	}
+	
+	.button{
+		display:flex;
+		margin-top:2.125rem;
+		justify-content: center;
+	}
+	
+	
 
 </style>
 </head>
@@ -152,10 +156,6 @@ th,td{
 	<div class="mainContainer">
 		<div class="side">
 			<div class="menu">
-				<span class="btn_gnb home">
-					<span class="bi bi-gear-fill"></span>
-					<span>관리자 페이지</span>
-				</span>
 		        <a href="./adminList.go" class="btn_gnb dash">
 		        	<span class="bi bi-reception-3"></span>
 					<span>DASH BOARD</span>
@@ -182,68 +182,68 @@ th,td{
 		<div id="alarmContent"></div>
 			<form action="memberDetail" method="get">
 			<input type="hidden" name="member_idx" value="${dto.member_idx}"/>
-			<h2 style="font-family:pretendard">회원상세보기</h2><hr/>
+			<h2>회원상세보기</h2>
 			<table>
 				<tr>
-					<th style="background-color: #FDF5E6;">회원번호</th>
+					<th>회원번호</th>
 					<td>${dto.member_idx}</td>
-					<th style="background-color: #FDF5E6;">아이디</th>
+					<th>아이디</th>
 					<td>${dto.member_id}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">이름</th>
+					<th>이름</th>
 					<td>${dto.member_name}</td>
-					<th style="background-color: #FDF5E6;">닉네임</th>
+					<th>닉네임</th>
 					<td>${dto.member_nickName}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">이메일</th>
+					<th>이메일</th>
 					<td>${dto.member_email}</td>
-					<th style="background-color: #FDF5E6;">전화번호</th>
+					<th>전화번호</th>
 					<td>${dto.member_phone}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">지번주소</th>
+					<th>지번주소</th>
 					<td>${dto.member_parcelAddr}</td>
-					<th style="background-color: #FDF5E6;">도로명주소</th>
+					<th>도로명주소</th>
 					<td>${dto.member_roadAddr}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">동주소</th>
+					<th>동주소</th>
 					<td>${dto.member_dongAddr}</td>
-					<th style="background-color: #FDF5E6;">생년월일</th>
+					<th>생년월일</th>
 					<td>${dto.member_birth}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">성별</th>
+					<th>성별</th>
 					<td>${dto.member_gender}</td>
-					<th style="background-color: #FDF5E6;">가입일</th>
+					<th>가입일</th>
 					<td>${dto.member_regDate}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">구독여부</th>
+					<th>구독여부</th>
 					<td>${dto.member_subs}</td>
-					<th style="background-color: #FDF5E6;">구독연장여부</th>
+					<th>구독연장여부</th>
 					<td>${dto.member_renew}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">구독시작일자</th>
+					<th>구독시작일자</th>
 					<td>${dto.subsHistory_start}</td>
-					<th style="background-color: #FDF5E6;">구독만료일자</th>
+					<th>구독만료일자</th>
 					<td>${dto.subsHistory_exp}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">구독등급</th>
+					<th>구독등급</th>
 					<td>${dto.subsType_code}</td>
-					<th style="background-color: #FDF5E6;">탈퇴여부</th>
+					<th>탈퇴여부</th>
 					<td>${dto.member_quit}</td>
 				</tr>
 				<tr>
-					<th style="background-color: #FDF5E6;">제재여부</th>
+					<th>제재여부</th>
 					<td>${dto.member_loginLock}</td>
-					<th style="background-color: #FDF5E6;">권한수정</th>
+					<th>권한수정</th>
 					<td>
-						<select id="subsType_code" name="subsType_code">
+						<select id="subsType_code" name="subsType_code" class="text">
 							<option value="1">일반회원</option>
 							<option value="2">플러스</option>
 							<option value="3">프리미엄</option>
@@ -251,15 +251,13 @@ th,td{
 						</select>
 					</td>
 				</tr>	
-				<tr>
-					<th colspan="4">
-						<input type="button" onclick="location.href='./memberList.go'" value="회원목록으로"/>
-						<input type="button" onclick="location.href='./subsHistory.do?member_idx=${dto.member_idx}'" value="구독이력보기"/>
-						<input type="button" onclick="location.href='./sancHistoryList.do?member_idx=${dto.member_idx}'" value="제재이력보기"/>
-						<input type="button" name="memberAuthMod" value="저장하기"/>
-					</th>	
-				</tr>
 			</table>			
+			<div class="button">
+				<input class="button-gray" type="button" onclick="location.href='./memberList.go'" value="회원목록으로"/>
+				<input class="button-gray" type="button" onclick="location.href='./subsHistory.do?member_idx=${dto.member_idx}'" value="구독이력보기"/>
+				<input class="button-gray" type="button" onclick="location.href='./sancHistoryList.do?member_idx=${dto.member_idx}'" value="제재이력보기"/>
+				<input class="button-green" type="button" name="memberAuthMod" value="저장하기"/>
+			</div>
 			</form>
 		</div>
 	</div>	

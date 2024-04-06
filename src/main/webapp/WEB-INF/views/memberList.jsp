@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <!-- pretendard 폰트 -->
 <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
-<!-- bootstrap : 디자인을 위한 프레임워크 -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
@@ -35,139 +33,123 @@
     .pagination > li > span {
         color: black;
     }
-.banner{
-	width:1500px;
-	display:inline-block;
-	border-bottom: 1px solid var(--light);
-}
-
-.header{
-	display:flex;
-	width:1280px;
-	height:72px;
-	margin:0 110px;
-	align-items:center;
-}
-
-.logo{
-	position: relative;
-	width:241px;
-	height:70px;
-}
-
-.logo_matchDog{
-	position: absolute;
-	top:8px;
-	left:20px;
-	display:block;
-	width:auto;
-	height:44px;
-}
-.gnb{
-	position:relative;
-	top:2px;
-	left:860px;
-}
-.logout{
-	display: inline-block;
-	position: relative;
-	left: 24px;
-	width: 120px;
-	height: 32px;
-	padding: 4px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: #eceff1;
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-}
-.mainContainer{
-	display:flex;
-	width:1280px;
-	margin:0 110px;
-}
-.side{
-	width: 240px;
-	padding-left:14px;
-}
-
-.side .menu{
-	/* position: fixed; */
-	padding: 32px 20px 24px 0;
-}
 	
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	/* admin페이지 side bar 메뉴 아이콘 */
+	.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
+	.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
+		position:relative;
+		color: var(--black) ;
+		font-size: 22px;
+		margin-right:10px;
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-people-fill, .btn_gnb.user{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-reception-3,
+	/* .btn_gnb:hover .bi-people-fill, */
+	.btn_gnb:hover .bi-person-gear,
+	.btn_gnb:hover .bi-person-x-fill,
+	.btn_gnb:hover .bi-door-open-fill {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.dash:hover,
+	/* .btn_gnb.user:hover, */
+	.btn_gnb.auth:hover,
+	.btn_gnb.comp:hover,
+	.btn_gnb.service:hover{
+		background-color: var(--light);
+	}
+	
+	th, td{
+		border: 1px solid var(--light);
+		border-collapse: collapse;
+		padding: 12px 8px;
+		text-align:center;
+		color:var(--dark);
+		border-left: none;
+    	border-right: none;
+	}
 
-/* admin페이지 side bar 메뉴 아이콘 */
-.bi-gear-fill, .bi-reception-3,  .bi-people-fill, 
-.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
-	position:relative;
-	color: var(--black) ;
-	font-size: 22px;
-	margin-right:10px;
-}
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-people-fill, .btn_gnb.user{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-reception-3,
-/* .btn_gnb:hover .bi-people-fill, */
-.btn_gnb:hover .bi-person-gear,
-.btn_gnb:hover .bi-person-x-fill,
-.btn_gnb:hover .bi-door-open-fill {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.dash:hover,
-/* .btn_gnb.user:hover, */
-.btn_gnb.auth:hover,
-.btn_gnb.comp:hover,
-.btn_gnb.service:hover{
-	background-color: var(--light);
-}
-
-table{
-	width :950px;
-	border: 1px solid black;
-	border-collapse: collapse;	
-	table-layout: fixed;
-	font-size: 14px;
-	font-family:pretendard;
-}
-th,td{
-	border : 1px solid black;
-	text-align : center;
-	padding : 5px 7px;
-	font-family:pretendard;
-}
-th{
-	background-color: #bebebe;
-}
-#search{
-padding: 5px 10px;
-font-size: 12px;
-text-align: center;
-text-decoration: none;
-background-color: #1abc9c;
-color: #ffffff;
-border-radius: 5px;
-cursor: pointer;
-border: none;
-}
-a.highlight-link:hover {
-        color: #1abc9c; /* 마우스 오버 시 링크 색상 */
+	.button-green {
+        display: inline-block;
+		position: relative;
+		width:3.625rem;
+		height: 2.125rem;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
     }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	a.highlight-link:hover {
+	        color: #1abc9c; /* 마우스 오버 시 링크 색상 */
+	}
+	
+	.content{
+		flex-direction: column;
+		padding: 40px 0 40px 60px;
+	}
+	
+	.totalMemberCount{
+    	display:flex;
+    	justify-content: space-between;
+    	height: 3.125rem;
+    	align-items: center;
+    }
+    
+    .text{
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	}
+	
+	#totalUser{
+		font-weight:600;
+		font-size:20px;
+		color:var(--green);
+	}
+	
+	.memberList{
+		border-collapse: collapse;
+	    border-spacing: 0;
+	    width: 100%;
+	}
+	
+	#searchDIV{
+		display:flex;
+		justify-content: center;
+		height: 4.625rem;
+	}
+	
+	    
+	    
     
 </style>
 </head>
@@ -187,10 +169,6 @@ a.highlight-link:hover {
 	<div class="mainContainer">
 		<div class="side">
 			<div class="menu">
-				<span class="btn_gnb home">
-					<span class="bi bi-gear-fill"></span>
-					<span>관리자 페이지</span>
-				</span>
 		        <a href="./adminList.go" class="btn_gnb dash">
 		        	<span class="bi bi-reception-3"></span>
 					<span>DASH BOARD</span>
@@ -214,29 +192,31 @@ a.highlight-link:hover {
 			</div>
 		</div>
 		<div class="content">
-		<div id="alarmContent"></div>
-		<h2 style="font-family:pretendard">매칭해주개 회원 리스트</h2><hr/>
-			<span style="font-size: medium; font-weight: bold;">총 회원 수&nbsp;<span id="totalUser"></span>&nbsp;명</span>
-			<select id="pagePerNum" style="float: right;">
-				<option value="10">10</option>
-				<option value="15">15</option>
-				<option value="20">20</option>
-			</select>
+			<div id="alarmContent"></div>
+			<h2>매칭해주개 회원 리스트</h2><hr/>
+			<div class="totalMemberCount">
+				<span>총 회원 수&nbsp;&nbsp;<span id="totalUser"></span>&nbsp;명</span>
+				<select id="pagePerNum" class="text">
+					<option value="10">10개씩</option>
+					<option value="15">15개씩</option>
+					<option value="20">20개씩</option>
+				</select>
+			</div>
 			<div class="listTable">
-				<table>
+				<table class="memberList">
 					<thead>
 						<tr>
-							<th style="width: 60px;">번호</th>			
-							<th style="width: 90px;">아이디</th>
-							<th style="width: 90px;">이름</th>
-							<th style="width: 120px;">전화번호</th>
-							<th style="width: 180px;">이메일</th>
-							<th>거주지(동)</th>
-							<th style="width: 75px;">구독여부</th>
-							<th style="width: 75px;">구독연장</th>
-							<th style="width: 75px;">제재여부</th>
-							<th style="width: 85px;">
-								<select id="subsType" name="subsType">
+							<th style="width: 7%;">번호</th>			
+							<th style="width: 10%;">아이디</th>
+							<th style="width: 10%;">이름</th>
+							<th style="width: 15%;">전화번호</th>
+							<th>이메일</th>
+							<th style="width: 10%;">거주지(동)</th>
+							<th style="width: 5%;">구독여부</th>
+							<th style="width: 5%;">구독연장</th>
+							<th style="width: 5%;">제재여부</th>
+							<th style="width: 10%;">
+								<select id="subsType" name="subsType" class="text">
 									<option value="all" selected="selected">구독등급</option>
 									<option value="standard">일반회원</option>
 									<option value="plus">플러스</option>
@@ -249,7 +229,7 @@ a.highlight-link:hover {
 					<tbody id="list">		
 					</tbody>
 					<tr>
-						<td colspan="10" id="paging" style="padding-bottom: 30px; padding-top: 15px;"> 	
+						<td colspan="10" id="paging" style="padding-bottom: 30px; padding-top: 15px; border-bottom:none;"> 	
 							<!-- 	플러그인 사용	(twbsPagination)	- 이렇게 사용하라고 tutorial 에서 제공-->
 							<div class="container">									
 								<nav aria-label="Page navigation">
@@ -257,13 +237,13 @@ a.highlight-link:hover {
 								</nav>					
 							</div><p><br>
 							<div id="searchDIV">
-								<select id="searchType" name="searchType">
+								<select id="searchType" class="text" name="searchType">
 									<option value="member_id">아이디</option>
 									<option value="member_name">이름</option>
 									<option value="member_dongAddr">거주지(동)</option>
 								</select>
-								 <input type="text" id="searchKeyword" name="searchKeyword" placeholder="검색어 입력">
-				  				 <button id="search">검색</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input style="margin-left:8px;" type="text" class="text" id="searchKeyword" name="searchKeyword" placeholder="검색어 입력">
+				  				<button style="margin-left:8px;" id="search" class="button-green">검색</button>
 			  				 </div>
 						</td>
 					</tr>							

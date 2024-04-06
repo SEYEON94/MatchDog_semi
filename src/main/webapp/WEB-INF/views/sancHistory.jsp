@@ -110,10 +110,6 @@ a, a:link, a:visited, a:active, a:hover {
 	<div class="mainContainer">
 		<div class="side">
 			<div class="menu">
-				<span class="btn_gnb home">
-					<span class="bi bi-gear-fill"></span>
-					<span>관리자 페이지</span>
-				</span>
 		        <a href="./adminList.go" class="btn_gnb dash">
 		        	<span class="bi bi-reception-3"></span>
 					<span>DASH BOARD</span>

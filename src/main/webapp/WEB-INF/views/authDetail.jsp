@@ -9,165 +9,128 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <!-- pretendard 폰트 -->
 <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
-<!-- bootstrap : 디자인을 위한 프레임워크 -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
 <!-- 페이징 처리를 위한 라이브러리 -->
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <style>
-.banner{
-	width:1500px;
-	display:inline-block;
-	border-bottom: 1px solid var(--light);
-}
 
-.header{
-	display:flex;
-	width:1280px;
-	height:72px;
-	margin:0 110px;
-	align-items:center;
-}
-
-.logo{
-	position: relative;
-	width:241px;
-	height:70px;
-}
-
-.logo_matchDog{
-	position: absolute;
-	top:8px;
-	left:20px;
-	display:block;
-	width:auto;
-	height:44px;
-}
-.gnb{
-	position:relative;
-	top:2px;
-	left:860px;
-}
-.logout{
-	display: inline-block;
-	position: relative;
-	left: 24px;
-	width: 120px;
-	height: 32px;
-	padding: 4px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: #eceff1;
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-}
-.mainContainer{
-	display:flex;
-	width:1280px;
-	margin:0 110px;
-}
-.side{
-	width: 240px;
-	padding-left:14px;
-}
-
-.side .menu{
-	/* position: fixed; */
-	padding: 32px 20px 24px 0;
-}
-
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
-
-
-/* admin페이지 side bar 메뉴 아이콘 */
-.bi-gear-fill, .bi-reception-3, .bi-people-fill, 
-.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
-	position:relative;
-	color: var(--black) ;
-	font-size: 22px;
-	margin-right:10px;
-}
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-person-gear, .btn_gnb.auth{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-reception-3,
-.btn_gnb:hover .bi-people-fill,
-/* .btn_gnb:hover .bi-person-gear, */
-.btn_gnb:hover .bi-person-x-fill,
-.btn_gnb:hover .bi-door-open-fill {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.dash:hover,
-.btn_gnb.user:hover,
-/* .btn_gnb.auth:hover, */
-.btn_gnb.comp:hover,
-.btn_gnb.service:hover{
-	background-color: var(--light);
-}
-table {
-        width: 700px; /* 테이블 전체 너비 설정 */
-        margin: 0 auto; /* 가운데 정렬을 위한 마진 설정 */
-        /* 다른 스타일링 속성들 추가 가능 */
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	
+	/* admin페이지 side bar 메뉴 아이콘 */
+	.bi-gear-fill, .bi-reception-3, .bi-people-fill, 
+	.bi-person-gear, .bi-person-x-fill, .bi-door-open-fill {
+		position:relative;
+		color: var(--black) ;
+		font-size: 22px;
+		margin-right:10px;
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-person-gear, .btn_gnb.auth{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-reception-3,
+	.btn_gnb:hover .bi-people-fill,
+	/* .btn_gnb:hover .bi-person-gear, */
+	.btn_gnb:hover .bi-person-x-fill,
+	.btn_gnb:hover .bi-door-open-fill {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.dash:hover,
+	.btn_gnb.user:hover,
+	/* .btn_gnb.auth:hover, */
+	.btn_gnb.comp:hover,
+	.btn_gnb.service:hover{
+		background-color: var(--light);
+	}
+	
+	table{
+		width:80%;
+		margin:0 auto;
+		border-collapse: collapse;	
+		table-layout: fixed;
+	}
+	
+	th,td{
+		border: 1px solid var(--grey);
+		border-collapse: collapse;
+		padding: 16px 8px;
+		text-align:center;
+		font-size:16px;
+	}
+		
+	.mainContainer{
+		height:100%;
+	}
+	
+	.content{
+		flex-direction: column;
+		padding: 40px 0 40px 60px;
+		justify-content: flex-start;
+	}
+	
+	.button-green {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
     }
-table,th,td{
-	border: 1px solid #aaa;
-	border-collapse: collapse;
-	padding: 0.6rem;
-	margin :6rem;
-	font-family:pretendard;
-}
-td, th {
-  padding: 0.6rem;
-  min-width: 10rem;
-  text-align: left;
-  margin: 0
-}
-th:first-child, td:first-child {
-        width: 20%; /* 첫 번째 열 너비 설정 */
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	.button-gray {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
     }
-
-.button-container {
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+	
+	.button-container {
         display: flex;
         justify-content: space-between;
+        width:100%;
+		margin:16px auto;
     }
 
-    .button-gray {
-        padding: 10px 20px;
-        font-size: 13px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #808080;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #808080;
-        cursor: pointer;
-    }
-    .button-green {
-        padding: 10px 20px;
-        font-size: 13px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #1abc9c;
-        cursor: pointer;
-    }
 
 
 </style>
@@ -188,10 +151,6 @@ th:first-child, td:first-child {
 	<div class="mainContainer">
 		<div class="side">
 			<div class="menu">
-				<span class="btn_gnb home">
-					<span class="bi bi-gear-fill"></span>
-					<span>관리자 페이지</span>
-				</span>
 		        <a href="./adminList.go" class="btn_gnb dash">
 		        	<span class="bi bi-reception-3"></span>
 					<span>DASH BOARD</span>
@@ -235,9 +194,9 @@ th:first-child, td:first-child {
 			</table>
 			<input type="hidden" value="${authDetail.subsType_code}"/>
 			<div class="button-container">
-    <a href="./authList.do" class="button-gray">뒤로가기</a>
-    <a href="./authDetailMod.go?subsType_Code=${authDetail.subsType_code}" class="button-green">수정하기</a>
-</div>
+				<input class="button-gray" type="button" onclick="location.href='./authList.do'" value="뒤로가기"/>
+				<input class="button-green" type="button" onclick="location.href='./authDetailMod.go?subsType_Code=${authDetail.subsType_code}'" value="수정하기"/>
+			</div>
 		</div>
 	</div>
 </div>

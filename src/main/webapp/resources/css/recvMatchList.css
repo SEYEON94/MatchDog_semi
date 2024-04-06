@@ -17,6 +17,10 @@
   --darkGreen: #11a688;
 }
 
+a {
+        color: inherit;
+        text-decoration: none;
+}
 
 span{
 	text-decoration: none;

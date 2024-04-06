@@ -42,7 +42,7 @@ a, a:link, a:visited, a:active, a:hover {
 .btn_gnb:hover .bi-chat-dots-fill,
 .btn_gnb:hover .bi-gear-fill,
 .btn_gnb:hover .bi-people-fill,
-.btn_gnb:hover .bi-person-circle,
+.btn_gnb:hover .bi-person-circle
 /* .btn_gnb:hover .bi-list-ul */ {
     background-color: var(--light);
 }

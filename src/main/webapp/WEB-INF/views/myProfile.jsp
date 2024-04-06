@@ -17,470 +17,311 @@
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <jsp:include page="adminCheck.jsp" />
 <style>
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-person-circle, .btn_gnb.myPage{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-house-door-fill,
+	.btn_gnb:hover .bi-chat-dots-fill,
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-people-fill,
+	/*.btn_gnb:hover .bi-person-circle,*/
+	.btn_gnb:hover .bi-list-ul {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.match:hover,
+	.btn_gnb.chatting:hover,
+	.btn_gnb.board:hover,
+	/*.btn_gnb.myPage:hover,*/
+	.btn_gnb.admin:hover,
+	.btn_gnb.myPageInfo:hover{
+		background-color: var(--light);
+	}
+	
+	.myPageMenu .myProfile{
+		color: var(--white);
+	    background-color: var(--green);
+	}
 
+	.my_profile_h4{
+		width: 60px;
+	}
 
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
+	.dog_text.size{
+		width: 50px;
+	}
+	
+	.dogDesc.menu{
+		display:flex;
+		align-items: flex-start;
+	}
+	
+	.dog_text.desc{
+		margin-top:10px;
+	}
+	
+	.dog_text.desc.i{
+		width:260px;
+	}
+	
 
-textarea{
-	resize: none;
-}
-
-.input_img {
-	display: none;
-}
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-person-circle, .btn_gnb.myPage{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-house-door-fill,
-.btn_gnb:hover .bi-chat-dots-fill,
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-people-fill,
-/*.btn_gnb:hover .bi-person-circle,*/
-.btn_gnb:hover .bi-list-ul {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.match:hover,
-.btn_gnb.chatting:hover,
-.btn_gnb.board:hover,
-/*.btn_gnb.myPage:hover,*/
-.btn_gnb.admin:hover,
-.btn_gnb.myPageInfo:hover{
-	background-color: var(--light);
-}
-
-.myPageMenu .myProfile{
-	color: var(--white);
-    background-color: var(--green);
-}
-
-.charModal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
-.charModal-content {
-	background-color: #fff;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 70%;
-}
-
-/*사진 모달창*/
-.photoModal {
-	display: inline-block;
-	width: 480px;
-	height: 720px;
-	border: 1px solid var(--light);
-	box-shadow: 0 0 8px 1px var(--light);
-	border-radius: 12px;
-    position: absolute; 
-    top:304px;
-    left:804px;
-    z-index: 1000;
-    background-color:var(--white);
-}
-
-.imgtable {
-	margin-top:60px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.close {
-	position: relative;
-	left: 330px;
-	top: 20px;
-	cursor: pointer;
-	font-size: 32px;
-	color:var(--grey);
-}
-
-.fileContent{
-	display:inline-block;
-}
-
-.write-link.attach{
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-plus-circle-fill {
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-dash-circle-fill {
-	display: none;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.image-container{
-	display:inline-block;
-	width: 104px;
-	height: 120px;
-	border: 1px solid var(--light);
-	border-radius: 8px;
-	box-shadow: 0 0 4px 1px var(--light);
-	margin-left:10px;
-	margin-bottom:40px;
-}
-
-
-.imgtable .image-container img{
-	display:inline-block;
-	right:10px;
-	width: 104px;
-	height: 120px;
-	border-radius: 8px;
-    object-fit: cover;
-}
-
-.photoTextSave{
-	display:inline-block;
-	position:relative;
-	top:22px;
-	left:32px;
-	font-size:24px;
-	font-family:Pretendard;
-	font-weight: 700;
-	text-align: center;
-	color:var(--green);
-	cursor:auto;
-}
-
-.photo_selected{
-	display: inline-block;
-	position: relative;
-	width: 200px;
-	height: 46px;
-	top:40px;
-	padding: 12px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: var(--green);
-	border-radius: 8px;
-	font-size:16px;
-	color:var(--white);
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-	cursor:pointer;
-}
-
-.my_profile_h4{
-	width: 60px;
-}
-
-.cancelComp{
-	margin-top:60px;
-}
-
-.profilePhoto{
-	margin-bottom : 40px;
-}
-
-.repProfileOne{
-	margin-left:20px;
-	display: inline-block;
-	position: relative;
-	width: 120px;
-	height: 32px;
-	padding: 5px 15px;
-	border: 1px solid var(--light);
-	background-color: #DAA520;
-	color:var(--white);
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-	cursor:pointer;
-}
-
-.repProfile{
-	margin-left:20px;
-	display: inline-block;
-	position: relative;
-	width: 120px;
-	height: 32px;
-	padding: 5px 15px;
-	border: 1px solid var(--light);
-	background-color: var(--green);
-	color:var(--white);
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-	cursor:pointer;
-}
-
-.dog_text.size{
-	width: 50px;
-}
-
-.dogDesc.menu{
-	display:flex;
-	align-items: flex-start;
-}
-
-.dog_text.desc{
-	margin-top:10px;
-}
-
-.dog_text.desc.i{
-	width:260px;
-}
-
-
-
-
-
-
-
-/* 대표프로필 모달 */
-.RepdoModal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-}
-
-.RepdoModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* 프로필 생성 모달 */
-.regProfileGoModal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-}
-
-.regProfileGoModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* 프로필 삭제 모달 */
-.profileDelDoModal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-}
-
-.profileDelDoModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-
-
-<textarea style ="resize: both ;"> </textarea>
-
-/* 닫기 버튼 스타일 */
-/*  .close {
-            color: #888;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        } */
-.close:hover {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.switch {
-	position: relative;
-	display: inline-block;
-	width: 60px;
-	height: 34px;
-	vertical-align: middle;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-	display: none;
-}
-
-/* The slider */
-.slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-.slider:before {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-input:checked+.slider {
-	background-color: var(--green);
-}
-
-input:focus+.slider {
-	box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-	-webkit-transform: translateX(26px);
-	-ms-transform: translateX(26px);
-	transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-	border-radius: 34px;
-}
-
-.slider.round:before {
-	border-radius: 50%;
-}
-
-
-/*슬라이드 */
-
-#randomColorTag {
-        padding: 6px 20px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 20px;
-/*         border: 1px solid #1abc9c; */
+	/* 대표프로필 모달 */
+	.RepdoModal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+	}
+	
+	.RepdoModal-content {
+		position: absolute;
+		width:300px;
+		height:180px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+	
+	/* 프로필 생성 모달 */
+	.regProfileGoModal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+	}
+	
+	.regProfileGoModal-content {
+		position: absolute;
+		width:300px;
+		height:180px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+	
+	/* 프로필 삭제 모달 */
+	.profileDelDoModal {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+	}
+	
+	.profileDelDoModal-content {
+		position: absolute;
+		width:300px;
+		height:180px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+	
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+		vertical-align: middle;
+	}
+	
+	.content {
+    	width: 734px;
+	    margin: 2.125rem 0 0 4.125rem;
+	    font-family: pretendard;
+	}
+	
+	.button-gray {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
     }
-
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+    
     .button-green {
-        padding: 6px 10px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 100px;
-        border: 1px solid #1abc9c;
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	.repProfileOne{
+		display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		padding: 5px 15px;
+		border: 1px solid var(--light);
+		background-color: #DAA520;
+		color:var(--white);
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-weight: 500;
+		text-align: center;
+	}
+	
+	.what{
+		position:relative;
+    	text-align: center;
+	    display: flex;
+	    align-items: center;
+	}
+	
+	.thumb-up-fill{
+		padding:0 0 12px 4px;
+		font-size:40px;
+		color:var(--green);
+	}
+	
+	.dogScore{
+		position:absolute;
+		top: 50%;
+	    left: 88%;
+	    text-align: center;
+	    font-family: Pretendard;
+	    font-weight: 600;
+	    transform: translate(-50%, -50%);
+	    color:var(--white);
+	}
+	
+	.profileList{
+		border: 1px solid var(--light);
+		border-radius: 8px;
+		padding: 2.125rem;
+		margin-bottom:20px;
+		box-shadow: 0 0 8px 1px var(--light);
+	}
+	
+	
+	
+	/* ON/OFF 슬라이드 */
+	.switch input {
+		display: none;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: var(--green);
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 34px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
 
-    } 
-/* .regProfileGoConfirmNo{
-padding: 6px 20px;
-width:80px;
-height: 30px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #808080;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #808080;
-        cursor: pointer;
-        font-family:Pretendard;
+	#randomColorTag {
+	        padding: 6px 12px;
+	        font-size: 16px;
+	        text-align: center;
+	        text-decoration: none;
+	        background-color: #1abc9c;
+	        color: #ffffff;
+	        border-radius: 20px;
+	}
 
-}
-.regProfileGoConfirmYes {
-        padding: 6px 20px;
-        font-size: 12px;
-        width: 80px;
-		height: 30px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #1abc9c;
-        cursor: pointer;
-        font-family:Pretendard;
-    } 
-.button-container {
-    display: flex;
-    text-align: center;
-    justify-content: space-between;
-    width: 200px;
-    margin-top: 20px;
-    font-family:Pretendard;
-} */
 
 </style>
 </head>
@@ -531,9 +372,7 @@ height: 30px;
 		<div class="subSide">
 			<div class="my_profile_h3">${myPage.member_name} 님의 마이페이지</div>
 			<div><img src="/photo/${repPhotoName}" class="profilePhoto"/></div>
-			<div pro_idx="${Profile.pro_idx}">
-<%-- 			<div><img src="/photo/${minFileName}" class="profilePhoto"/></div> --%>
-			</div>
+			<span pro_idx="${Profile.pro_idx}"></span>
 			<c:url value="/myPage" var="myPageUrl" />
 			<div class="myPageMenu">
 				<a href="./myPageList.do" class="btn_gnb myPageInfo">
@@ -545,185 +384,194 @@ height: 30px;
 		    </div>
 		</div>
 		
-		<div class="content">
 		<div id="alarmContent"></div>
-<!-- c:forEach 로 돌리는 프로필란... -->
-<c:forEach items="${myProfile}" var="Profile" varStatus="loop">
-	<div><input type="hidden" value="${loop.index}"/></div>
-		<c:if test="${Profile.pro_quit == 'N'}"> <!-- CHECK -->
-			<span class="my_profile_h4">${Profile.pro_dogName}</span>
-			<span class="my_profile_h4 black">님의 프로필 페이지</span>
-			
-			<c:if test="${Profile.pro_quit == 'N' && myProfile.size() <= 1}">
-				<button class='regProfileGo' value="${Profile.member_idx}">+</button><input type="hidden" value="${Profile.pro_idx}"/>
-			    <div id="regProfileGoModal" class="regProfileGoModal">
-				  	<div class="regProfileGoModal-content">
-						<h3>프로필을 추가로<br/>생성하시겠습니까?</h3>
-						<div class="button-container">
-						<button class="regProfileGoConfirmNo" >아니오</button>
-						<button class="regProfileGoConfirmYes" value="${Profile.member_idx}">예</button>
-						</div>
-					</div>
-				</div>
-			</c:if>
+		<div class="content">
+		<!-- 프로필 추가 -->
+		<div style="display:flex; flex-direction: row-reverse; height: 4.125rem;">
+			<c:choose>
+			    <c:when test="${myProfile.size() < 3}">
+			        <button class="regProfileGo button-green" value="">프로필 추가</button>
+			    </c:when>
+			    <c:otherwise>
+			        <button class="regProfileGo button-green" value="" style="display: none">프로필 추가</button>
+			    </c:otherwise>
+			</c:choose>
+		</div>
 		
-			<c:if test="${Profile.pro_quit == 'N' && myProfile.size() == 2 }">
-				<button class='regProfileGo' value="${Profile.member_idx}">+</button> <input type="hidden" value="${Profile.pro_idx}"/>
-			    <div id="regProfileGoModal" class="regProfileGoModal">
-			  		<div class="regProfileGoModal-content">
-					  	<h3>프로필을 추가로<br/>생성하시겠습니까?</h3>
-					  	<div class="button-container">
-					  	<button class="regProfileGoConfirmNo">아니오</button>
-					  	<button class="regProfileGoConfirmYes" value="${Profile.member_idx}">예</button>
-			  			</div>
-			  		</div>
-			  	</div>
-				<!-- 프로필 삭제 버튼  -->
-				<button class='profileDelDo' value="${Profile.pro_idx}" pro_rep="${Profile.pro_rep}">-</button>
-			</c:if>
-			
-			<c:if test="${Profile.pro_quit == 'N' && myProfile.size() >= 3}">
-				<button class='profileDelDo' value="${Profile.pro_idx}" pro_rep="${Profile.pro_rep}">-</button><input type="hidden" value="${Profile.pro_idx}"/>
-			</c:if>
-			
-		    
-		    <c:if test="${Profile.pro_rep == 'Y'}">
-		    	<span class="repProfileOne" >대표프로필</span>
-		    </c:if>
-		    <c:if test="${Profile.pro_rep == 'N'}">
-		    	<button class="repProfile" id='myProfileRepdo'>대표프로필 지정</button>
-		    	<div id="RepdoModal" class="RepdoModal">
-			    	<div class="RepdoModal-content">
-				        <h2>대표 프로필로<br/>지정하시겠습니까?</h2>
-				        <button id="RepdoConfirmYes" value="${Profile.pro_idx}">예</button>
-				        <button id="RepdoConfirmNo">아니오</button>
-			    	</div>
-				</div>
-			</c:if>
-			
-			
-			
-		    <form action="myProfileMod.go" method="post">
-		    
-		    <div pro_idx="${Profile.pro_idx}">
-		    
-				<c:set var="minPhotoId" value="9999" />
-				<c:set var="minFileName" value="" />
-				<c:forEach items="${Profile.photoList}" var="photo" varStatus="loop">
-					<c:if test="${photo.photo_id < minPhotoId}">
-	 					<c:set var="minPhotoId" value="${photo.photo_id}" />
-						<c:set var="minFileName" value="${photo.photo_fileName}" />
-					</c:if>
-				</c:forEach>
-		   		<div><img src="/photo/${minFileName}" class="profilePhoto"/></div>
-						
-
-				<div class="myProfileContent">
-					<div class="dogName menu">
-						<div class="dog_text">내 강아지 이름</div>
-						<div class="dog_text">${Profile.pro_dogName}</div>
-					</div>
-					
-					<div class="dogBreed menu">
-						<div class="dog_text">내 강아지 견종</div>
-						<div class="dog_text">${Profile.breedType}</div>
-					</div>
-					
-					<div class="dogAge menu">
-						<div class="dog_text">내 강아지 나이</div>
-						<div class="dog_text size">${Profile.pro_dogAge}</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<c:if test="${Profile.pro_dogAgeOpen == 'Y'}">
-						<label class="switch"> 
-						<input type="checkbox" value="${Profile.pro_idx}" id="ageOpen" checked> 
-						<span class="slider round"></span>
-						</label>
-					</c:if>
-					<c:if test="${Profile.pro_dogAgeOpen != 'Y'}">
-						<label class="switch">
-						<input type="checkbox" value="${Profile.pro_idx}" id="ageOpen"> 
-						<span class="slider round"></span>
-						</label>
-					</c:if>
-					</div>
-					
-					<div class="dogGender menu">
-						<div class="dog_text">내 강아지 성별</div>
-						<div class="dog_text size">${Profile.pro_dogGender}</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<c:if test="${Profile.pro_dogGenderOpen == 'Y'}">
-						<label class="switch"> <input type="checkbox" value="${Profile.pro_idx}" id="genderOpen" checked> 
-						<span class="slider round"></span>
-						</label>
-					</c:if>
-					<c:if test="${Profile.pro_dogGenderOpen != 'Y'}">
-						<label class="switch"> <input type="checkbox" value="${Profile.pro_idx}" id="genderOpen"> 
-						<span class="slider round"></span>
-						</label>
-					</c:if>
-					</div>
-					
-					<div class="dogCharType menu">
-						<div class="dog_text">내 강아지 성향</div>
-						<div id="selectedCharTypes">
-							<c:forEach items="${Profile.charTypeList}" var="charType" varStatus="loop">
-			        			<span id="randomColorTag" class="charTag">${charType.charType}</span>
-			        		<c:if test="${!loop.last}">&nbsp;&nbsp;</c:if>
-		   					</c:forEach>
-						</div>
-					</div>
-									<div class="dogStmt menu">
-										<div class="dog_text">내 강아지 상태</div>
-										<div class="dog_text">
-											<c:if test="${Profile.pro_dogScore >= 10}">
-												<p>매너견이에요!😊 &nbsp;&nbsp;<span class="button-green">${Profile.pro_dogScore}</span></p>
-											</c:if>
-											<c:if
-												test="${Profile.pro_dogScore > 0 && Profile.pro_dogScore < 10}">
-												<p>매너견이 되어보세요😮 &nbsp;&nbsp;<span class="button-green">${Profile.pro_dogScore}</span></p>
-											</c:if>
-											<c:if test="${Profile.pro_dogScore < 0}">
-												<p>비매너견이에요😢 &nbsp;&nbsp;<span class="button-green">${Profile.pro_dogScore}</span></p>
-											</c:if>
-											<!-- 여기에 이미지를 추가하고 싶다면 아래와 같이 추가할 수 있습니다. -->
-										</div>
-									</div>
-
-
-									<div class="dogDesc menu">
-							<div class="dog_text desc">내 강아지 소개</div>
-							<div class="dog_text desc i">${Profile.pro_dogDesc}</div>
-					</div>
-					
-					<div>
-						<button class="cancelComp" type="button" onclick="location.href='./myProfileMod.go?pro_idx=${Profile.pro_idx}'">수정하기</button>
-					</div>
+		<c:forEach items="${myProfile}" var="profile">
+		    <input type="hidden" value="${profile.pro_idx}"/>
+		</c:forEach>
+		
+		<!-- 프로필 추가/삭제 모달 -->
+		<div id="regProfileGoModal" class="regProfileGoModal">
+		  	<div class="regProfileGoModal-content">
+				<h2 style="text-align: center;">프로필을 추가로<br/>생성하시겠습니까?</h2>
+				<div class="button-container" style="display:flex; justify-content: center;">
+					<button class="regProfileGoConfirmYes button-green" value="${Profile.member_idx}">예</button>
+					<button class="regProfileGoConfirmNo button-gray" style="margin-left:8px;">아니오</button>
 				</div>
 			</div>
-			</form>
-		</c:if>
-<%-- 	<div>${loop.index}</div> --%>
-<br></br>
-<hr style="border-top: 1px solid #D3D3D3;">
-<br></br>
-</c:forEach>
-
-						
+		</div>
+		
+		<div id="profileDelDoModal" class="profileDelDoModal">
+		  	<div class="profileDelDoModal-content">
+		       	<h2 style="text-align: center;">정말 프로필을<br/>삭제하시겠습니까?</h2>
+		       	<div style="display:flex; justify-content: center;">
+			     	<button class="profileDelDoConfirmYes button-green"  value="Y">예</button>
+			       	<button class="profileDelDoConfirmNo button-gray" style="margin-left:8px;">아니오</button>
+		       	</div>
+		   	</div>
+		</div>
+		
+		<!-- c:forEach 로 돌리는 프로필란... -->
+		<c:forEach items="${myProfile}" var="Profile" varStatus="loop">
+			<div class="profileList">
+				<div><input type="hidden" value="${loop.index}"/></div>
+				<c:if test="${Profile.pro_quit == 'N'}"> 
+				
+					<span class="my_profile_h4">${Profile.pro_dogName}</span>
+					<span class="my_profile_h4 black">님의 프로필 페이지</span>
+					<!-- 프로필 삭제 버튼  -->
 					
-				
-				
-				<div id="profileDelDoModal" class="profileDelDoModal">
-				  	<div class="profileDelDoModal-content">
-				       	<h2>정말 프로필을<br/>삭제하시겠습니까?</h2>
-				       	<button class="profileDelDoConfirmNo">아니오</button>
-				     	 <button class="profileDelDoConfirmYes" value="Y">예</button>
-				   	</div>
-				</div>
-
-
-
+					
+				    <c:if test="${Profile.pro_rep == 'Y'}">
+				    	<span class="repProfileOne" >대표프로필</span>
+				    </c:if>
+				    <!-- 대표프로필 지정 모달-->
+				    <c:if test="${Profile.pro_rep == 'N'}">
+				    	<button class="repProfile button-green" id='myProfileRepdo'>대표프로필 지정</button>
+				    	<div id="RepdoModal" class="RepdoModal">
+					    	<div class="RepdoModal-content">
+						        <h2 style="text-align: center;">대표 프로필로<br/>지정하시겠습니까?</h2>
+						        <div style="display:flex; justify-content: center;">
+							        <button id="RepdoConfirmYes" class="button-green" value="${Profile.pro_idx}">예</button>
+							        <button id="RepdoConfirmNo" class="button-gray" style="margin-left:8px;" >아니오</button>
+						        </div>
+					    	</div>
+						</div>
+					</c:if>
+						
+					<form action="myProfileMod.go" method="post">
+					    <div pro_idx="${Profile.pro_idx}">
+					    
+							<c:set var="minPhotoId" value="9999" />
+							<c:set var="minFileName" value="" />
+							<c:forEach items="${Profile.photoList}" var="photo" varStatus="loop">
+								<c:if test="${photo.photo_id < minPhotoId}">
+										<c:set var="minPhotoId" value="${photo.photo_id}" />
+									<c:set var="minFileName" value="${photo.photo_fileName}" />
+								</c:if>
+							</c:forEach>
+					   		<div style="margin-bottom:3rem">
+					   			<img src="/photo/${minFileName}" class="profilePhoto"/>
+					   		</div>
+					
+							<div class="myProfileContent">
+								<div class="dogName menu">
+									<div class="dog_text">내 강아지 이름</div>
+									<div class="dog_text">${Profile.pro_dogName}</div>
+								</div>
+								
+								<div class="dogBreed menu">
+									<div class="dog_text">내 강아지 견종</div>
+									<div class="dog_text">${Profile.breedType}</div>
+								</div>
+								
+								<div class="dogAge menu">
+									<div class="dog_text">내 강아지 나이</div>
+									<div class="dog_text size">${Profile.pro_dogAge}</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<c:if test="${Profile.pro_dogAgeOpen == 'Y'}">
+									<label class="switch"> 
+									<input type="checkbox" value="${Profile.pro_idx}" id="ageOpen" checked> 
+									<span class="slider round"></span>
+									</label>
+								</c:if>
+								<c:if test="${Profile.pro_dogAgeOpen != 'Y'}">
+									<label class="switch">
+									<input type="checkbox" value="${Profile.pro_idx}" id="ageOpen"> 
+									<span class="slider round"></span>
+									</label>
+								</c:if>
+								</div>
+								
+								<div class="dogGender menu">
+									<div class="dog_text">내 강아지 성별</div>
+									<div class="dog_text size">${Profile.pro_dogGender}</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<c:if test="${Profile.pro_dogGenderOpen == 'Y'}">
+									<label class="switch"> <input type="checkbox" value="${Profile.pro_idx}" id="genderOpen" checked> 
+									<span class="slider round"></span>
+									</label>
+								</c:if>
+								<c:if test="${Profile.pro_dogGenderOpen != 'Y'}">
+									<label class="switch"> <input type="checkbox" value="${Profile.pro_idx}" id="genderOpen"> 
+									<span class="slider round"></span>
+									</label>
+								</c:if>
+								</div>
+								
+								<div class="dogCharType menu">
+									<div class="dog_text">내 강아지 성향</div>
+									<div id="selectedCharTypes">
+										<c:forEach items="${Profile.charTypeList}" var="charType" varStatus="loop">
+						        			<span id="randomColorTag" class="charTag">${charType.charType}</span>
+						        		<c:if test="${!loop.last}">&nbsp;</c:if>
+					   					</c:forEach>
+									</div>
+								</div>
+								
+								<div class="dogStmt menu" style="height:80px;">
+									<div class="dog_text">내 강아지 상태</div>
+									<div class="dog_text">
+										<span class="what">
+										<c:if test="${Profile.pro_dogScore >= 10}">
+											<span>매너견이에요!😊</span>
+										</c:if>
+										<c:if
+											test="${Profile.pro_dogScore > 0 && Profile.pro_dogScore < 10}">
+											<span>매너견이 되어보세요😮</span>
+										</c:if>
+										<c:if test="${Profile.pro_dogScore < 0}">
+											<span>비매너견이에요😢</span>
+										</c:if>
+										<!-- 여기에 이미지를 추가하고 싶다면 아래와 같이 추가할 수 있습니다. -->
+											<span class="thumb-up-fill"><span class ="bi bi-hand-thumbs-up-fill memberDetail"></span></span>
+											<span class="dogScore">${Profile.pro_dogScore}</span>
+										</span>
+										
+									</div>
+								</div>
+								
+								<div class="dogDesc menu">
+									<div class="dog_text desc">내 강아지 소개</div>
+									<div class="dog_text desc i">${Profile.pro_dogDesc}</div>
+								</div>
+								
+							</div>
+						
+						</div>
+					</form>
+					<!-- 프로필 삭제 버튼  -->
+					<div style="display:flex; flex-direction: row-reverse;">
+						<c:if test="${Profile.pro_quit == 'N' && myProfile.size() == 2 }">
+							<button class='profileDelDo button-gray' value="${Profile.pro_idx}" pro_rep="${Profile.pro_rep}">삭제하기</button>
+						</c:if>
+						<c:if test="${Profile.pro_quit == 'N' && myProfile.size() >= 3}">
+							<button class='profileDelDo button-gray' value="${Profile.pro_idx}" pro_rep="${Profile.pro_rep}">삭제하기</button>
+							<input type="hidden" value="${Profile.pro_idx}"/>
+						</c:if>
+						<button 
+							class="cancelComp button-green" type="button" 
+							onclick="location.href='./myProfileMod.go?pro_idx=${Profile.pro_idx}'" style="margin-right:8px;">
+						수정하기
+						</button>
+					</div>
+				</c:if>
+			</div>
+		</c:forEach>
 
 		</div>
 	</div>
-</div>	
+</div>
 	
 
 
@@ -757,20 +605,6 @@ var profileDelDo = $(".profileDelDo");
 var profileDelDoConfirmYes = $(".profileDelDoConfirmYes");
 var profileDelDoConfirmNo = $(".profileDelDoConfirmNo");
 var pro_idx = null;
-
-//프로필 삭제(숨김) 스크립트
-
-/* profileDelDo.on("click", function (e) {
-	
-	console.log("삭제");
-	pro_idx = $(this).attr("value");
-	console.log(pro_idx);
-	
-	
-	
-	profileDelDoModal.css("display", "block");
-}); */
-
 
 profileDelDo.on("click", function (e) {
 	var pro_rep = $(this).attr("pro_rep");

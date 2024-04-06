@@ -24,10 +24,6 @@ public class MatchListController {
 	@Autowired
 	MatchListService service;
 	
-	@RequestMapping(value="/test.go")
-	public String testGo() {
-		return "chattingList2";
-	}
 	
 	@RequestMapping(value="/adminCheck.do")
 	@ResponseBody

@@ -4,19 +4,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/board.css" type="text/css">
+<!-- bootstrap 아이콘 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <!-- bootstrap : 디자인을 위한 프레임워크 -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- pretendard 폰트 -->
+<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet" href="resources/css/board.css" type="text/css">
-<!-- pretendard 폰트 -->
-<link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 <!-- 페이징 처리를 위한 라이브러리 -->
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <jsp:include page="adminCheck.jsp" />
 <style>
+
 	.pagination > .active > a,
     .pagination > .active > a:focus,
     .pagination > .active > a:hover,
@@ -26,23 +28,42 @@
         z-index: 3;
         color: #fff;
         cursor: default;
-        background-color: #1FBF92; 
-        border-color: #1FBF92;
+        background-color: var(--green); 
+        border-color: var(--green);
     }
     
     .pagination > li > a,
     .pagination > li > span {
-        color: black;
-    }
-    #search {
-    	color: #fff;
-        cursor: default;
-        background-color: #1FBF92; 
+        color: var(--dark);
     }
     
-    #pageButton, #writeButton{
-    	text-align: right;
+
+    #pageButton{
+    	display:flex;
+    	justify-content: space-between;
+    	height: 3.125rem;
     }
+    
+    #writeButton{
+		display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+	}
+	
+	#writeButton:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
 	    
 	a, a:link, a:visited, a:active, a:hover {
 		text-decoration: none;
@@ -75,92 +96,106 @@
 	.btn_gnb.admin:hover{
 		background-color: var(--light);
 	}
-	#modalContent{
-    	width: 500px;
-    	height: 500px;
-    	text-align: left; 
-	}
-	.mainContainer {
-	    display: flex;
-	    width: 1280px;
-	    margin: auto;
-	}
-
-	.sidebar {
-        height: 100%;
-        width: 250px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: #255,255,255;
-        padding-top: 20px;
-    }
-
-    .sidebar h2 {
-        color: black;
-        text-align: center;
-    }
-
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .sidebar ul li {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .sidebar a {
-        color: black;
-        text-decoration: none;
-    }
+	
 	.content {
-        text-align: center;
-    }
+		font-family:pretendard;
+	}
 
-	table, th, td{
-		border: 1px solid black;
+	.boardList{
 		border-collapse: collapse;
-		padding: 5px 10px;
+		border-spacing: 0;
+		width:100%;
 	}
+
+	th, td{
+		border: 1px solid var(--light);
+		border-collapse: collapse;
+		padding: 8px 12px;
+		text-align:center;
+		color:var(--dark);
+		border-left: none;
+    	border-right: none;
+	}
+
 	select{
-		margin: 5px 0px;
+		margin: 4px;
+		height: 1.625rem;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    color: var(--dark);
 	}
+	
+	#search {
+        cursor:pointer;
+        background-color: var(--green);
+        color:var(--white);
+        font-family:Pretendard;
+        font-size:16px;
+		font-weight: 500;
+		text-align: center;
+		height: 2.125rem;
+		margin: 4px;
+    }
+    
+    #search:hover{
+		background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+    
+    #searchType{
+    	height: 2.125rem;
+    }
+	
+	#searchKey{
+		margin: 4px;
+		height: 2.125rem;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    color: var(--dark);
+	    width:30%;
+	}
+	
+	#searchDIV{
+		display:flex;
+		justify-content: center;
+		height: 4.625rem;
+	}
+	
+	.boardSearch th, .boardSearch td,
+	.boardPaging th, .boardPaging td{
+		border:none;
+	}
+	
 	.icon {
     	margin-right: 10px;
 	}
 	#reply{
-		color: blue;
+		color: var(--green);
 	    text-decoration: none; /* 밑줄 제거 */
 	}
-	a {
-    	color: black;
-    	text-decoration: none; /* 밑줄 제거 */
-	}
-	/* 방문한 링크(회색) */
-	a:visited {
-	    color: black;
-	}
-	/* 링크 스타일 (검은색) */
-	a:hover {
-	    color: black;
-	}
 
-	nav{
-		margin-left: 12px;
-  		width: 500px;
-	}
+
 	#openAlarm{
 		cursor: pointer;
 	}
-	.h4, h4 {
-	    font-size: 26px;
-	    margin-left: 210px;
-	}
-	div#pageButton {
-    width: 1192px;
-	}
+
+	a.highlight-link:hover {
+        color: var(--green); /* 마우스 오버 시 링크 색상 */
+    }
+	.button-green {
+        padding: 5px 20px;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #1abc9c;
+        color: #ffffff;
+        border-radius: 5px;
+        border: 1px solid #1abc9c;
+        cursor: pointer;
+    } 
+
+    
+    
 </style>
 </head>
 <body>
@@ -207,58 +242,68 @@
 			</div>
 		</div>
 		<div class="content">
+		
 		<div id="alarmContent"></div>
-		<h4 id="mung">멍멍 게시판</h4>
-		<div id="pageButton">
-			<select id="pagePerNum">
-				<option value="10">10개씩</option>
-				<option value="15">15개씩</option>
-				<option value="20">20개씩</option>
-			</select>
-		</div>
-	<table>
-		<thead>
-		<tr>
-			<th width="100px">번호</th>	
-			<th>제목</th>
-			<th width="250px">작성자</th>
-			<th width="120px">작성일</th>
-			<th width="120px">조회수</th>
-			<th width="120px">추천</th>
-		</tr>
-		</thead>
-		<tbody id="list">		
-		</tbody>
 		
-		<!-- 페이징, 글쓰기 한 행에 두기 -->
-		
-		 <tr>
-			<td colspan="6" id="paging" style="text-align:center;">	
-				<div class="container">									
-					<nav aria-label="Page navigation" style="text-align:center">
-						<ul class="pagination" id="pagination"></ul>
-					</nav>					
-				</div>
-				<div id="writeButton">
-		 			<button onclick="location.href='BoardWrite'">글쓰기</button>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="6" style="text-align:center">
-				<div id="searchDIV">
-					<select id="searchType">
-						<option value="board_subject">제목</option>
-						<option value="board_content">글내용</option>
-						<option value="member_nickName">작성자</option>
+		<div class="boardList">
+			<h2 id="mung" style="color:var(--green); font-weight:600; font-family:Pretendard;">자유 게시판</h2>
+			
+			<div id="pageButton">
+				<div>
+					<select id="pagePerNum">
+						<option value="10">10개씩 </option>
+						<option value="15">15개씩 </option>
+						<option value="20">20개씩 </option>
 					</select>
-					 <input type="text" id="searchKey" placeholder="검색어 입력">
-	  				 <button id="search">검색</button>
-  				 </div>
-			</td>
-		</tr>
-		
-	</table>
+				</div>
+				<div>
+				 	<button id="writeButton" onclick="location.href='BoardWrite'">글쓰기</button>
+				</div>
+			</div>
+			<table class="boardList">
+				<thead>
+				<tr>
+					<th style="width: 5%;">번호</th>	
+					<th style="width: 30%;">제목</th>
+					<th style="width: 10%;">작성자</th>
+					<th style="width: 10%;">작성일</th>
+					<th style="width: 5%;">조회수</th>
+					<th style="width: 5%;">추천</th>
+				</tr>
+				</thead>
+				<tbody id="list">		
+				</tbody>
+				
+				<tbody class="boardPaging">
+					 <tr>
+						<td colspan="6" id="paging" style="text-align:center;">	
+							<div class="container">									
+								<nav aria-label="Page navigation" style="text-align:center">
+									<ul class="pagination" id="pagination"></ul>
+								</nav>					
+							</div>
+						</td>
+					</tr>
+				</tbody>
+				
+				<tbody class="boardSearch">
+					<tr>
+						<td colspan="6" style="text-align:center">
+							<div id="searchDIV">
+								<select id="searchType">
+									<option value="board_subject">제목</option>
+									<option value="board_content">글내용</option>
+									<option value="member_nickName">작성자</option>
+								</select>
+								 <input type="text" id="searchKey" placeholder="검색어 입력">
+				  				 <button id="search" class="button-green">검색</button>
+			  				 </div>
+						</td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
 	</div>
 	</div>
 	</div>
@@ -310,7 +355,7 @@ function drawList(obj) {
         obj.list.forEach(function (item, board_id) {
         	content += '<tr>';
         	content += '<td>' + item.board_id + '</td>';
-        	content += '<td><a class="icon" href="detail?board_id=' + item.board_id + '">' + item.board_subject;
+        	content += '<td style="text-align:left;"><a class="icon" href="detail?board_id=' + item.board_id + '">' + item.board_subject;
         	if (item.img > 0) {
         	    content += '<a class="icon"><img src="resources/img/image.png" width="20px" height="20px"></a>';
         	}

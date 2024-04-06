@@ -20,357 +20,56 @@
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
  <style>
 
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	textarea{
+		resize: none;
+	}
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-person-circle, .btn_gnb.myPage{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	.btn_gnb.myPageInfo{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-house-door-fill,
+	.btn_gnb:hover .bi-chat-dots-fill,
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-people-fill,
+	/*.btn_gnb:hover .bi-person-circle,*/
+	.btn_gnb:hover .bi-list-ul {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.match:hover,
+	.btn_gnb.chatting:hover,
+	.btn_gnb.board:hover,
+	/*.btn_gnb.myPage:hover,*/
+	.btn_gnb.admin:hover,
+	/* .btn_gnb.myPageInfo:hover{
+		background-color: var(--light);
+	} */
+	.btn_gnb.myProfile:hover{
+		background-color: var(--light);
+	}
+	
+	.content {
+		width: 732px;
+		margin: 4.125rem 0 0 4.125rem;
+		font-family:pretendard;
+	}
 
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
-
-textarea{
-	resize: none;
-}
-
-.input_img {
-	display: none;
-}
-
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-person-circle, .btn_gnb.myPage{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-.btn_gnb.myPageInfo{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-house-door-fill,
-.btn_gnb:hover .bi-chat-dots-fill,
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-people-fill,
-/*.btn_gnb:hover .bi-person-circle,*/
-.btn_gnb:hover .bi-list-ul {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.match:hover,
-.btn_gnb.chatting:hover,
-.btn_gnb.board:hover,
-/*.btn_gnb.myPage:hover,*/
-.btn_gnb.admin:hover,
-/* .btn_gnb.myPageInfo:hover{
-	background-color: var(--light);
-} */
-.btn_gnb.myProfile:hover{
-	background-color: var(--light);
-}
-
-.content {
-padding: 1.6rem;
-margin: 1.6rem;
-font-family:pretendard;
-}
-
-
-.charModal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
-.charModal-content {
-	background-color: #fff;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 70%;
-}
-
-/*사진 모달창*/
-.photoModal {
-	display: inline-block;
-	width: 480px;
-	height: 720px;
-	border: 1px solid var(--light);
-	box-shadow: 0 0 8px 1px var(--light);
-	border-radius: 12px;
-    position: absolute; 
-    top:304px;
-    left:804px;
-    z-index: 1000;
-    background-color:var(--white);
-}
-
-.imgtable {
-	margin-top:60px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.close {
-	position: relative;
-	left: 330px;
-	top: 20px;
-	cursor: pointer;
-	font-size: 32px;
-	color:var(--grey);
-}
-
-.fileContent{
-	display:inline-block;
-}
-
-.write-link.attach{
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-plus-circle-fill {
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-dash-circle-fill {
-	display: none;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.image-container{
-	display:inline-block;
-	width: 104px;
-	height: 120px;
-	border: 1px solid var(--light);
-	border-radius: 8px;
-	box-shadow: 0 0 4px 1px var(--light);
-	margin-left:10px;
-	margin-bottom:40px;
-}
-
-
-.imgtable .image-container img{
-	display:inline-block;
-	right:10px;
-	width: 104px;
-	height: 120px;
-	border-radius: 8px;
-    object-fit: cover;
-}
-
-.photoTextSave{
-	display:inline-block;
-	position:relative;
-	top:22px;
-	left:32px;
-	font-size:24px;
-	font-family:Pretendard;
-	font-weight: 700;
-	text-align: center;
-	color:var(--green);
-	cursor:auto;
-}
-
-.photo_selected{
-	display: inline-block;
-	position: relative;
-	width: 200px;
-	height: 46px;
-	top:40px;
-	padding: 12px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: var(--green);
-	border-radius: 8px;
-	font-size:16px;
-	color:var(--white);
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-	cursor:pointer;
-}
-
-
- 
- /* 대표프로필 모달 */
-.RepdoModal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-}
-
-.RepdoModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* 프로필 생성 모달 */
-.regProfileGoModal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-}
-
-.regProfileGoModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* 프로필 삭제 모달 */
-.profileDelDoModal {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 1;
-}
-
-.profileDelDoModal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-	border: 1px solid #ccc;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-
-
-<textarea style ="resize: both ;"> </textarea>
-
-/* 닫기 버튼 스타일 */
-/*  .close {
-            color: #888;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        } */
-.close:hover {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.switch {
-	position: relative;
-	display: inline-block;
-	width: 60px;
-	height: 34px;
-	vertical-align: middle;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-	display: none;
-}
-
-/* The slider */
-.slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-.slider:before {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-input:checked+.slider {
-	background-color: #2196F3;
-}
-
-input:focus+.slider {
-	box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-	-webkit-transform: translateX(26px);
-	-ms-transform: translateX(26px);
-	transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-	border-radius: 34px;
-}
-
-.slider.round:before {
-	border-radius: 50%;
-}
-
-/* p {
-	margin:0px;
-	display:inline-block;
-	font-size:15px;
-	font-weight:bold;
-} */
   .profile-info {
     display: flex;
     justify-content: space-between;
@@ -430,6 +129,16 @@ input:checked+.slider:before {
     .button-green:hover{
 	    background-color: var(--darkGreen);
 	    border: 1px solid var(--darkGreen);
+	}
+	
+	.text{
+	    height: 2.125rem;
+	    margin-bottom: 6px;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
 	} 
 
  </style>
@@ -481,7 +190,7 @@ input:checked+.slider:before {
 			<div><img src="/photo/${repPhotoName}" class="profilePhoto"/></div>
 			<c:url value="/myPage" var="myPageUrl" />
 			<div class="myPageMenu">
-				<a href="./myProfileList.do" class="btn_gnb myPageInfo">
+				<a href="./myPageList.do" class="btn_gnb myPageInfo">
 					<span>회원 정보</span>
 			    </a>
 			    <a href="./myProfileList.do" class="btn_gnb myProfile">
@@ -495,7 +204,7 @@ input:checked+.slider:before {
 				<div id="alarmContent"></div>
 				<form action="myPageModUpdate.do" method="post">
 					<div class="inputForm">
-						<h3 style="color : var(--green);">기본 정보</h3>
+						<h2 style="color : var(--green);">기본 정보</h2>
 						<br></br> <input type="hidden" name=member_id
 							value="${myPage.member_id}" />
 						<div class="profile-info">
@@ -528,11 +237,11 @@ input:checked+.slider:before {
 							</div>
 							<div class="name-value">
 								<p>
-									<input type="text" name="member_nickName"
-										value="${myPage.member_nickName}" />&nbsp;<input type="button"
-										id="overlayNick" value="중복확인" />&nbsp;<span class="nickChk"></span>
+									<input class="text" type="text" name="member_nickName"
+										value="${myPage.member_nickName}" />&nbsp;<input class="button-green" type="button"
+										id="overlayNick" value="중복확인" />&nbsp;<div class="nickChk" style="margin:4px;"></div>
 								</p>
-								<span class="nickValid" style="font-size: 8pt"> ※ 닉네임은
+								<span class="nickValid" style="font-size: 10pt"> ※ 닉네임은
 									문자와 숫자로 구성하여 2~8자까지 입력해주세요</span>
 							</div>
 						</div>
@@ -542,7 +251,7 @@ input:checked+.slider:before {
 							</div>
 							<div class="name-value">
 								<p>
-									<input type="password" name="member_pw"
+									<input class="text" type="password" name="member_pw"
 										placeholder="비밀번호를 입력하세요" value="${myPage.member_pw}" />
 								</p>
 							</div>
@@ -553,11 +262,11 @@ input:checked+.slider:before {
 							</div>
 							<div class="name-value">
 								<p>
-									<input type="password" name="member_pwReChk"
+									<input class="text" type="password" name="member_pwReChk"
 										placeholder="비밀번호를 한번 더 입력하세요" value="" />
 								</p>
 								<p />
-								<span class="pwReChk" style="font-size: 8pt"> ※ 비밀번호를 다시
+								<span class="pwReChk" style="font-size: 10pt"> ※ 비밀번호를 다시
 									한 번 입력해주세요</span>
 							</div>
 						</div>
@@ -567,9 +276,9 @@ input:checked+.slider:before {
 							</div>
 							<div class="name-value">
 								<p>
-									<input type="text" id="usermail" name="member_email"
-										placeholder="메일 주소를 입력 하세요" value="${emailPrefix}" />@
-									<select name="emailhost" id="mailhost">
+									<input class="text" type="text" id="usermail" name="member_email"
+										placeholder="메일 주소를 입력 하세요" value="${emailPrefix}" /> @
+									<select class="text" name="emailhost" id="mailhost">
 										<option value="naver.com">naver.com</option>
 										<option value="gmail.com">gmail.com</option>
 										<option value="daum.net">daum.net</option>
@@ -585,11 +294,11 @@ input:checked+.slider:before {
 							</div>
 							<div class="name-value">
 								<p>
-									<input type="text" name="member_phone"
+									<input class="text" type="text" name="member_phone"
 										value="${myPage.member_phone}" />
 								</p>
 								<p>
-									<span class="phoneValid" style="font-size: 8pt"> ※ 전화번호는
+									<span class="phoneValid" style="font-size: 10pt"> ※ 전화번호는
 										-를 포함하여 입력하여 주십시오</span>
 							</div>
 						</div>
@@ -599,18 +308,27 @@ input:checked+.slider:before {
 							</div>
 							<div class="name-value">
 								<p>
-									<input type="text" id="postcode" placeholder="우편번호"> <input
-										type="button" id="findpostcode" onclick="execDaumPostcode()"
-										value="우편번호 찾기"><br> <input type="text"
+									<input class="text" type="text" id="postcode" placeholder="우편번호">
+									<input 
+										class="button-green" type="button" id="findpostcode" onclick="execDaumPostcode()"
+										value="우편번호 찾기">
+									<br> 
+									<input class="text" type="text"
 										id="roadAddress" name="member_roadAddr" placeholder="도로명주소"
-										value="${myPage.member_roadAddr}"><br /> <input
-										type="text" id="jibunAddress" name="member_parcelAddr"
-										placeholder="지번주소" value="${myPage.member_parcelAddr}"><br />
-									<span id="guide" style="color: #999; display: none"></span><br />
-									<input type="text" id="detailAddress" name="member_detailAddr"
+										value="${myPage.member_roadAddr}" style="background-color:var(--light);" readonly>
+									<input 
+										class="text" type="text" id="extraAddress" name="member_dongAddr"
+										placeholder="참고항목" value="${myPage.member_dongAddr}" 
+										style="background-color:var(--light); width:5.125rem;" readonly>
+									<input
+										class="text" type="text" id="jibunAddress" name="member_parcelAddr"
+										placeholder="지번주소" value="${myPage.member_parcelAddr}" 
+										style="background-color:var(--light)" readonly>
+									<br />
+									<span id="guide" style="color: #999; display: none"></span>
+									<br />
+									<input class="text" type="text" id="detailAddress" name="member_detailAddr"
 										placeholder="상세주소" value="${myPage.member_detailAddr}">
-									<input type="text" id="extraAddress" name="member_dongAddr"
-										placeholder="참고항목" value="${myPage.member_dongAddr}">
 								</p>
 							</div>
 						</div>
@@ -724,12 +442,12 @@ $('#overlayNick').on('click',function(){
 			if(data.use){
 				$('.nickChk').text("사용 가능한 닉네임 입니다.");
 				$('.nickChk').css("color", "green");
-				$('.nickChk').css("font-size", "10px");
+				$('.nickChk').css("font-size", "10pt");
 				
 			}else{
 				$('.nickChk').text("이미 사용중인 닉네임 입니다.");
 				$('.nickChk').css("color", "red");
-				$('.nickChk').css("font-size", "10px");
+				$('.nickChk').css("font-size", "10pt");
 				$nickName.val('');
 			}
 		},
