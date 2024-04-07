@@ -79,7 +79,7 @@
 ## 🖥️ 구현화면
 
 <h3>[로그인화면]</h3>
-<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/89846af5-a1a3-41d3-b15d-6bbbda058f15" style="border:1px solid black;">
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/89846af5-a1a3-41d3-b15d-6bbbda058f15">
 <br>
 <h3>[회원가입]</h3>
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/6b25b8fd-3bd6-4cb7-a28f-8a787f6f89c5">
@@ -89,4 +89,14 @@
 <br>
 <h3>[매칭리스트 페이지]</h3>
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/0cc6d29e-7358-419a-8041-dcf07b4b0721">
+<br>
+<h3>[1:1 채팅]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/040f3f0c-d7b6-4deb-9c10-5c676a549ec4">
+<br>
+<h3>[후기 등록]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/003fc038-5108-4eb8-ac8c-a00b02c5a880">
+<br>
+<h3>[자유게시판]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/cd705ab1-f526-4ee5-8495-44fde330cc97">
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/213a3813-561d-4005-9ef9-c57b71542141">
 
