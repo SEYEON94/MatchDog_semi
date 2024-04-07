@@ -4,81 +4,89 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<link rel="stylesheet" href="resources/css/chattingList.css" type="text/css">
+<!-- bootstrap 아이콘 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <!-- pretendard 폰트 -->
 <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+<!-- jquery 는 사용하는 플러그인과 다른 라이브러리와의 충돌 여부를 확인해야 한다. -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    
 
 <style>	
-.banner{
-	width:1500px;
-	display:inline-block;
-	border-bottom: 1px solid var(--light);
-}
 
-.header{
-	display:flex;
-	width:1280px;
-	height:72px;
-	margin:0 110px;
-	align-items:center;
-}
-
-.logo{
-	position: relative;
-	width:241px;
-	height:70px;
-}
-
-.logo_matchDog{
-	position: absolute;
-	top:8px;
-	left:20px;
-	display:block;
-	width:auto;
-	height:44px;
-}
+	.banner{
+		border:none;
+	}
+	
+	.content{
+		border:none;
+		width:100%;
+	}
 	
 	.inputForm{
-		width:400px;
-		height:1150px;
-		margin: 0 auto;		
-		display: block;
-		font-family:pretendard;
+		width:380px;
 	}
-/* 	.submit{
-		width:500px;
-		height:80px;
-		margin: 0 auto;		
-		display: block;
-		text-align: center;
-		padding-top: 10px;
-		font-family:pretendard;
-	} */
+	
 	.button-gray {
-        padding: 6px 20px;
-        font-size: 13px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #808080;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #808080;
-        cursor: pointer;
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--light);
+		background-color: var(--light);
+		color:var(--dark);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
     }
-	.button-green {
-        padding: 6px 20px;
-        font-size: 13px;
-        text-align: center;
-        text-decoration: none;
-        background-color: #1abc9c;
-        color: #ffffff;
-        border-radius: 5px;
-        border: 1px solid #1abc9c;
-        cursor: pointer;
+    
+    .button-gray:hover{
+	    background-color: var(--grey);
+	    border: 1px solid var(--grey);
+	} 
+    
+    .button-green {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+		margin-left:8px;
     }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	.text{
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	    margin-bottom:4px;
+	}
+	
+	.join-info{
+		margin:16px 0 10px;
+	}
+	
     .button{
-    padding: 6px 5px;
+    	padding: 6px 5px;
         font-size: 11px;
         text-align: center;
         width: 90px;
@@ -89,44 +97,22 @@
         border: 1px solid #1abc9c;
         cursor: pointer;
     }
-.inputForm input[type="text"],
-.inputForm input[type="password"],
-.inputForm input[type="date"] {
-    height: 25px; /* 높이를 조절하고자 하는 값으로 수정 */
-    font-family:pretendard;
-    margin: 2px;  
-}
-select {
+    
+	select {
         height: 25px; /* <select> 요소의 높이를 조절할 부분 */
         font-family:pretendard;
     	margin: 2px;  
     }
     
-.gender-button {
-        padding: 10px;
+	.gender-button {
         margin-right: 10px;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        display: inline-block; /* 인라인 블록 요소로 설정하여 가로 정렬 */
-        text-align: center; /* 텍스트 중앙 정렬 */
-        width: 100px; /* 버튼 너비 설정 */
     }    
- .gender-button.selected {
+ 	.gender-button.selected {
         background-color: #1abc9c; /* 선택된 상태일 때의 배경색 */
         color: #fff; /* 선택된 상태일 때의 글자색 */
     }
-/* 	#back, #join{
-		height : 30px;
-		width : 90px;
-		text-align: center;
-		font-size: medium;
-		margin: auto;
-		display: inline;
-		font-family:pretendard;
-	} */
-	
-.radio-wrap {
+
+	.radio-wrap {
     display: inline-flex; /* 인라인 블록 요소로 설정하여 일렬로 표시 */
     align-items: center;
     margin-right: 10px; /* 각 라디오 버튼 사이의 간격 조절 */
@@ -146,76 +132,78 @@ select {
 	<div class="content">
 		<div class="inputForm">
 		    <h2 style="text-align: center;">회원가입</h2>
-		    <p style="text-align: center;"/>회원가입에 필요한 기본 정보를 입력해 주세요.
-		    <br><br/>
-		    <p/>아이디<br/>  
-		    <input type="text" name="member_id" style="width: 70%;"/>
-		    <input type="button" class="button" id="overlayId" value="중복확인"/>
-		    <p/><span class="idValid" style="font-size : 8pt"> ※ 아이디는 영문, 숫자로 구성하여 4~14자 까지 입력해 주세요.</span>
+		    <div style="text-align: center; margin-bottom:40px;">회원가입에 필요한 기본 정보를 입력해 주세요.</div>
+		    <div class="join-info">아이디</div>
+		    <input class="text" type="text" name="member_id" style="width: 65%;"/>
+		    <input type="button" class="button-green" id="overlayId" value="중복확인"/>
+		    <p/><span class="idValid" style="font-size : 10pt"> ※ 아이디는 영문, 숫자로 구성하여 4~14자 까지 입력해 주세요.</span>
 		    <p/><span class="idChk"></span>
 		    
 		
-			 <p/>비밀번호<br/>  
-		     <input type="password" name="member_pw" style="width: 92%;"/>
-		     <p/><span class="pwValid" style="font-size : 8pt"> ※ 비밀번호는 문자와 숫자, 특수문자를 혼합하여 8자 이상 입력해 주세요.</span>
-		     <p/>비밀번호 확인<br/>
-		     <input type="password" name="pwCheck" style="width: 92%;"/>
-		     <p/><span class="pwReChk" style="font-size : 8pt"> ※ 비밀번호를 다시 한번 입력해 주세요.</span>
+			 <div class="join-info">비밀번호</div>
+		     <input class="text" type="password" name="member_pw" style="width: 100%;"/>
+		     <p/><span class="pwValid" style="font-size : 10pt"> ※ 비밀번호는 문자와 숫자, 특수문자를 혼합하여 8자 이상 입력해 주세요.</span>
+		     <div class="join-info">비밀번호 확인</div>
+		     <input class="text" type="password" name="pwCheck" style="width: 100%;"/>
+		     <p/><span class="pwReChk" style="font-size : 10pt"> ※ 비밀번호를 다시 한번 입력해 주세요.</span>
 		      
-		     <p/>이름<br/>    
-			 <input type="text" name="member_name" style="width: 92%;"/>
+		     <div class="join-info">이름</div>   
+			 <input class="text" type="text" name="member_name" style="width: 100%;"/>
 		      
-		     <p/>생년월일<br/>   
-		     <input type="date" name="member_birth" style="width: 92%;"/>
+		     <div class="join-info">생년월일</div>
+		     <input class="text" type="date" name="member_birth" style="width: 100%;"/>
 		
-			 <p/>성별<br/>
+			 <div class="join-info">성별</div>
 		     <div class="radio-wrap"><input type="radio" class="gender-button" name="member_gender" value="남"/>남자</div>
 		     <div class="radio-wrap"><input type="radio" class="gender-button" name="member_gender" value="여"/>여자</div>
+
+			<div class="join-info">전화번호</div>		
+		     <input class="text" type="text" name="member_phone" style="width: 100%;"/>
+		     <p/><span class="phoneValid" style="font-size : 10pt"> ※ 전화번호는 -를 포함하여 입력하여 주십시오.</span>
 		
-			 <p/>전화번호<br/>
-		     <input type="text" name="member_phone" style="width: 92%;"/>
-		     <p/><span class="phoneValid" style="font-size : 8pt"> ※ 전화번호는 -를 포함하여 입력하여 주십시오.</span>
-		
-			 <p/>닉네임<br/>
-			 <input type="text" name="member_nickName" style="width: 70%;"/>
-		     <input type="button" class="button"  id="overlayNick" value="중복확인"/>      
-		     <p/><span class="nickValid" style="font-size : 8pt"> ※ 닉네임은 문자와 숫자로 구성하여 2~8자 까지 입력해 주세요.</span>
+			 <div class="join-info">닉네임</div>
+			 <input class="text" type="text" name="member_nickName" style="width: 65%;"/>
+		     <input type="button" class="button-green"  id="overlayNick" value="중복확인"/>      
+		     <p/><span class="nickValid" style="font-size : 10pt"> ※ 닉네임은 문자와 숫자로 구성하여 2~8자 까지 입력해 주세요.</span>
 		     <p/><span class="nickChk"></span>    
 			  
 		         
-		     <p/>주소
-		     <p/><input type="text" id="postcode" placeholder="우편번호" style="width: 70%;">
-			 <input type="button" class="button" id="findpostcode" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-			 <input type="text" id="roadAddress"  name = member_roadAddr placeholder="도로명주소" style="width: 92%;"><br/>
-			 <input type="text" id="jibunAddress" name = member_parcelAddr placeholder="지번주소" style="width: 92%;"><br/>
-			 <span id="guide" style="color:#999; display:none"></span><br/>
-			 <input type="text" id="detailAddress" name = member_detailAddr placeholder="상세주소">		  
-			 <input type="text" id="extraAddress" placeholder="참고항목">                  
+		     <div class="join-info">주소</div>
+		     <input class="text" type="text" id="postcode" placeholder="우편번호" style="width: 65%;">
+			 <input type="button" class="button-green" id="findpostcode" onclick="execDaumPostcode()" value="우편번호 찾기">
+			 <input class="text" type="text" id="roadAddress"  name = member_roadAddr placeholder="도로명주소" style="width: 65%; background-color:#eceff1;" readonly>
+			 <input class="text" type="text" id="extraAddress" placeholder="참고항목" style="width: 128px; background-color:#eceff1;">                  
+			 <input class="text" type="text" id="jibunAddress" name = member_parcelAddr placeholder="지번주소" style="width: 100%; background-color:#eceff1;" readonly>
+			 <span id="guide" style="color:#999; display:none"></span>
+			 <input class="text" type="text" id="detailAddress" name = member_detailAddr placeholder="상세주소" style="width: 100%;">		  
 		      
-		     <p/>이메일   
-		     <p/><input type="text" id="usermail" name="member_email" placeholder="메일 주소를 입력 하세요" />@
-			 <select name="emailhost" id="mailhost">
+		     <div class="join-info">이메일</div>
+		     <input class="text" type="text" id="usermail" name="member_email" placeholder="메일 주소를 입력 하세요" style="width: 65%;"/> @
+			 <select class="text" name="emailhost" id="mailhost">
 				<option value="naver.com">naver.com</option>	
 				<option value="gmail.com">gmail.com</option>
 				<option value="daum.net">daum.net</option>
 				<option value="nate.com">nate.com</option>
 			 </select>
-			 <button type="button" class="button" id="identifyMail">인증요청</button>
+		     <div style="display:flex; justify-content: flex-end; margin-top:16px;">
+			 	<button type="button" class="button-green" id="identifyMail" style="">인증요청</button>
+		     </div>
 			  
-		     <p/>인증번호&nbsp;&nbsp;<input type="text" name= "checkNum" placeholder="인증번호 6자리를 입력해 주세요"  disabled = "disabled" maxlength="6" style="width: 57.5%;"/>
-			 <button type="button" class="button" id="checkMail" >인증하기</button>
+		     <div class="join-info">인증번호</div>
+		     <input class="text" type="text" name= "checkNum" placeholder="인증번호 6자리를 입력해 주세요"  disabled = "disabled" maxlength="6" style="width: 65%;"/>
+			 <button type="button" class="button-green" id="checkMail" >인증하기</button>
 			 <p/><span class="mailChk"></span><p/>
 			 <br></br>
 			 <div class="submit" style="display: flex; justify-content: space-between;">
-    <input type="button" class="button-gray" id="back" value="돌아가기" />
-    <input type="button" class="button-green" id="join" value="회원가입" />
+			 
+		    <input type="button" class="button-gray" id="back" value="돌아가기" />
+		    <input type="button" class="button-green" id="join" value="회원가입" />
+    
 </div>
 <br></br>
 <br></br>
 <br></br>		 
-<!-- 			 <div class="submit">
-	     	<input type="button" class="button-gray" id="back" value="돌아가기"/>&nbsp;&nbsp;<input type="button" class="button-green"  id="join" value="회원가입"/>
-	     </div>      -->
+
 		 </div>		  
 	     	     
 	 </div>
@@ -299,20 +287,20 @@ $('#overlayId').on('click',function(){
 			if($id.val()==""){
 				$('.idChk').text("아이디는 두글자 이상 넣어주세요");
 				$('.idChk').css("color", "red");
-				$('.idChk').css("font-size", "10px");
+				$('.idChk').css("font-size", "10pt");
 			}else if($('.idValid').html()!='적합한 아이디 형식입니다.'){
 				$('.idChk').text("아이디를 정확히 입력해주세요.");
 				$('.idChk').css("color", "red");
-				$('.idChk').css("font-size", "10px");
+				$('.idChk').css("font-size", "10pt");
 			}else{
 				if(data.use){
 					$('.idChk').text("사용 가능한 아이디 입니다.");
 					$('.idChk').css("color", "green");
-					$('.idChk').css("font-size", "10px");
+					$('.idChk').css("font-size", "10pt");
 				}else{
 					$('.idChk').text("이미 사용중인 아이디 입니다.");
 					$('.idChk').css("color", "red");
-					$('.idChk').css("font-size", "10px");
+					$('.idChk').css("font-size", "10pt");
 					$id.val('');
 				}				
 			}
@@ -341,20 +329,20 @@ $('#overlayNick').on('click',function(){
 			if($nickName.val()==""){
 				$('.nickChk').text("닉네임은 두글자 이상 넣어주세요");
 				$('.nickChk').css("color", "red");
-				$('.nickChk').css("font-size", "10px");
+				$('.nickChk').css("font-size", "10pt");
 			}else if($('.nickValid').html()!='적합한 닉네임 형식입니다.'){
 				$('.nickChk').text("닉네임을 정확히 입력해주세요.");
 				$('.nickChk').css("color", "red");
-				$('.nickChk').css("font-size", "10px");
+				$('.nickChk').css("font-size", "10pt");
 			}else{
 				if(data.use){
 					$('.nickChk').text("사용 가능한 닉네임 입니다.");
 					$('.nickChk').css("color", "green");
-					$('.nickChk').css("font-size", "10px");
+					$('.nickChk').css("font-size", "10pt");
 				}else{
 					$('.nickChk').text("이미 사용중인 닉네임 입니다.");
 					$('.nickChk').css("color", "red");
-					$('.nickChk').css("font-size", "10px");
+					$('.nickChk').css("font-size", "10pt");
 					$nickName.val('');
 				}
 			}

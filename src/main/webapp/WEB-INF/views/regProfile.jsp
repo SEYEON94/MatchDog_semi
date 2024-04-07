@@ -17,402 +17,385 @@
 <script src="resources/js/jquery.twbsPagination.js" type="text/javascript"></script>
 <style>
 
-/* .filebox .upload-name {
-	display: inline-block;
-	height: 40px;
-	padding: 0 10px;
-	vertical-align: middle;
-	border: 1px solid #dddddd;
-	width: 160px;
-	color: #999999;
-}
-
-.filebox label {
-	display: inline-block;
-	padding: 2px 3px;
-	color: #77af9c;
-	background-color: #ffffff;
+	#imgtable {
+		border: 1px solid black;
+	}
+	
+	#imgtable td, tr {
+		border: 1px solid black;
+	}
+	
+	#imgtable td {
+		width: 300px;
+		height: 200px;
+	}
+	
+	textarea style ="resize: both ;"> </textarea>.modal {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 500px;
+		height: 500px;
+		overflow: auto;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+	
+	.close:hover {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	
+	.w-btn {
+		position: relative;
+		border: none;
+		display: inline-block;
+		padding: 15px 30px;
+		border-radius: 15px;
+		font-family: "paybooc-Light", sans-serif;
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+		text-decoration: none;
+		font-weight: 600;
+		transition: 0.25s;
+	}
+	
+	.w-btn-green {
+	    background-color: rgb(26, 188, 156);
+	    color: #d7fff1;
+	}
+	
+	.w-btn:hover {
+		letter-spacing: 2px;
+		transform: scale(1.2);
+		cursor: pointer;
+	}
+	
+	
+	.w-btn:active {
+		transform: scale(1.5);
+	}
+	
+	
+	
+	#modalContent {
+		width: 500px;
+		height: 500px;
+		text-align: left;
+	}
+	
+	
+	
+	#modalContent {
+		width: 500px;
+		height: 500px;
+		text-align: left;
+	}
+	
+	#imgBtn {
+		background: url('resources/img/Pbtn.png') no-repeat;
+		color: transparent; /* 텍스트 숨김 */
+		width: 100px;
+		height: 100px;
+		border: 0px;
+	}
+	
+	#nameText, #breed1, #gender1, #char1, #age1 {
+		text-align: left;
+	}
+	
+	#ph_td1, #ph_td2, #ph_td3, #ph_td4, #ph_td5, #ph_td6, #ph_td7, #ph_td8,
+		#ph_td9 {
+		vertical-align: bottom;
+	}
+	#openAlarm{
 	cursor: pointer;
-	width: 22px;
-	height: 45px;
-	margin-left: 37px;
-	font-size: small;
-	vertical-align: middle;
-	margin-top: -5px;
-}
-
- label::before {
-	content: '+';
-	vertical-align: middle;
-	font-size: 50px;
-	margin-right: 5px;
-	margin-top: -5px;
-	position: relative;
-	top: -17px;
-} 
-
-.filebox input[type="file"] {
-	position: absolute;
-	width: 0;
-	height: 0;
-	padding: 0;
-	overflow: hidden;
-	border: 0;
-} */
-
-#imgtable {
-	border: 1px solid black;
-}
-
-#imgtable td, tr {
-	border: 1px solid black;
-}
-
-#imgtable td {
-	width: 300px;
-	height: 200px;
-}
-
-textarea style ="resize: both ;"> </textarea>.modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 500px;
-	height: 500px;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* .modal-content {
-	display: none;
-}
-
-.modal.active .modal-content {
-	display: block;
-}
-
-.modal-content {
-	background-color: #fff;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 60%;
-} */
-
-/* .close {
-	color: #888;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-} */
-
-.close:hover {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-}
+	}
+	
+	
+	
+	
+	/*css 커스텀*/
+	
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+		color: var(--black);
+	}
+	
+	textarea{
+		resize: none;
+	}
+	
+	.input_img {
+		display: none;
+	}
+	
+	
+	/* 본인 페이지 것으로 변경하기  */
+	.btn_gnb .bi-person-circle, .btn_gnb.myPage{
+	    color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	.myPageMenu .myProfile{
+		color: var(--white);
+	    background-color: var(--green);
+	}
+	
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb:hover .bi-house-door-fill,
+	.btn_gnb:hover .bi-chat-dots-fill,
+	.btn_gnb:hover .bi-gear-fill,
+	.btn_gnb:hover .bi-people-fill,
+	/*.btn_gnb:hover .bi-person-circle,*/
+	.btn_gnb:hover .bi-list-ul {
+	    background-color: var(--light);
+	}
+	
+	/* 본인 페이지를 제외한 나머지 hover 적용 */
+	.btn_gnb.home:hover,
+	.btn_gnb.match:hover,
+	.btn_gnb.chatting:hover,
+	.btn_gnb.board:hover,
+	/*.btn_gnb.myPage:hover,*/
+	.btn_gnb.admin:hover,
+	/*.btn_gnb.myPageInfo:hover*/
+	.btn_gnb.myProfile:hover{
+		background-color: var(--light);
+	}
 
 
-.w-btn {
-	position: relative;
-	border: none;
-	display: inline-block;
-	padding: 15px 30px;
-	border-radius: 15px;
-	font-family: "paybooc-Light", sans-serif;
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-}
-
-.w-btn-green {
-    background-color: rgb(26, 188, 156);
-    color: #d7fff1;
-}
-
-.w-btn:hover {
-	letter-spacing: 2px;
-	transform: scale(1.2);
-	cursor: pointer;
-}
-
-
-.w-btn:active {
-	transform: scale(1.5);
-}
-
-
-
-#modalContent {
-	width: 500px;
-	height: 500px;
-	text-align: left;
-}
-.content {
-	padding: 20px;
-	text-align: center; /* "우리 동네 리스트"를 가운데 정렬 */
-}
-
-#modalContent {
-	width: 500px;
-	height: 500px;
-	text-align: left;
-}
-
-#imgBtn {
-	background: url('resources/img/Pbtn.png') no-repeat;
-	color: transparent; /* 텍스트 숨김 */
-	width: 100px;
-	height: 100px;
-	border: 0px;
-}
-
-#nameText, #breed1, #gender1, #char1, #age1 {
-	text-align: left;
-}
-
-#ph_td1, #ph_td2, #ph_td3, #ph_td4, #ph_td5, #ph_td6, #ph_td7, #ph_td8,
-	#ph_td9 {
-	vertical-align: bottom;
-}
-#openAlarm{
-cursor: pointer;
-}
-
-
-
-
-/*css 커스텀*/
-
-a, a:link, a:visited, a:active, a:hover {
-	text-decoration: none;
-	color: var(--black);
-}
-
-textarea{
-	resize: none;
-}
-
-.input_img {
-	display: none;
-}
-
-
-/* 본인 페이지 것으로 변경하기  */
-.btn_gnb .bi-person-circle, .btn_gnb.myPage{
-    color: var(--white);
-    background-color: var(--green);
-}
-
-.myPageMenu .myProfile{
-	color: var(--white);
-    background-color: var(--green);
-}
-
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb:hover .bi-house-door-fill,
-.btn_gnb:hover .bi-chat-dots-fill,
-.btn_gnb:hover .bi-gear-fill,
-.btn_gnb:hover .bi-people-fill,
-/*.btn_gnb:hover .bi-person-circle,*/
-.btn_gnb:hover .bi-list-ul {
-    background-color: var(--light);
-}
-
-/* 본인 페이지를 제외한 나머지 hover 적용 */
-.btn_gnb.home:hover,
-.btn_gnb.match:hover,
-.btn_gnb.chatting:hover,
-.btn_gnb.board:hover,
-/*.btn_gnb.myPage:hover,*/
-.btn_gnb.admin:hover,
-/*.btn_gnb.myPageInfo:hover*/
-.btn_gnb.myProfile:hover{
-	background-color: var(--light);
-}
-
-
-.charModal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
-.charModal-content {
-	background-color: #fff;
-	margin: 15% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 70%;
-}
-
-/*사진 모달창*/
-.photoModal {
-	display: none;
-	width: 480px;
-	height: 720px;
-	border: 1px solid var(--light);
-	box-shadow: 0 0 8px 1px var(--light);
-	border-radius: 12px;
-    position: absolute; 
-    top:315px;
-    left:830px;
-    z-index: 1000;
-    background-color:var(--white);
-}
-
-.imgtable {
-	margin-top:60px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.close {
-	position: relative;
-	left: 130px;
-	top: 20px;
-	cursor: pointer;
-	font-size: 32px;
-	color:var(--grey);
-}
-
-.fileContent{
-	display:inline-block;
-}
-
-.write-link.attach{
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-plus-circle-fill {
-	display: inline-block;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.filebox .bi-dash-circle-fill {
-	display: none;
-	position:relative;
-	top:100px;
-	right:20px;
-	cursor: pointer;
-	color:var(--green);
-	font-size: 33px;
-}
-
-.image-container{
-	display:inline-block;
-	width: 104px;
-	height: 120px;
-	border: 1px solid var(--light);
-	border-radius: 8px;
-	box-shadow: 0 0 4px 1px var(--light);
-	margin-left:10px;
-	margin-bottom:40px;
-}
-
-
-.imgtable .image-container img{
-	display:inline-block;
-	right:10px;
-	width: 104px;
-	height: 120px;
-	border-radius: 8px;
-    object-fit: cover;
-}
-
-.photoTextSave{
-	display:inline-block;
-	position:relative;
-	top:22px;
-	left:-150px;
-	font-size:24px;
-	font-family:Pretendard;
-	font-weight: 700;
-	text-align: center;
-	color:var(--green);
-	cursor:auto;
-}
-
-.photo_selected{
-	display: inline-block;
-	position: relative;
-	width: 200px;
-	height: 46px;
-	top:40px;
-	padding: 12px 15px 0 15px;
-	border: 1px solid var(--light);
-	background-color: var(--green);
-	border-radius: 8px;
-	font-size:16px;
-	color:var(--white);
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-	cursor:pointer;
-}
-
-.openPhotoModal{
-	left:52px;
-}
-
-.regComp{
-	margin-top:132px;
-	margin-right:20px;
-	display: inline-block;
-	position: relative;
-	width: 120px;
-	height: 32px;
-	padding: 0 15px;
-	border: 1px solid var(--light);
-	background-color: var(--green);
-	color:var(--white);
-	border-radius: 8px;
-	font-family:Pretendard;
-	font-weight: 500;
-	text-align: center;
-	cursor:pointer;
-}
-
-.myProfileContent{
-	width: 530px;
-	margin: 0 234px;
-}
-
-.subject{
-	font-size:24px;
-	color:var(--green);
-	font-family:Pretendard;
-	font-weight: 600;
-	text-align: center;
-	margin: 30px 0px;
-}
-
-.profilePhoto{
-	margin-top: 0px;
-	margin-left: 0px;
-}
+	.charModal {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1;
+	}
+	
+	.charModal-content {
+		background-color: #fff;
+		margin: 8% auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		width:300px;
+		height:480px;
+	}
+	
+	#randomColorTag {
+	    padding: 6px 12px;
+	    font-size: 16px;
+	    text-align: center;
+	    text-decoration: none;
+	    background-color: #1abc9c;
+	    color: #ffffff;
+	    border-radius: 20px;
+	}
+	
+	.charModal-type{
+		display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+	}
+	
+	/*사진 모달창*/
+	.photoModal {
+		display: none;
+		width: 480px;
+		height: 720px;
+		border: 1px solid var(--light);
+		box-shadow: 0 0 8px 1px var(--light);
+		border-radius: 12px;
+	    position: absolute; 
+	    top:315px;
+	    left:830px;
+	    z-index: 1000;
+	    background-color:var(--white);
+	}
+	
+	.imgtable {
+		margin-top:60px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	.close {
+		position: relative;
+		left: 130px;
+		top: 20px;
+		cursor: pointer;
+		font-size: 32px;
+		color:var(--grey);
+	}
+	
+	.fileContent{
+		display:inline-block;
+	}
+	
+	.write-link.attach{
+		display: inline-block;
+		position:relative;
+		top:100px;
+		right:20px;
+		cursor: pointer;
+		color:var(--green);
+		font-size: 33px;
+	}
+	
+	.filebox .bi-plus-circle-fill {
+		display: inline-block;
+		position:relative;
+		top:100px;
+		right:20px;
+		cursor: pointer;
+		color:var(--green);
+		font-size: 33px;
+	}
+	
+	.filebox .bi-dash-circle-fill {
+		display: none;
+		position:relative;
+		top:100px;
+		right:20px;
+		cursor: pointer;
+		color:var(--green);
+		font-size: 33px;
+	}
+	
+	.image-container{
+		display:inline-block;
+		width: 104px;
+		height: 120px;
+		border: 1px solid var(--light);
+		border-radius: 8px;
+		box-shadow: 0 0 4px 1px var(--light);
+		margin-left:10px;
+		margin-bottom:40px;
+	}
+	
+	
+	.imgtable .image-container img{
+		display:inline-block;
+		right:10px;
+		width: 104px;
+		height: 120px;
+		border-radius: 8px;
+	    object-fit: cover;
+	}
+	
+	.photoTextSave{
+		display:inline-block;
+		position:relative;
+		top:22px;
+		left:-150px;
+		font-size:24px;
+		font-family:Pretendard;
+		font-weight: 700;
+		text-align: center;
+		color:var(--green);
+		cursor:auto;
+	}
+	
+	.photo_selected{
+		display: inline-block;
+		position: relative;
+		width: 200px;
+		height: 46px;
+		top:40px;
+		padding: 12px 15px 0 15px;
+		border: 1px solid var(--light);
+		background-color: var(--green);
+		border-radius: 8px;
+		font-size:16px;
+		color:var(--white);
+		font-family:Pretendard;
+		font-weight: 500;
+		text-align: center;
+		cursor:pointer;
+	}
+	
+	.openPhotoModal{
+		left: 104px;
+    	top: -34px;
+	}
+	
+	
+	.subject{
+		font-size:24px;
+		color:var(--green);
+		font-family:Pretendard;
+		font-weight: 600;
+		text-align: center;
+		margin: 30px 0px;
+	}
+	
+	.profilePhoto{
+		margin-top: 0px;
+		margin-left: 0px;
+	}
+	
+	.content {
+		display: flex;
+	    width: 1040px;
+	    height:100%;
+	    padding: 20px 46px;
+	    flex-direction: column;
+	    justify-content: center;
+	    box-sizing: border-box;
+	    border-left: 1px solid #e6e6e6;
+	    border-width: 0 1px;
+	    font-family:Pretendard;
+	}
+	
+	.text{
+	    height: 2.125rem;
+	    font-family: Pretendard;
+	    font-size: 16px;
+	    border: 1px solid var(--light);
+	    border-radius: 4px;
+	    padding-left: 8px;
+	}
+	
+	.regProfileInfo{
+		width:600px;
+		margin:0 auto;
+	}
+	
+	 .button-green {
+        display: inline-block;
+		position: relative;
+		width: 120px;
+		height: 32px;
+		border: 1px solid var(--green);
+		background-color: var(--green);
+		color:var(--white);
+		cursor:pointer;
+		border-radius: 8px;
+		font-family:Pretendard;
+		font-size:16px;
+		font-weight: 500;
+		text-align: center;
+    }
+    
+    .button-green:hover{
+	    background-color: var(--darkGreen);
+	    border: 1px solid var(--darkGreen);
+	}
+	
+	.pro_dogDesc {
+	    height: 6.125rem;
+	    width: 60%;
+    }
+	
 
 
 
@@ -459,9 +442,10 @@ textarea{
 		
 		<div class="content">
 		<div id="alarmContent"></div>
-		
+		<div class="regProfileInfo">
+
 			<form action="profileSave.do" method="post" id="myForm" enctype="multipart/form-data">
-				<div class="subject">프로필 생성</div>
+				<h2>프로필 생성</h2>
 				<c:choose>
 			    <c:when test="${not empty photoName}">
 			        <div class="changePhoto"><img src="/photo/${photoName}" class="profilePhoto"/></div>
@@ -470,7 +454,6 @@ textarea{
 			        <div class="changePhoto"><img src="./resources/img/default.png" class="profilePhoto"/></div>
 			    </c:otherwise>
 				</c:choose>
-				
 				
 							<!-- 사진 선택  -->
 							<div class="openPhotoModal">
@@ -511,12 +494,12 @@ textarea{
 							
 								<div class="dogName menu">
 									<div class="dog_text">내 강아지 이름</div>
-									<input type="text" name="pro_dogName" />
+									<input class="text" type="text" name="pro_dogName" />
 								</div>
 								
 								<div class="dogBreed menu">
 									<div class="dog_text">내 강아지 견종</div>
-									<select name="breedType_code">
+									<select name="breedType_code" class="text">
 									<c:forEach items="${list2}" var="breed">
 										<option value="${breed.breedType_code}">${breed.breedType}</option>
 									</c:forEach>
@@ -525,7 +508,7 @@ textarea{
 								
 								<div class="dogAge menu">
 									<div class="dog_text">내 강아지 나이</div>
-									<select name="pro_dogAge">
+									<select name="pro_dogAge" class="text">
 										<c:forEach var="i" begin="0" end="30">
 											<option value="${i}">${i}</option>
 										</c:forEach>
@@ -534,7 +517,7 @@ textarea{
 								
 								<div class="dogGender menu">
 									<div class="dog_text">내 강아지 성별</div>
-									<select name="pro_dogGender">
+									<select name="pro_dogGender" class="text">
 										<option value="남">남</option>
 										<option value="여">여</option>
 									</select>
@@ -543,7 +526,7 @@ textarea{
 								<div class="dogCharType menu">
 									<div class="dog_text">내 강아지 성향</div>
 									<div id="re_selectedCharTypes">
-				   						 <button type="button" id="openCharModal">선택하기</button>
+				   						 <button type="button" id="openCharModal" class="button-green">선택하기</button>
 									</div>
 								</div>
 								
@@ -553,9 +536,9 @@ textarea{
 									</div>
 								</div>
 								
-								<div class="dogDesc menu">
+								<div class="dogDesc menu" style="align-items: flex-start; margin-top:12px; height: 8.125rem;">
 									<div class="dog_text">내 강아지 소개</div>
-									<textarea class="pro_dogDesc" name="pro_dogDesc" spellcheck="false"></textarea>
+									<textarea class="pro_dogDesc text" name="pro_dogDesc" spellcheck="false"></textarea>
 								</div>
 								
 							</div>
@@ -564,21 +547,25 @@ textarea{
 							<div id="charModal" class="charModal" >
 								<div class="charModal-content">
 									<span id="closeCharModal" style="float: right; cursor: pointer;">&times;</span>
-										내 강아지 성향을 선택해주세요
-									<c:forEach items="${list}" var="myChar">
-									<p>
-										<input type="checkbox" name="selectedCharTypesCode" value="${myChar.charType_code}" 
-											data-char-type="${myChar.charType}" charType_code="${myChar.charType_code}" />
-										${myChar.charType}
-									</p>
-									</c:forEach>
-								<button type="button" id="submitForm">선택 완료</button>
+									<h3>내 강아지 성향을 선택해주세요</h3>
+									<div class="charModal-type">
+										<c:forEach items="${list}" var="myChar">
+											<div style="width: 120px; height:40px;">
+												<input type="checkbox" name="selectedCharTypesCode" value="${myChar.charType_code}" 
+													data-char-type="${myChar.charType}" charType_code="${myChar.charType_code}" />
+												<span>${myChar.charType}</span>
+											</div>
+										</c:forEach>
+									</div>
+									<div style="display:flex; justify-content: center;">
+										<button type="button" id="submitForm" class="button-green">선택 완료</button>
+									</div>
 								</div>
 							</div>
 
-					 		<button class="regComp" type="button">등록 완료</button>
-					 		
+					 		<button class="regComp button-green" type="button">등록 완료</button>
 			</form>
+		</div>	
 		</div>
 	</div>
 </div>	
