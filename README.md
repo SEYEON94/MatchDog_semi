@@ -78,6 +78,8 @@
 
 <h3>[로그인 화면]</h3>
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/89846af5-a1a3-41d3-b15d-6bbbda058f15">
+<h3>[회원가입]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/6b25b8fd-3bd6-4cb7-a28f-8a787f6f89c5">
 
 - 로그인 :
 - 
