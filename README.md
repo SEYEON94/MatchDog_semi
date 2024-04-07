@@ -97,6 +97,12 @@
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/003fc038-5108-4eb8-ac8c-a00b02c5a880">
 <br>
 <h3>[자유게시판]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/badeb91d-1326-4b50-840e-5835c53a4cfb">
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/cd705ab1-f526-4ee5-8495-44fde330cc97">
+<br>
+<h3>[마이페이지-내정보]</h3>
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/213a3813-561d-4005-9ef9-c57b71542141">
+<br>
+<h3>[마이페이지-반려견프로필]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/4c0cfb6a-aeef-41e1-b3d2-c2c16c8aa93d">
 
