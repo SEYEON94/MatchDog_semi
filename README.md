@@ -108,7 +108,7 @@
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/aea86033-82bc-47ac-9483-1f63056ed466">
 <br>
 <h3>[관리자페이지]</h3>
-<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/4c0cfb6a-aeef-41e1-b3d2-c2c16c8aa93d">
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/02352f51-b103-4b8f-96a5-c608e33310dd">
 <br>
 <h3>[회원관리]</h3>
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/660f7d02-d96a-4fe1-ac1a-b039996aa8c3">
@@ -118,8 +118,14 @@
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/a9910968-9f1b-4166-b4f0-12abd29b1b65">
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/7b0494ba-2d5d-4fa4-ae8d-bbe7d5d9e98f">
 <br>
-<h3>[권한관리]</h3>
-<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/a9910968-9f1b-4166-b4f0-12abd29b1b65">
-<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/7b0494ba-2d5d-4fa4-ae8d-bbe7d5d9e98f">
+<h3>[신고관리]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/8bfbc45f-3b78-4813-a3cd-79ac3cc8c6a3">
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/d654c020-9406-4e60-82dd-b92a6c533c77">
+<br>
+<h3>[알람/신고 모달]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/8bfbc45f-3b78-4813-a3cd-79ac3cc8c6a3">
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/cb7eaedd-06a6-403b-9a08-de3ecaf5e44c">
+
+
 
 
