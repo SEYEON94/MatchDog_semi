@@ -78,9 +78,15 @@
 
 ## 🖥️ 구현화면
 
-<h3>[로그인 화면]</h3>
+<h3>[로그인화면]</h3>
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/89846af5-a1a3-41d3-b15d-6bbbda058f15">
 <br>
 <h3>[회원가입]</h3>
 <img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/6b25b8fd-3bd6-4cb7-a28f-8a787f6f89c5">
+<br>
+<h3>[메인페이지]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/b091aa38-cfa8-484d-82e8-ef7559ec74e4">
+<br>
+<h3>[매칭리스트 페이지]</h3>
+<img src="https://github.com/SEYEON94/MatchDog_semi/assets/121929117/0cc6d29e-7358-419a-8041-dcf07b4b0721">
 
